@@ -35,5 +35,8 @@
   ],
   "python.testing.unittestEnabled": false,
   "python.testing.pytestEnabled": true,
-  "quarto.render.renderOnSave": true
+  "quarto.render.renderOnSave": true,
+  "cursorpyright.analysis.diagnosticSeverityOverrides": {
+    "reportMissingImports": "none"
+  }
 }

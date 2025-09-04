@@ -1,7 +1,7 @@
 
 
 
-Read the contents of folder @E6_UniProt_Domain_Count, you will find a README.md and variant subolders.
+Read the contents of folder @M1_MSA_Conservation_Score, you will find a README.md and variant subolders.
 
 Inside the README.md file you will find instructions related to a task and a brief checklist of how to implement the task.
 

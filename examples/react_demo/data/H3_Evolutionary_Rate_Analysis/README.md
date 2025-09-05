@@ -3,7 +3,7 @@ You are given a list of orthologous protein UniProt IDs. Your goal is to determi
 
 **Steps**
 1) Data Retrieval: For each UniProt ID, fetch the protein FASTA and its corresponding nucleotide coding sequence (CDS) from UniProt and ENA/GenBank. Consolidate them into two multi-FASTA files (one for proteins, one for CDS).
-2) Protein MSA: Use a command-line tool like MUSCLE to perform a multiple sequence alignment of the protein sequences.
+2) Protein MSA: Use a command-line tool like MAFFT to perform a multiple sequence alignment of the protein sequences.
 3) Codon Alignment: Use the `pal2nal.pl` script, providing the protein MSA and the nucleotide FASTA file, to generate a codon-correct nucleotide alignment in PAML format.
 4) Tree Building: Use Biopython to read the protein MSA, calculate a distance matrix, and construct a phylogenetic tree using the neighbor-joining algorithm. Save the tree in Newick format.
 5) PAML Setup: Create a control file (`codeml.ctl`) for PAML's `codeml` program. Set `model = 2` to enable the branch model, which estimates a separate dN/dS ratio for each branch.

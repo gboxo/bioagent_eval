@@ -1,7 +1,7 @@
 
 
 
-Read the contents of folder @H3_Evolutionary_Rate_Analysis, you will find a README.md and variant subolders.
+Read the contents of folder @H8_Druggability_Assessment, you will find a README.md and variant subolders.
 
 Inside the README.md file you will find instructions related to a task and a brief checklist of how to implement the task.
 
@@ -19,7 +19,6 @@ variant, result
 4, result_4
 5, result_5
 ```
-
 
 
 NOTES:

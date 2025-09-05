@@ -4,6 +4,7 @@ __pycache__/
 *$py.class
 uniprot_files/
 pdb_files/
+protein_gym_files/
 # C extensions
 *.so
 

@@ -1,0 +1,77 @@
+variant,result
+1,Processing 1UBQ...
+  Found 4 pockets, highest druggability score: 0.535
+  Druggability score: 0.535
+Processing 1HTM...
+  Found 34 pockets, highest druggability score: 0.05
+  Druggability score: 0.05
+Processing 1CRN...
+Warning: Could not find druggability scores in variant_1/1CRN_out/1CRN_info.txt
+  No druggability score found
+Processing 2LYZ...
+  Found 5 pockets, highest druggability score: 0.124
+  Druggability score: 0.124
+Processing 1A3N...
+  Found 40 pockets, highest druggability score: 0.577
+  Druggability score: 0.577
+Best PDB ID: 1A3N with score: 0.577
+1A3N
+2,Processing 1HCL...
+  Found 30 pockets, highest druggability score: 0.35
+  Druggability score: 0.35
+Processing 3PBL...
+  Found 71 pockets, highest druggability score: 0.962
+  Druggability score: 0.962
+Processing 1FIN...
+  Found 72 pockets, highest druggability score: 0.815
+  Druggability score: 0.815
+Processing 1M1Q...
+  Found 8 pockets, highest druggability score: 0.433
+  Druggability score: 0.433
+Best PDB ID: 3PBL with score: 0.962
+3PBL
+3,Processing 1B3Y...
+  Found 9 pockets, highest druggability score: 0.425
+  Druggability score: 0.425
+Processing 1A2Z...
+  Found 44 pockets, highest druggability score: 0.882
+  Druggability score: 0.882
+Processing 1C4Z...
+  Found 97 pockets, highest druggability score: 0.758
+  Druggability score: 0.758
+Processing 1D5Y...
+  Found 98 pockets, highest druggability score: 0.91
+  Druggability score: 0.91
+Processing 1E6Z...
+  Found 54 pockets, highest druggability score: 0.747
+  Druggability score: 0.747
+Best PDB ID: 1D5Y with score: 0.91
+1D5Y
+4,Processing 1B00...
+  Found 17 pockets, highest druggability score: 0.414
+  Druggability score: 0.414
+Processing 1A00...
+  Found 32 pockets, highest druggability score: 0.793
+  Druggability score: 0.793
+Processing 4HHB...
+  Found 37 pockets, highest druggability score: 0.807
+  Druggability score: 0.807
+Processing 1C00...
+  Found 23 pockets, highest druggability score: 0.824
+  Druggability score: 0.824
+Processing 1D00...
+  Found 70 pockets, highest druggability score: 0.071
+  Druggability score: 0.071
+Best PDB ID: 1C00 with score: 0.824
+1C00
+5,Processing 5YAG...
+  Found 34 pockets, highest druggability score: 0.982
+  Druggability score: 0.982
+Processing 4YAG...
+  Found 35 pockets, highest druggability score: 0.965
+  Druggability score: 0.965
+Processing 1YAG...
+  Found 24 pockets, highest druggability score: 0.95
+  Druggability score: 0.95
+Best PDB ID: 5YAG with score: 0.982
+5YAG

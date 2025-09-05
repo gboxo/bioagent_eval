@@ -9,14 +9,7 @@ the protein with the highest number of transmembrane helices.
 import os
 import sys
 import argparse
-from typing import Dict, Tuple
-from pathlib import Path
-
-try:
-    import pyTMHMM as pytmhmm
-except ImportError:
-    print("Error: pyTMHMM library not found. Please install it with: pip install pytmhmm")
-    sys.exit(1)
+import pyTMHMM as pytmhmm
 
 
 def read_fasta(filepath: str) -> str:
@@ -63,26 +56,22 @@ def process_variant_folder(variant_path: str) -> str:
         uniprot_id = fasta_file.replace('.fasta', '')
         filepath = os.path.join(variant_path, fasta_file)
         
-        try:
-            # Read sequence
-            sequence = read_fasta(filepath)
-            
-            # Predict transmembrane topology
-            annotation, _ = pytmhmm.predict(sequence)
-            
-            # Count transmembrane helices
-            tm_helices = count_tm_helices(annotation)
-            results[uniprot_id] = tm_helices
-            
-            print(f"{uniprot_id}: {tm_helices} transmembrane helices")
-            
-            if tm_helices > max_helices:
-                max_helices = tm_helices
-                best_protein = uniprot_id
+        # Read sequence
+        sequence = read_fasta(filepath)
+        
+        # Predict transmembrane topology
+        annotation, _ = pytmhmm.predict(sequence)
+        
+        # Count transmembrane helices
+        tm_helices = count_tm_helices(annotation)
+        results[uniprot_id] = tm_helices
+        
+        print(f"{uniprot_id}: {tm_helices} transmembrane helices")
+        
+        if tm_helices > max_helices:
+            max_helices = tm_helices
+            best_protein = uniprot_id
                 
-        except Exception as e:
-            print(f"Error processing {uniprot_id}: {e}")
-            continue
     
     print(f"\nBest protein: {best_protein} with {max_helices} transmembrane helices")
     return best_protein
@@ -95,18 +84,10 @@ def main():
     
     args = parser.parse_args()
     
-    if not os.path.isdir(args.variant_folder):
-        print(args.variant_folder)
-        print(f"Error: {args.variant_folder} is not a valid directory")
-        sys.exit(1)
     
-    try:
-        result = process_variant_folder(args.variant_folder)
-        print(f"<answer>{result}</answer>")
-        return result
-    except Exception as e:
-        print(f"Error: {e}")
-        sys.exit(1)
+    result = process_variant_folder(args.variant_folder)
+    print(f"<answer>{result}</answer>")
+    return result
 
 
 if __name__ == "__main__":

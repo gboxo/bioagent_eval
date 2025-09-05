@@ -709,11 +709,11 @@
       "numpy"
     ],
     "variants": {
-      "variant_1": "ProteinGym_DMS:UBE4B_MOUSE_Starr_2021",
-      "variant_2": "ProteinGym_DMS:MTH3_HAEAESTABILIZED_Tsuboyama_2021",
-      "variant_3": "ProteinGym_DMS:YAP1_HUMAN_Fields2012_DMS",
-      "variant_4": "ProteinGym_DMS:PAB1_YEAST_Melen_2017",
-      "variant_5": "ProteinGym_DMS:BGL3_BACSU_Mikkelsen_2021"
+      "variant_1": "ProteinGym_DMS:B2L11_HUMAN_Dutta_2010_binding-Mcl-1",
+      "variant_2": "ProteinGym_DMS:HIS7_YEAST_Pokusaeva_2019",
+      "variant_3": "ProteinGym_DMS:ODP2_GEOSE_Tsuboyama_2023_1W4G",
+      "variant_4": "ProteinGym_DMS:POLG_CXB3N_Mattenberger_2021",
+      "variant_5": "ProteinGym_DMS:Q837P5_ENTFA_Meier_2023"
     }
   },
   "H2_Allosteric_Network_Analysis": {
@@ -1104,11 +1104,11 @@
       "pandas"
     ],
     "variants": {
-      "variant_1": "ProteinGym_Epistasis:GFP_SF9_Sarkisyan_2016",
+      "variant_1": "ProteinGym_Epistasis:GFP_AEQVI_Sarkisyan_2016",
       "variant_2": "ProteinGym_Epistasis:PABP_YEAST_Melamed_2013",
-      "variant_3": "ProteinGym_Epistasis:TEM-1_ECOLI_Stiffler_2015",
-      "variant_4": "ProteinGym_Epistasis:BGL3_BACSU_Mikkelsen_2021",
-      "variant_5": "ProteinGym_Epistasis:HIS3_YEAST_Pokusaeva_2019"
+      "variant_3": "ProteinGym_Epistasis:RASK_HUMAN_Weng_2022_abundance",
+      "variant_4": "ProteinGym_Epistasis:CATR_CHLRE_Tsuboyama_2023_2AMI",
+      "variant_5": "ProteinGym_Epistasis:NUSA_ECOLI_Tsuboyama_2023_1WCL"
     }
   },
   "H8_Druggability_Assessment": {

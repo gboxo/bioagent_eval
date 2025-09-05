@@ -15,36 +15,14 @@ from collections import Counter
 from typing import Dict, List, Optional, Any
 
 
-def extract_uniprot_id_from_fasta(fasta_file: str) -> Optional[str]:
-    """
-    Extract UniProt ID from FASTA file header.
-    
-    Args:
-        fasta_file: Path to FASTA file
+def load_config(variant_dir: str) -> Optional[Dict]:
+    """Load configuration from JSON file."""
+    config_file = os.path.join(variant_dir, "config.json")
         
-    Returns:
-        UniProt ID or None if not found
-    """
-    try:
-        with open(fasta_file, 'r') as f:
-            first_line = f.readline().strip()
-            
-        # Parse UniProt ID from header like >sp|P04637|P53_HUMAN
-        if first_line.startswith('>sp|'):
-            parts = first_line.split('|')
-            if len(parts) >= 2:
-                return parts[1]
-        elif first_line.startswith('>'):
-            # Sometimes the ID might be directly after >
-            header_parts = first_line[1:].split()
-            if header_parts:
-                return header_parts[0]
-                
-        return None
+    with open(config_file, 'r') as f:
+        config = json.load(f)
         
-    except Exception as e:
-        print(f"Error reading FASTA file {fasta_file}: {e}")
-        return None
+    return config
 
 
 def fetch_uniprot_data(uniprot_id: str, data_output_dir: str) -> Optional[Dict[Any, Any]]:
@@ -104,12 +82,13 @@ def extract_pfam_domains(data: Dict[Any, Any]) -> List[str]:
     """
     pfam_ids = []
     
-    # Get dbReferences from the data
-    db_references = data.get('dbReferences', [])
+    # Try modern API structure first (uniProtKBCrossReferences)
+    references = data.get('uniProtKBCrossReferences', [])
     
-    for db_ref in db_references:
+    for db_ref in references:
         # Check if this is a Pfam reference
-        if db_ref.get('type') == 'Pfam':
+        database = db_ref.get('database') or db_ref.get('type')
+        if database == 'Pfam':
             pfam_id = db_ref.get('id')
             if pfam_id:
                 pfam_ids.append(pfam_id)
@@ -118,9 +97,9 @@ def extract_pfam_domains(data: Dict[Any, Any]) -> List[str]:
     return pfam_ids
 
 
-def get_uniprot_ids_from_variant(variant_folder: str) -> List[str]:
+def get_uniprot_ids_from_config(variant_folder: str) -> List[str]:
     """
-    Get UniProt IDs from all FASTA files in the variant folder.
+    Get UniProt IDs from the configuration file.
     
     Args:
         variant_folder: Path to variant folder
@@ -128,25 +107,13 @@ def get_uniprot_ids_from_variant(variant_folder: str) -> List[str]:
     Returns:
         List of UniProt IDs
     """
-    uniprot_ids = []
+    config = load_config(variant_folder)
     
-    # Get all FASTA files in the folder
-    fasta_files = [f for f in os.listdir(variant_folder) if f.endswith('.fasta')]
-    fasta_files.sort()  # Ensure consistent ordering
-    
-    for fasta_file in fasta_files:
-        fasta_path = os.path.join(variant_folder, fasta_file)
-        uniprot_id = extract_uniprot_id_from_fasta(fasta_path)
-        
-        if uniprot_id:
-            uniprot_ids.append(uniprot_id)
-        else:
-            print(f"Warning: Could not extract UniProt ID from {fasta_file}")
-            
+    uniprot_ids = config.get("uniprot_ids", [])
     return uniprot_ids
 
 
-def find_most_common_domain(variant_folder: str) -> str:
+def analyze_variant(variant_folder: str) -> Optional[str]:
     """
     Find the most common Pfam domain across all proteins in a variant.
     
@@ -154,17 +121,21 @@ def find_most_common_domain(variant_folder: str) -> str:
         variant_folder: Path to variant folder
         
     Returns:
-        Most common Pfam accession ID
+        Most common Pfam accession ID or None if error
     """
+    # Load configuration
+    config = load_config(variant_folder)
+    
+    description = config.get("description", "Unknown protein set")
+    print(f"Analyzing {description}")
+    
     # Create data_output directory if it doesn't exist
     data_output_dir = os.path.join(variant_folder, "data_output")
     os.makedirs(data_output_dir, exist_ok=True)
     
-    # Get UniProt IDs from FASTA files
-    uniprot_ids = get_uniprot_ids_from_variant(variant_folder)
+    # Get UniProt IDs from configuration
+    uniprot_ids = get_uniprot_ids_from_config(variant_folder)
     
-    if not uniprot_ids:
-        return "No UniProt IDs found"
         
     print(f"Processing UniProt IDs: {uniprot_ids}")
     
@@ -175,16 +146,11 @@ def find_most_common_domain(variant_folder: str) -> str:
         # Fetch UniProt data
         data = fetch_uniprot_data(uniprot_id, data_output_dir)
         
-        if data is None:
-            print(f"Warning: Could not fetch data for {uniprot_id}")
-            continue
             
         # Extract Pfam domains
         pfam_ids = extract_pfam_domains(data)
         all_pfam_ids.extend(pfam_ids)
         
-    if not all_pfam_ids:
-        return "No Pfam domains found"
         
     # Count occurrences of each Pfam ID
     pfam_counter = Counter(all_pfam_ids)
@@ -209,19 +175,14 @@ def main():
         
     variant_folder = sys.argv[1]
     
-    if not os.path.exists(variant_folder):
-        print(f"Error: Variant folder {variant_folder} does not exist")
-        sys.exit(1)
-        
-    try:
-        result = find_most_common_domain(variant_folder)
-        
-        print(f"Final result: {result}")
+    result = analyze_variant(variant_folder)
+    
+    if result is not None:
+        print(f"<answer>{result}</answer>")
         print(result)
+    else:
+        print("ERROR")
         
-    except Exception as e:
-        print(f"Error during analysis: {e}")
-        sys.exit(1)
 
 
 if __name__ == "__main__":

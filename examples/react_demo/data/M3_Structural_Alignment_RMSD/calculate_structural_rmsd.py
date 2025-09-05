@@ -13,98 +13,25 @@ from Bio.PDB import PDBParser, Superimposer
 from Bio.PDB.Structure import Structure
 from Bio.PDB.Atom import Atom
 
-
-def parse_pdb_structure(pdb_file: str) -> Optional[Structure]:
-    """
-    Parse a PDB file using Biopython's PDBParser.
-    
-    Args:
-        pdb_file: Path to PDB file
-        
-    Returns:
-        Parsed structure or None if failed
-    """
-    try:
-        parser = PDBParser(QUIET=True)
-        structure_id = os.path.basename(pdb_file).replace('.pdb', '')
-        structure = parser.get_structure(structure_id, pdb_file)
-        
-        print(f"Successfully parsed {pdb_file}")
-        return structure
-        
-    except Exception as e:
-        print(f"Error parsing {pdb_file}: {e}")
-        return None
+from Bio.PDB import PDBParser, Superimposer, is_aa
 
 
-def extract_ca_atoms(structure: Structure) -> List[Atom]:
-    """
-    Extract all C-alpha atoms from a protein structure.
-    
-    Args:
-        structure: Biopython Structure object
-        
-    Returns:
-        List of C-alpha atoms
-    """
-    ca_atoms = []
-    
-    for model in structure:
-        for chain in model:
-            for residue in chain:
-                # Check if residue has a C-alpha atom
-                if 'CA' in residue:
-                    ca_atoms.append(residue['CA'])
-                    
-    print(f"Extracted {len(ca_atoms)} C-alpha atoms from {structure.id}")
-    return ca_atoms
+def load_structure(path):
+    parser = PDBParser(QUIET=True)
+    return parser.get_structure(os.path.basename(path).rsplit('.', 1)[0], path)
 
+def get_ca_atoms(structure):
+    """Return a list of all C-alpha atoms (first model only), in order."""
+    model = next(structure.get_models())
+    cas = []
+    for chain in model:
+        for res in chain:
+            if not is_aa(res, standard=True):
+                continue
+            if 'CA' in res:
+                cas.append(res['CA'])
+    return cas
 
-def calculate_rmsd(pdb_file1: str, pdb_file2: str) -> Optional[float]:
-    """
-    Calculate RMSD between two PDB structures using structural alignment.
-    
-    Args:
-        pdb_file1: Path to first PDB file
-        pdb_file2: Path to second PDB file
-        
-    Returns:
-        RMSD value rounded to 3 decimal places, or None if failed
-    """
-    # Parse both structures
-    structure1 = parse_pdb_structure(pdb_file1)
-    structure2 = parse_pdb_structure(pdb_file2)
-    
-    if structure1 is None or structure2 is None:
-        return None
-        
-    # Extract C-alpha atoms from both structures
-    ca_atoms1 = extract_ca_atoms(structure1)
-    ca_atoms2 = extract_ca_atoms(structure2)
-    
-    if not ca_atoms1 or not ca_atoms2:
-        print("Error: No C-alpha atoms found in one or both structures")
-        return None
-        
-    # Ensure both structures have the same number of C-alpha atoms
-    min_atoms = min(len(ca_atoms1), len(ca_atoms2))
-    if len(ca_atoms1) != len(ca_atoms2):
-        print(f"Warning: Different number of C-alpha atoms ({len(ca_atoms1)} vs {len(ca_atoms2)})")
-        print(f"Using first {min_atoms} atoms from each structure")
-        ca_atoms1 = ca_atoms1[:min_atoms]
-        ca_atoms2 = ca_atoms2[:min_atoms]
-    
-    # Create superimposer and set atoms
-    superimposer = Superimposer()
-    superimposer.set_atoms(ca_atoms1, ca_atoms2)
-    
-    # Get RMSD
-    rmsd = superimposer.rms
-    
-    print(f"Structural alignment completed")
-    print(f"RMSD: {rmsd:.3f} Å")
-    
-    return round(rmsd, 3)
 
 
 def find_pdb_files(variant_folder: str) -> Tuple[Optional[str], Optional[str]]:
@@ -152,20 +79,33 @@ def main():
     # Find the two PDB files in the variant folder
     pdb_file1, pdb_file2 = find_pdb_files(variant_folder)
     
-    if pdb_file1 is None or pdb_file2 is None:
-        print(f"Error: Could not find two PDB files in {variant_folder}")
-        sys.exit(1)
-        
-    # Calculate RMSD
-    rmsd = calculate_rmsd(pdb_file1, pdb_file2)
-    
+    s1 = load_structure(pdb_file1)
+    s2 = load_structure(pdb_file2)
+
+    ca1 = get_ca_atoms(s1)
+    ca2 = get_ca_atoms(s2)
+
+
+
+    n = min(len(ca1), len(ca2))
+    fixed, moving = ca1[:n], ca2[:n]
+
+    sup = Superimposer()
+    sup.set_atoms(fixed, moving)
+    rmsd = getattr(sup, "rms", None)  # Biopython uses .rms
     if rmsd is None:
-        print("Error: Could not calculate RMSD")
-        sys.exit(1)
-        
-    print(f"Final result: {rmsd}")
-    print(rmsd)
+        raise AttributeError("Superimposer has no 'rms' attribute. Check your Biopython version.")
+
+    print(f"<answer>{rmsd:.3f}</answer>")
 
 
 if __name__ == "__main__":
+
     main()
+
+
+
+
+
+
+

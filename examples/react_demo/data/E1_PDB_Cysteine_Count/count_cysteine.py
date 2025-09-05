@@ -24,11 +24,7 @@ def count_cysteine_in_pdb(pdb_file_path: str) -> int:
     # Extract structure name from filename
     structure_name = os.path.basename(pdb_file_path).split('.')[0]
     
-    try:
-        structure = parser.get_structure(structure_name, pdb_file_path)
-    except Exception as e:
-        print(f"Error parsing PDB file {pdb_file_path}: {e}", file=sys.stderr)
-        return 0
+    structure = parser.get_structure(structure_name, pdb_file_path)
     
     total_cysteine_count = 0
     

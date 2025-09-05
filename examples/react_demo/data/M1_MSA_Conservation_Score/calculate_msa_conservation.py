@@ -61,23 +61,16 @@ def run_mafft_alignment(input_fasta: str, variant_folder: str) -> str:
     """
     alignment_file = os.path.join(variant_folder, "alignment.fasta")
     
-    try:
-        # Run MAFFT command
-        cmd = ["mafft", "--auto", input_fasta]
+    # Run MAFFT command
+    cmd = ["mafft", "--auto", input_fasta]
+    
+    with open(alignment_file, 'w') as outfile:
+        result = subprocess.run(cmd, stdout=outfile, stderr=subprocess.PIPE, 
+                                text=True, check=True)
+    
+    print(f"MAFFT alignment completed: {alignment_file}")
+    return alignment_file
         
-        with open(alignment_file, 'w') as outfile:
-            result = subprocess.run(cmd, stdout=outfile, stderr=subprocess.PIPE, 
-                                  text=True, check=True)
-        
-        print(f"MAFFT alignment completed: {alignment_file}")
-        return alignment_file
-        
-    except subprocess.CalledProcessError as e:
-        print(f"MAFFT error: {e.stderr}")
-        raise
-    except FileNotFoundError:
-        print("Error: MAFFT not found. Please install MAFFT.")
-        raise
 
 
 def calculate_conservation_scores(alignment_file: str) -> int:
@@ -129,32 +122,22 @@ def calculate_conservation_scores(alignment_file: str) -> int:
 
 def main():
     """Main analysis function."""
-    if len(sys.argv) != 2:
-        print("Usage: python calculate_msa_conservation.py <variant_folder>")
-        sys.exit(1)
         
     variant_folder = sys.argv[1]
     
-    if not os.path.exists(variant_folder):
-        print(f"Error: Variant folder {variant_folder} does not exist")
-        sys.exit(1)
         
-    try:
-        # Step 1: Combine FASTA files
-        combined_fasta = combine_fasta_files(variant_folder)
-        
-        # Step 2: Run MAFFT alignment
-        alignment_file = run_mafft_alignment(combined_fasta, variant_folder)
-        
-        # Step 3: Calculate conservation scores
-        conserved_count = calculate_conservation_scores(alignment_file)
-        
-        print(f"Final result: {conserved_count}")
-        print(conserved_count)
-        
-    except Exception as e:
-        print(f"Error during analysis: {e}")
-        sys.exit(1)
+    # Step 1: Combine FASTA files
+    combined_fasta = combine_fasta_files(variant_folder)
+    
+    # Step 2: Run MAFFT alignment
+    alignment_file = run_mafft_alignment(combined_fasta, variant_folder)
+    
+    # Step 3: Calculate conservation scores
+    conserved_count = calculate_conservation_scores(alignment_file)
+    
+    print(f"Final result: {conserved_count}")
+    print(conserved_count)
+    
 
 
 if __name__ == "__main__":

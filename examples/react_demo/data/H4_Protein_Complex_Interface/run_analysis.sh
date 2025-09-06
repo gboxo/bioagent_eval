@@ -38,7 +38,7 @@ for variant in 1 2 3 4 5; do
             
             # Run interface analysis
             echo "Analyzing protein complex interface..."
-            result=$(python "$SCRIPT_DIR/analyze_interface.py" "$pdb_file" | grep -o '<answer>.*</answer>' | sed 's/<answer>\(.*\)<\/answer>/\1/' 2>/dev/null || echo "ERROR")
+            result=$(python3 "$SCRIPT_DIR/analyze_interface.py" "$pdb_file" | grep -o '<answer>.*</answer>' | sed 's/<answer>\(.*\)<\/answer>/\1/' 2>/dev/null || echo "ERROR")
             
             if [[ "$result" != "ERROR" && -n "$result" ]]; then
                 echo "$variant,$result" >> "$RESULTS_FILE"

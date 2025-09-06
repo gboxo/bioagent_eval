@@ -2,11 +2,16 @@
 
 # Functional Site Conservation Analysis Pipeline
 # This script runs the conservation analysis for all variants sequentially
+#
+# Usage: ./run_analysis.sh [base_directory]
+#   base_directory: Optional directory containing variant folders
+#                   If not provided, uses the script's directory
 
 set -e  # Exit on any error
 
-# Configuration
-BASE_DIR="/Users/gerard/inspect_ai/examples/react_demo/data/H5_Functional_Site_Conservation"
+# Configuration - Get base directory from script location
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+BASE_DIR="${1:-$SCRIPT_DIR}"  # Use provided base dir or script directory
 PYTHON_SCRIPT="$BASE_DIR/analyze_conservation.py"
 RESULTS_FILE="$BASE_DIR/results.csv"
 
@@ -27,6 +32,7 @@ fi
 echo "variant,result" > "$RESULTS_FILE"
 
 echo "Starting Functional Site Conservation Analysis..."
+echo "Base directory: $BASE_DIR"
 echo "Results will be saved to: $RESULTS_FILE"
 echo ""
 
@@ -55,10 +61,10 @@ for variant in 1 2 3 4 5; do
         continue
     fi
     
-    # Run Python analysis script
+    # Run Python analysis script with base directory
     echo "Running conservation analysis..."
     
-    if result=$(python3 "$PYTHON_SCRIPT" "$variant" 2>&1); then
+    if result=$(python3 "$PYTHON_SCRIPT" "$variant" "$BASE_DIR" 2>&1); then
         # Extract the result line
         result_line=$(echo "$result" | grep "Result for variant" | sed "s/.*: //")
         if [ -z "$result_line" ]; then

@@ -15,4 +15,4 @@ Given a FASTA file containing 15 homologous sequences, you must first align them
 **Variant**
 We don't need to download the data, the data is already in variant_1 folder
 
-cytochrome_c_mammals_15_sequences.fasta
+blast_NP_001912.1.fasta

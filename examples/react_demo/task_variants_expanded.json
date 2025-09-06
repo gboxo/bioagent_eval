@@ -346,11 +346,11 @@
       "mafft"
     ],
     "variants": {
-      "variant_1": "cytochrome_c_mammals_15_sequences.fasta",
-      "variant_2": "histone_h3_vertebrates_15_sequences.fasta",
-      "variant_3": "ribosomal_s1_bacteria_15_sequences.fasta",
-      "variant_4": "elongation_factor_archaea_15_sequences.fasta",
-      "variant_5": "actin_plants_15_sequences.fasta"
+      "variant_1": "blast_NP_001912.1",
+      "variant_2": "blast_NP_003520.1",
+      "variant_3": "blast_NP_195521.1",
+      "variant_4": "blast_NP_414555.1",
+      "variant_5": "blast_WP_010873491.1"
     }
   },
   "M3_Structural_Alignment_RMSD": {

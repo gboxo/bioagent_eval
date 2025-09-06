@@ -1,7 +1,7 @@
 
 
 
-Read the contents of folder @M2_Phylogenetic_Distance, you will find a README.md and variant subolders.
+Read the contents of folder @M9_Splice_Site_Prediction, you will find a README.md and variant subolders.
 
 Inside the README.md file you will find instructions related to a task and a brief checklist of how to implement the task.
 

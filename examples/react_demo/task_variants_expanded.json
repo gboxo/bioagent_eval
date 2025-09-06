@@ -286,7 +286,7 @@
   },
   "M1_MSA_Conservation_Score": {
     "description": "You are given a list of UniProt IDs for homologous proteins. Perform a Multiple Sequence Alignment (MSA) on them. Then, calculate the conservation for each column in the alignment. Conservation is defined as the frequency of the most common amino acid. Return an integer count of the number of columns with a conservation score greater than 80% (0.8), in the format <answer>int</answer>.",
-    "data_source": "UniProt, MUSCLE (tool)",
+    "data_source": "UniProt, MAFFT (tool)",
     "input_format": "List of UniProt Accession IDs.",
     "expected_output_format": "Integer value",
     "steps": "1) Fetch the FASTA sequence for each UniProt ID. 2) Combine all sequences into a single multi-FASTA file. 3) Run the `mafft` command-line tool on the FASTA file to generate an alignment file (e.g., in Clustal format). 4) Parse the alignment file using Biopython's `AlignIO`. 5) Initialize a counter for highly conserved columns. 6) Iterate through each column of the alignment. 7) For each column, count the occurrences of each amino acid and find the count of the most frequent one. 8) Calculate the frequency (most_frequent_count / number_of_sequences). 9) If the frequency is > 0.8, increment the counter. 10) Return the final count.",
@@ -339,11 +339,11 @@
     "data_source": "User-provided FASTA file",
     "input_format": "Filename of a multi-FASTA file.",
     "expected_output_format": "Float value",
-    "steps": "1) Perform a multiple sequence alignment on the input FASTA file using `muscle`. 2) Parse the resulting alignment file. 3) Use Biopython's `DistanceCalculator` to create a distance matrix from the alignment. 4) Use `DistanceTreeConstructor` with the neighbor-joining ('nj') method to build the tree. 5) Get a list of all the terminal nodes (leaves) of the tree. 6) Iterate through all possible pairs of leaves. 7) For each pair, calculate the distance using the `tree.distance()` method. 8) Keep track of the maximum distance encountered. 9) Return the maximum distance, rounded to four decimal places.",
+    "steps": "1) Perform a multiple sequence alignment on the input FASTA file using `mafft`. 2) Parse the resulting alignment file. 3) Use Biopython's `DistanceCalculator` to create a distance matrix from the alignment. 4) Use `DistanceTreeConstructor` with the neighbor-joining ('nj') method to build the tree. 5) Get a list of all the terminal nodes (leaves) of the tree. 6) Iterate through all possible pairs of leaves. 7) For each pair, calculate the distance using the `tree.distance()` method. 8) Keep track of the maximum distance encountered. 9) Return the maximum distance, rounded to four decimal places.",
     "required_programs": [
       "python",
       "biopython",
-      "muscle"
+      "mafft"
     ],
     "variants": {
       "variant_1": "cytochrome_c_mammals_15_sequences.fasta",
@@ -744,7 +744,7 @@
     "expected_output_format": "Integer value",
     "steps": [
       "1) Data Retrieval: For each UniProt ID, fetch the protein FASTA and its corresponding nucleotide coding sequence (CDS) from UniProt and ENA/GenBank. Consolidate them into two multi-FASTA files (one for proteins, one for CDS).",
-      "2) Protein MSA: Use a command-line tool like MUSCLE to perform a multiple sequence alignment of the protein sequences.",
+      "2) Protein MSA: Use a command-line tool like MAFFT to perform a multiple sequence alignment of the protein sequences.",
       "3) Codon Alignment: Use the `pal2nal.pl` script, providing the protein MSA and the nucleotide FASTA file, to generate a codon-correct nucleotide alignment in PAML format.",
       "4) Tree Building: Use Biopython to read the protein MSA, calculate a distance matrix, and construct a phylogenetic tree using the neighbor-joining algorithm. Save the tree in Newick format.",
       "5) PAML Setup: Create a control file (`codeml.ctl`) for PAML's `codeml` program. Set `model = 2` to enable the branch model, which estimates a separate dN/dS ratio for each branch.",
@@ -758,7 +758,7 @@
       "python",
       "requests",
       "biopython",
-      "muscle",
+      "mafft",
       "pal2nal.pl",
       "paml"
     ],
@@ -871,15 +871,15 @@
   },
   "H5_Functional_Site_Conservation": {
     "description": "You are given a list of 25 UniProt IDs for a family of enzymes, along with a list of active site residue positions from the first sequence in the list. Your task is to identify which of these active site positions are poorly conserved across the family. A position is poorly conserved if the frequency of the most common amino acid at that position (in an MSA) is less than 50%. Return a comma-separated string of the poorly conserved active site positions. Format: <answer>str</answer>.",
-    "data_source": "UniProt, MUSCLE (tool)",
+    "data_source": "UniProt, MAFFT (tool)",
     "input_format": "A list of 25 UniProt IDs and a list of integer active site positions.",
     "expected_output_format": "Comma-separated string of integers",
-    "steps": "1) Fetch FASTA sequences for all 25 UniProt IDs and create a multi-FASTA file. 2) Run `muscle` to generate a multiple sequence alignment. 3) Parse the alignment. 4) Create a mapping from the reference sequence positions to the alignment column indices. 5) Initialize an empty list for poorly conserved positions. 6) For each active site position, find its corresponding alignment column. 7) Calculate the frequency of the most common amino acid in that column. 8) If the frequency is less than 0.5, add the original active site position to the list. 9) Sort the list and convert it to a comma-separated string. 10) Return the string.",
+    "steps": "1) Fetch FASTA sequences for all 25 UniProt IDs and create a multi-FASTA file. 2) Run `mafft` to generate a multiple sequence alignment. 3) Parse the alignment. 4) Create a mapping from the reference sequence positions to the alignment column indices. 5) Initialize an empty list for poorly conserved positions. 6) For each active site position, find its corresponding alignment column. 7) Calculate the frequency of the most common amino acid in that column. 8) If the frequency is less than 0.5, add the original active site position to the list. 9) Sort the list and convert it to a comma-separated string. 10) Return the string.",
     "required_programs": [
       "python",
       "requests",
       "biopython",
-      "muscle"
+      "mafft"
     ],
     "variants": {
       "variant_1": [

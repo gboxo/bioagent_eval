@@ -3,7 +3,7 @@ You are given a list of 25 UniProt IDs for a family of enzymes, along with a lis
 
 **Steps**
 1) Fetch FASTA sequences for all 25 UniProt IDs and create a multi-FASTA file.
-2) Run `muscle` to generate a multiple sequence alignment.
+2) Run `mafft` to generate a multiple sequence alignment.
 3) Parse the alignment.
 4) Create a mapping from the reference sequence positions to the alignment column indices.
 5) Initialize an empty list for poorly conserved positions.

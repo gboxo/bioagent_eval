@@ -1,0 +1,10 @@
+{
+  "enzyme_family": "chymotrypsin",
+  "description": "Serine protease catalytic triad",
+  "active_sites": [57, 102, 195],
+  "active_site_descriptions": [
+    "His57 - General acid-base catalyst",
+    "Asp102 - Stabilizes His57 positive charge",
+    "Ser195 - Nucleophile for peptide bond hydrolysis"
+  ]
+}

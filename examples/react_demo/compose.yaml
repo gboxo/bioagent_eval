@@ -4,9 +4,14 @@ services:
     command: >
         sh -c "
         apt-get update && 
-        apt-get install -y mafft && 
-        echo 'MAFFT installed successfully' &&
+        apt-get install -y mafft dssp fpocket || echo 'Some apt packages may not be available' && 
+        pip install biopython requests pandas numpy argparse ||  echo 'Some pip packages may have failed' &&
+        echo 'Protein analysis environment ready' &&
         mafft --version &&
+        fpocket -v || echo 'fpocket not available' &&
+        python3 -c 'import Bio; print(\"BioPython available\")' || echo 'BioPython import test failed' &&
+        python3 -c 'import requests; print(\"Requests available\")' || echo 'Requests import test failed' &&
+        python3 -c 'import pandas; print(\"Pandas available\")' || echo 'Pandas import test failed' &&
         tail -f /dev/null"
     init: true
     network_mode: bridge  # Enables internet access
@@ -18,4 +23,5 @@ services:
       - edns0
     stop_grace_period: 1s
     volumes:
-    - ./alpha_amylase_round0.csv:/app/alpha_amylase_round0.csv
+      - ./data:/app/data
+      - ./:/app/workspace

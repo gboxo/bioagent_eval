@@ -1,0 +1,17 @@
+services:
+  default:
+    image: "aisiuk/inspect-tool-support"
+    command: >
+        sh -c "apt-get update && apt-get install -y mafft && echo 'H5_Functional_Site_Conservation environment ready' && mafft --version && tail -f /dev/null"
+    init: true
+    network_mode: bridge  # Enables internet access
+    dns:
+      - 8.8.8.8        # Google DNS
+      - 1.1.1.1        # Cloudflare DNS
+    dns_opt:
+      - ndots:2
+      - edns0
+    stop_grace_period: 1s
+    volumes:
+    - ./data/H5_Functional_Site_Conservation:/app/task
+    - ./data/uniprot_files:/app/data/uniprot_files

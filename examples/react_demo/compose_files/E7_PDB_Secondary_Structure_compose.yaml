@@ -1,0 +1,21 @@
+services:
+  default:
+    image: "aisiuk/inspect-tool-support"
+    command: >
+      sh -c "apt-get update || true; \
+      apt-get install -y dssp || true; \
+      pip install argparse biopython || true; \
+      echo 'E7_PDB_Secondary_Structure environment ready'; \
+      command -v mkdssp >/dev/null 2>&1 && mkdssp --version || echo 'mkdssp not available'; \
+      tail -f /dev/null"
+    init: true
+    network_mode: bridge # Enables internet access
+    dns:
+      - 8.8.8.8 # Google DNS
+      - 1.1.1.1 # Cloudflare DNS
+    dns_opt:
+      - ndots:2
+      - edns0
+    stop_grace_period: 1s
+    volumes:
+      - ./data/pdb_files:/app/data/pdb_files

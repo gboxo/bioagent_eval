@@ -21,7 +21,14 @@ for i in {1..5}; do
         
         # Run the Python analysis script
         # Capture only the final RMSD value (last line of output)
-        result=$(python3 calculate_structural_rmsd.py "$variant_folder" 2>/dev/null | tail -n 1)
+        raw_result=$(python3 calculate_structural_rmsd.py "$variant_folder" 2>/dev/null | tail -n 1)
+        
+        # Extract value from <answer></answer> tags if present
+        if [[ "$raw_result" =~ \<answer\>(.*)\</answer\> ]]; then
+            result="${BASH_REMATCH[1]}"
+        else
+            result="$raw_result"
+        fi
         
         # Handle case where result might be empty or contain error
         if [ -z "$result" ]; then

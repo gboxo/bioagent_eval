@@ -27,7 +27,7 @@ check_dependencies() {
     fi
     
     # Check for Python and Biopython
-    if ! python3 -c "import Bio.PDB" &> /dev/null; then
+    if ! uv run python3 -c "import Bio.PDB" &> /dev/null; then
         echo "Error: Biopython is not installed"
         echo "Please install Biopython: pip install biopython"
         exit 1
@@ -58,8 +58,9 @@ run_variant_analysis() {
     
     echo "Found $pdb_count PDB file(s) in $variant_dir"
     
-    # Run the RSA analysis
-    result=$(python3 analyze_rsa.py "$variant_dir")
+    # Run the RSA analysis and extract only the answer
+    output=$(uv run python3 analyze_rsa.py "$variant_dir")
+    result=$(echo "$output" | grep -o '<answer>.*</answer>' | sed 's/<answer>\(.*\)<\/answer>/\1/')
     
     if [ $? -eq 0 ] && [ "$result" != "ERROR" ] && [ -n "$result" ]; then
         echo "Result for variant $variant_num: $result"

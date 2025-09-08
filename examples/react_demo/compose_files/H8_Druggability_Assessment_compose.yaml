@@ -1,19 +1,9 @@
 services:
   default:
+    image: "gboxo/inspect-tool"
     platform: "linux/amd64"
-    image: "aisiuk/inspect-tool-support"
     command: >
-      sh -c "set -e; \
-      apt-get update; \
-      apt-get install -y libnetcdf-dev; \
-      git clone https://github.com/Discngine/fpocket.git; \
-      cd fpocket; \
-      make; \
-      make install; \
-      echo 'H8_Druggability_Assessment environment ready'; \
-      pip install biopython numpy; \
-      fpocket -v; \
-      tail -f /dev/null"
+      sh -c "set -e; tail -f /dev/null"
     init: true
     network_mode: bridge # Enables internet access
     dns:

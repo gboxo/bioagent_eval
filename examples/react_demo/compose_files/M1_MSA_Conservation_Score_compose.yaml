@@ -1,22 +1,17 @@
 services:
   default:
-    image: "aisiuk/inspect-tool-support"
+    image: "gboxo/inspect-tool"
+    platform: "linux/amd64"
     command: >
-        sh -c "apt-get update || true; \
-        apt-get install -y mafft || true; \
-        pip install biopython || true; \
-        echo 'M1_MSA_Conservation_Score environment ready'; \
-        command -v mafft >/dev/null 2>&1 && mafft --version || echo 'mafft not available'; \
-        tail -f /dev/null"
+      sh -c "set -e; tail -f /dev/null"
     init: true
-    network_mode: bridge  # Enables internet access
+    network_mode: bridge # Enables internet access
     dns:
-      - 8.8.8.8        # Google DNS
-      - 1.1.1.1        # Cloudflare DNS
+      - 8.8.8.8 # Google DNS
+      - 1.1.1.1 # Cloudflare DNS
     dns_opt:
       - ndots:2
       - edns0
     stop_grace_period: 1s
     volumes:
-    - ./data/M1_MSA_Conservation_Score:/app/task
-    - ./data/uniprot_files:/app/data/uniprot_files
+      - ../data/uniprot_files:/app/data/

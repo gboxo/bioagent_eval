@@ -1,12 +1,9 @@
 #!/usr/bin/env python3
 """
-Protein Analysis Evaluation Framework
+Protein Analysis Evaluation Framework with Implementation Comparison
 
-Main evaluation script that integrates all components:
-- ProteinAnalysisDataset for sample generation
-- ProteinAnalysisScorer for intelligent scoring
-- DockerSandboxManager for environment management
-- ReAct agent for task execution
+This version uses a custom scorer that compares the model's implementation
+with the reference implementation using GPT-5-mini analysis.
 """
 
 from textwrap import dedent
@@ -14,13 +11,12 @@ from typing import Callable, List, Optional, Union
 
 from inspect_ai import Task, task
 from inspect_ai.agent import react
-from inspect_ai.scorer import includes, Score, Target, scorer, match
+from inspect_ai.scorer import match
 from inspect_ai.tool import bash, python, text_editor
-from inspect_ai.model import ChatMessage
-import re
 
 # Import our custom components
 from protein_dataset import ProteinAnalysisDataset
+from implementation_comparison_scorer import implementation_comparison_scorer
 
 
 # System prompt for the ReAct agent
@@ -57,27 +53,27 @@ SYSTEM_MESSAGE = dedent("""
     - Various Python packages: biopython, pandas, requests, numpy, networkx
     - All bioinformatics programs and libraries are pre-installed in gboxo/inspect-tool
 
-
     Defaults:
     - For mafft, use --auto flag
     - For dssp, use the default settings
     - The default DistanceCalculator from Biopython is "identity" 
 
-    All required data files and tools have been pre-configured for your task, and are localted in /app/data.
+    All required data files and tools have been pre-configured for your task, and are located in /app/data.
     Work methodically and provide clear explanations of your analysis steps.
 """).strip()
 
 
 @task
-def protein_analysis_eval(
+def protein_analysis_eval_with_comparison(
     task_filter: Optional[Union[str, List[str], Callable[[str], bool]]] = None,
     variant_filter: Optional[List[str]] = None,
     difficulty_filter: Optional[List[str]] = None,
     model: str = "openai/gpt-5-mini",
     max_samples: Optional[int] = None,
+    use_implementation_comparison: bool = True,
 ) -> Task:
     """
-    Main protein analysis evaluation task.
+    Protein analysis evaluation task with implementation comparison scoring.
 
     Args:
         task_filter: Filter tasks by name(s) or function
@@ -85,6 +81,7 @@ def protein_analysis_eval(
         difficulty_filter: List of difficulties to include (E, M, H)
         model: Model to use for evaluation
         max_samples: Maximum number of samples to evaluate
+        use_implementation_comparison: Whether to use implementation comparison scorer
 
     Returns:
         Task: Configured evaluation task
@@ -103,9 +100,15 @@ def protein_analysis_eval(
         samples = samples[:max_samples]
 
     print(f"Evaluating {len(samples)} samples with {model}")
+    print(f"Using implementation comparison: {use_implementation_comparison}")
 
-    # Use simple match scorer
-    scorer = includes()  # match()
+    # Choose scorer based on configuration
+    if use_implementation_comparison:
+        scorer = implementation_comparison_scorer()
+        print("Using implementation comparison scorer with GPT-5-mini analysis")
+    else:
+        scorer = match()
+        print("Using standard match scorer")
 
     return Task(
         dataset=samples,
@@ -124,44 +127,71 @@ def protein_analysis_eval(
 
 
 @task
-def protein_easy_tasks(model: str = "openai/gpt-5-mini") -> Task:
-    """Evaluate only Easy (E) difficulty tasks."""
-    return protein_analysis_eval(difficulty_filter=["E"], model=model)
-
-
-@task
-def protein_medium_tasks(model: str = "openai/gpt-5-mini") -> Task:
-    """Evaluate only Medium (M) difficulty tasks."""
-    return protein_analysis_eval(difficulty_filter=["M"], model=model)
-
-
-@task
-def protein_hard_tasks(model: str = "openai/gpt-5-mini") -> Task:
-    """Evaluate only Hard (H) difficulty tasks."""
-    return protein_analysis_eval(difficulty_filter=["H"], model=model)
-
-
-@task
-def protein_single_task(task_name: str, model: str = "openai/gpt-5-mini") -> Task:
-    """Evaluate a single specific task."""
-    return protein_analysis_eval(task_filter=[task_name], model=model)
-
-
-@task
-def protein_sample_eval(model: str = "openai/gpt-5-mini") -> Task:
-    """Quick evaluation with just a few samples for testing."""
-    return protein_analysis_eval(
-        difficulty_filter=["E"],  # Easy tasks only
-        variant_filter=["variant_1"],  # Single variant
-        max_samples=5,  # Just 5 samples
+def protein_easy_tasks_with_comparison(model: str = "openai/gpt-5-mini") -> Task:
+    """Evaluate only Easy (E) difficulty tasks with implementation comparison."""
+    return protein_analysis_eval_with_comparison(
+        difficulty_filter=["E"], 
         model=model,
+        use_implementation_comparison=True
     )
 
 
 @task
-def protein_e3_debug(model: str = "openai/gpt-5-mini") -> Task:
-    """Debug E3_PDB_Chain_Count task specifically."""
-    return protein_analysis_eval(task_filter=["E3_PDB_Chain_Count"], model=model)
+def protein_medium_tasks_with_comparison(model: str = "openai/gpt-5-mini") -> Task:
+    """Evaluate only Medium (M) difficulty tasks with implementation comparison."""
+    return protein_analysis_eval_with_comparison(
+        difficulty_filter=["M"], 
+        model=model,
+        use_implementation_comparison=True
+    )
 
 
-# No main execution code needed - use uv run inspect eval
+@task
+def protein_hard_tasks_with_comparison(model: str = "openai/gpt-5-mini") -> Task:
+    """Evaluate only Hard (H) difficulty tasks with implementation comparison."""
+    return protein_analysis_eval_with_comparison(
+        difficulty_filter=["H"], 
+        model=model,
+        use_implementation_comparison=True
+    )
+
+
+@task
+def protein_single_task_with_comparison(task_name: str, model: str = "openai/gpt-5-mini") -> Task:
+    """Evaluate a single specific task with implementation comparison."""
+    return protein_analysis_eval_with_comparison(
+        task_filter=[task_name], 
+        model=model,
+        use_implementation_comparison=True
+    )
+
+
+@task
+def protein_sample_eval_with_comparison(model: str = "openai/gpt-5-mini") -> Task:
+    """Quick evaluation with implementation comparison - just a few samples for testing."""
+    return protein_analysis_eval_with_comparison(
+        difficulty_filter=["E"],  # Easy tasks only
+        variant_filter=["variant_1"],  # Single variant
+        max_samples=3,  # Just 3 samples
+        model=model,
+        use_implementation_comparison=True
+    )
+
+
+# Standard versions without implementation comparison (for comparison)
+@task
+def protein_easy_tasks_standard(model: str = "openai/gpt-5-mini") -> Task:
+    """Evaluate only Easy (E) difficulty tasks with standard scoring."""
+    return protein_analysis_eval_with_comparison(
+        difficulty_filter=["E"], 
+        model=model,
+        use_implementation_comparison=False
+    )
+
+
+if __name__ == "__main__":
+    print("Protein Analysis Evaluation Framework with Implementation Comparison")
+    print("Usage examples:")
+    print("- Standard scoring: uv run inspect eval protein_eval_with_comparison.py::protein_easy_tasks_standard")
+    print("- With comparison: uv run inspect eval protein_eval_with_comparison.py::protein_easy_tasks_with_comparison")
+    print("- Single task: uv run inspect eval protein_eval_with_comparison.py::protein_single_task_with_comparison -T task_name=E1_PDB_Cysteine_Count")

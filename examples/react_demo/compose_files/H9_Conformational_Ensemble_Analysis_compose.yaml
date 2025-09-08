@@ -1,8 +1,9 @@
 services:
   default:
-    image: "aisiuk/inspect-tool-support"
+    image: "gboxo/inspect-tool"
+    platform: "linux/amd64"
     command: >
-      sh -c "apt-get update && pip install biopython numpy && echo 'H9_Conformational_Ensemble_Analysis environment ready' && tail -f /dev/null"
+      sh -c "set -e; tail -f /dev/null"
     init: true
     network_mode: bridge # Enables internet access
     dns:

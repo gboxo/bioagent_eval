@@ -1,8 +1,9 @@
 services:
   e10-gene-ontology-terms:
-    image: "aisiuk/inspect-tool-support"
+    image: "gboxo/inspect-tool"
+    platform: "linux/amd64"
     command: >
-        sh -c "apt-get update && pip install requests && echo 'E10_Gene_Ontology_Terms ready' && tail -f /dev/null"
+      sh -c "set -e; tail -f /dev/null"
     init: true
     network_mode: bridge
     dns:
@@ -13,13 +14,13 @@ services:
       - edns0
     stop_grace_period: 1s
     volumes:
-      - ./data/E10_Gene_Ontology_Terms:/app/task
-      - ./data/uniprot_files:/app/data/uniprot_files
+      - ./data/uniprot_files:/app/data/
 
   e1-pdb-cysteine-count:
-    image: "aisiuk/inspect-tool-support"
+    image: "gboxo/inspect-tool"
+    platform: "linux/amd64"
     command: >
-        sh -c "apt-get update && pip install biopython && echo 'E1_PDB_Cysteine_Count ready' && tail -f /dev/null"
+      sh -c "set -e; tail -f /dev/null"
     init: true
     network_mode: bridge
     dns:
@@ -30,13 +31,13 @@ services:
       - edns0
     stop_grace_period: 1s
     volumes:
-      - ./data/E1_PDB_Cysteine_Count:/app/task
-      - ./data/pdb_files:/app/data/pdb_files
+      - ./data/pdb_files:/app/data/
 
   e2-uniprot-signal-peptides:
-    image: "aisiuk/inspect-tool-support"
+    image: "gboxo/inspect-tool"
+    platform: "linux/amd64"
     command: >
-        sh -c "apt-get update && pip install requests && echo 'E2_UniProt_Signal_Peptides ready' && tail -f /dev/null"
+      sh -c "set -e; tail -f /dev/null"
     init: true
     network_mode: bridge
     dns:
@@ -47,13 +48,13 @@ services:
       - edns0
     stop_grace_period: 1s
     volumes:
-      - ./data/E2_UniProt_Signal_Peptides:/app/task
-      - ./data/uniprot_files:/app/data/uniprot_files
+      - ./data/uniprot_files:/app/data/
 
   e3-pdb-chain-count:
-    image: "aisiuk/inspect-tool-support"
+    image: "gboxo/inspect-tool"
+    platform: "linux/amd64"
     command: >
-        sh -c "apt-get update && pip install biopython && echo 'E3_PDB_Chain_Count ready' && tail -f /dev/null"
+      sh -c "set -e; tail -f /dev/null"
     init: true
     network_mode: bridge
     dns:
@@ -64,13 +65,13 @@ services:
       - edns0
     stop_grace_period: 1s
     volumes:
-      - ./data/E3_PDB_Chain_Count:/app/task
-      - ./data/pdb_files:/app/data/pdb_files
+      - ./data/pdb_files:/app/data/
 
   e4-fasta-length-statistics:
-    image: "aisiuk/inspect-tool-support"
+    image: "gboxo/inspect-tool"
+    platform: "linux/amd64"
     command: >
-        sh -c "apt-get update && pip install biopython && echo 'E4_FASTA_Length_Statistics ready' && tail -f /dev/null"
+      sh -c "set -e; tail -f /dev/null"
     init: true
     network_mode: bridge
     dns:
@@ -81,13 +82,13 @@ services:
       - edns0
     stop_grace_period: 1s
     volumes:
-      - ./data/E4_FASTA_Length_Statistics:/app/task
-      - ./data/uniprot_files:/app/data/uniprot_files
+      - ./data/uniprot_files:/app/data/
 
   e5-pdb-resolution-comparison:
-    image: "aisiuk/inspect-tool-support"
+    image: "gboxo/inspect-tool"
+    platform: "linux/amd64"
     command: >
-        sh -c "apt-get update && pip install biopython && echo 'E5_PDB_Resolution_Comparison ready' && tail -f /dev/null"
+      sh -c "set -e; tail -f /dev/null"
     init: true
     network_mode: bridge
     dns:
@@ -98,13 +99,13 @@ services:
       - edns0
     stop_grace_period: 1s
     volumes:
-      - ./data/E5_PDB_Resolution_Comparison:/app/task
-      - ./data/pdb_files:/app/data/pdb_files
+      - ./data/pdb_files:/app/data/
 
   e6-uniprot-domain-count:
-    image: "aisiuk/inspect-tool-support"
+    image: "gboxo/inspect-tool"
+    platform: "linux/amd64"
     command: >
-        sh -c "echo 'E6_UniProt_Domain_Count ready' && tail -f /dev/null"
+      sh -c "set -e; tail -f /dev/null"
     init: true
     network_mode: bridge
     dns:
@@ -115,13 +116,13 @@ services:
       - edns0
     stop_grace_period: 1s
     volumes:
-      - ./data/E6_UniProt_Domain_Count:/app/task
-      - ./data/uniprot_files:/app/data/uniprot_files
+      - ./data/uniprot_files:/app/data/
 
   e7-pdb-secondary-structure:
-    image: "aisiuk/inspect-tool-support"
+    image: "gboxo/inspect-tool"
+    platform: "linux/amd64"
     command: >
-        sh -c "apt-get update && apt-get install -y dssp && pip install argparse biopython && echo 'E7_PDB_Secondary_Structure ready' && tail -f /dev/null"
+      sh -c "set -e; tail -f /dev/null"
     init: true
     network_mode: bridge
     dns:
@@ -132,13 +133,13 @@ services:
       - edns0
     stop_grace_period: 1s
     volumes:
-      - ./data/E7_PDB_Secondary_Structure:/app/task
-      - ./data/pdb_files:/app/data/pdb_files
+      - ./data/pdb_files:/app/data/
 
   e8-hydrophobic-residue-percentage:
-    image: "aisiuk/inspect-tool-support"
+    image: "gboxo/inspect-tool"
+    platform: "linux/amd64"
     command: >
-        sh -c "echo 'E8_Hydrophobic_Residue_Percentage ready' && tail -f /dev/null"
+      sh -c "set -e; tail -f /dev/null"
     init: true
     network_mode: bridge
     dns:
@@ -149,13 +150,13 @@ services:
       - edns0
     stop_grace_period: 1s
     volumes:
-      - ./data/E8_Hydrophobic_Residue_Percentage:/app/task
-      - ./data/uniprot_files:/app/data/uniprot_files
+      - ./data/uniprot_files:/app/data/
 
   e9-pdb-ligand-identification:
-    image: "aisiuk/inspect-tool-support"
+    image: "gboxo/inspect-tool"
+    platform: "linux/amd64"
     command: >
-        sh -c "apt-get update && pip install biopython && echo 'E9_PDB_Ligand_Identification ready' && tail -f /dev/null"
+      sh -c "set -e; tail -f /dev/null"
     init: true
     network_mode: bridge
     dns:
@@ -166,13 +167,13 @@ services:
       - edns0
     stop_grace_period: 1s
     volumes:
-      - ./data/E9_PDB_Ligand_Identification:/app/task
-      - ./data/pdb_files:/app/data/pdb_files
+      - ./data/pdb_files:/app/data/
 
   h10-variant-structural-mapping:
-    image: "aisiuk/inspect-tool-support"
+    image: "gboxo/inspect-tool"
+    platform: "linux/amd64"
     command: >
-        sh -c "apt-get update && apt-get install -y dssp && pip install biopython && echo 'H10_variant_Structural_Mapping ready' && tail -f /dev/null"
+      sh -c "set -e; tail -f /dev/null"
     init: true
     network_mode: bridge
     dns:
@@ -183,13 +184,13 @@ services:
       - edns0
     stop_grace_period: 1s
     volumes:
-      - ./data/H10_variant_Structural_Mapping:/app/task
-      - ./data/pdb_files:/app/data/pdb_files
+      - ./data/pdb_files:/app/data/
 
   h1-dms-hotspot-analysis:
-    image: "aisiuk/inspect-tool-support"
+    image: "gboxo/inspect-tool"
+    platform: "linux/amd64"
     command: >
-        sh -c "apt-get update && pip install argparse pandas && echo 'H1_DMS_Hotspot_Analysis ready' && tail -f /dev/null"
+      sh -c "set -e; tail -f /dev/null"
     init: true
     network_mode: bridge
     dns:
@@ -200,12 +201,13 @@ services:
       - edns0
     stop_grace_period: 1s
     volumes:
-      - ./data/H1_DMS_Hotspot_Analysis:/app/task
+      - ./data/H1_DMS_Hotspot_Analysis:/app/data/
 
   h2-allosteric-network-analysis:
-    image: "aisiuk/inspect-tool-support"
+    image: "gboxo/inspect-tool"
+    platform: "linux/amd64"
     command: >
-        sh -c "echo 'H2_Allosteric_Network_Analysis ready' && tail -f /dev/null"
+      sh -c "set -e; tail -f /dev/null"
     init: true
     network_mode: bridge
     dns:
@@ -216,13 +218,13 @@ services:
       - edns0
     stop_grace_period: 1s
     volumes:
-      - ./data/H2_Allosteric_Network_Analysis:/app/task
-      - ./data/pdb_files:/app/data/pdb_files
+      - ./data/pdb_files:/app/data/
 
   h3-evolutionary-rate-analysis:
-    image: "aisiuk/inspect-tool-support"
+    image: "gboxo/inspect-tool"
+    platform: "linux/amd64"
     command: >
-        sh -c "apt-get update && apt-get install -y mafft && pip install argparse biopython requests tarfile && echo 'H3_Evolutionary_Rate_Analysis ready' && tail -f /dev/null"
+      sh -c "set -e; tail -f /dev/null"
     init: true
     network_mode: bridge
     dns:
@@ -233,13 +235,13 @@ services:
       - edns0
     stop_grace_period: 1s
     volumes:
-      - ./data/H3_Evolutionary_Rate_Analysis:/app/task
-      - ./data/uniprot_files:/app/data/uniprot_files
+      - ./data/uniprot_files:/app/data/
 
   h4-protein-complex-interface:
-    image: "aisiuk/inspect-tool-support"
+    image: "gboxo/inspect-tool"
+    platform: "linux/amd64"
     command: >
-        sh -c "apt-get update && pip install argparse biopython && echo 'H4_Protein_Complex_Interface ready' && tail -f /dev/null"
+      sh -c "set -e; tail -f /dev/null"
     init: true
     network_mode: bridge
     dns:
@@ -250,13 +252,13 @@ services:
       - edns0
     stop_grace_period: 1s
     volumes:
-      - ./data/H4_Protein_Complex_Interface:/app/task
-      - ./data/pdb_files:/app/data/pdb_files
+      - ./data/pdb_files:/app/data/
 
   h5-functional-site-conservation:
-    image: "aisiuk/inspect-tool-support"
+    image: "gboxo/inspect-tool"
+    platform: "linux/amd64"
     command: >
-        sh -c "apt-get update && apt-get install -y mafft && echo 'H5_Functional_Site_Conservation ready' && tail -f /dev/null"
+      sh -c "set -e; tail -f /dev/null"
     init: true
     network_mode: bridge
     dns:
@@ -267,13 +269,13 @@ services:
       - edns0
     stop_grace_period: 1s
     volumes:
-      - ./data/H5_Functional_Site_Conservation:/app/task
-      - ./data/uniprot_files:/app/data/uniprot_files
+      - ./data/uniprot_files:/app/data/
 
   h6-clashscore-analysis:
-    image: "aisiuk/inspect-tool-support"
+    image: "gboxo/inspect-tool"
+    platform: "linux/amd64"
     command: >
-        sh -c "echo 'H6_Clashscore_Analysis ready' && tail -f /dev/null"
+      sh -c "set -e; tail -f /dev/null"
     init: true
     network_mode: bridge
     dns:
@@ -284,13 +286,13 @@ services:
       - edns0
     stop_grace_period: 1s
     volumes:
-      - ./data/H6_Clashscore_Analysis:/app/task
-      - ./data/pdb_files:/app/data/pdb_files
+      - ./data/pdb_files:/app/data/
 
   h7-epistasis-network-analysis:
-    image: "aisiuk/inspect-tool-support"
+    image: "gboxo/inspect-tool"
+    platform: "linux/amd64"
     command: >
-        sh -c "apt-get update && pip install pandas && echo 'H7_Epistasis_Network_Analysis ready' && tail -f /dev/null"
+      sh -c "set -e; tail -f /dev/null"
     init: true
     network_mode: bridge
     dns:
@@ -300,13 +302,12 @@ services:
       - ndots:2
       - edns0
     stop_grace_period: 1s
-    volumes:
-      - ./data/H7_Epistasis_Network_Analysis:/app/task
 
   h8-druggability-assessment:
-    image: "aisiuk/inspect-tool-support"
+    image: "gboxo/inspect-tool"
+    platform: "linux/amd64"
     command: >
-        sh -c "apt-get update && apt-get install -y fpocket && echo 'H8_Druggability_Assessment ready' && tail -f /dev/null"
+      sh -c "set -e; tail -f /dev/null"
     init: true
     network_mode: bridge
     dns:
@@ -317,13 +318,13 @@ services:
       - edns0
     stop_grace_period: 1s
     volumes:
-      - ./data/H8_Druggability_Assessment:/app/task
-      - ./data/pdb_files:/app/data/pdb_files
+      - ./data/pdb_files:/app/data/
 
   h9-conformational-ensemble-analysis:
-    image: "aisiuk/inspect-tool-support"
+    image: "gboxo/inspect-tool"
+    platform: "linux/amd64"
     command: >
-        sh -c "apt-get update && pip install argparse biopython numpy && echo 'H9_Conformational_Ensemble_Analysis ready' && tail -f /dev/null"
+      sh -c "set -e; tail -f /dev/null"
     init: true
     network_mode: bridge
     dns:
@@ -334,13 +335,13 @@ services:
       - edns0
     stop_grace_period: 1s
     volumes:
-      - ./data/H9_Conformational_Ensemble_Analysis:/app/task
-      - ./data/pdb_files:/app/data/pdb_files
+      - ./data/pdb_files:/app/data/
 
   m10-protein-disorder-prediction:
-    image: "aisiuk/inspect-tool-support"
+    image: "gboxo/inspect-tool"
+    platform: "linux/amd64"
     command: >
-        sh -c "echo 'M10_Protein_Disorder_Prediction ready' && tail -f /dev/null"
+      sh -c "set -e; tail -f /dev/null"
     init: true
     network_mode: bridge
     dns:
@@ -351,13 +352,13 @@ services:
       - edns0
     stop_grace_period: 1s
     volumes:
-      - ./data/M10_Protein_Disorder_Prediction:/app/task
-      - ./data/uniprot_files:/app/data/uniprot_files
+      - ./data/uniprot_files:/app/data/
 
   m1-msa-conservation-score:
-    image: "aisiuk/inspect-tool-support"
+    image: "gboxo/inspect-tool"
+    platform: "linux/amd64"
     command: >
-        sh -c "apt-get update && apt-get install -y mafft && pip install biopython && echo 'M1_MSA_Conservation_Score ready' && tail -f /dev/null"
+      sh -c "set -e; tail -f /dev/null"
     init: true
     network_mode: bridge
     dns:
@@ -368,13 +369,13 @@ services:
       - edns0
     stop_grace_period: 1s
     volumes:
-      - ./data/M1_MSA_Conservation_Score:/app/task
-      - ./data/uniprot_files:/app/data/uniprot_files
+      - ./data/uniprot_files:/app/data/
 
   m2-phylogenetic-distance:
-    image: "aisiuk/inspect-tool-support"
+    image: "gboxo/inspect-tool"
+    platform: "linux/amd64"
     command: >
-        sh -c "apt-get update && apt-get install -y mafft && pip install biopython && echo 'M2_Phylogenetic_Distance ready' && tail -f /dev/null"
+      sh -c "set -e; tail -f /dev/null"
     init: true
     network_mode: bridge
     dns:
@@ -385,13 +386,13 @@ services:
       - edns0
     stop_grace_period: 1s
     volumes:
-      - ./data/M2_Phylogenetic_Distance:/app/task
-      - ./data/uniprot_files:/app/data/uniprot_files
+      - ./data/uniprot_files:/app/data/
 
   m3-structural-alignment-rmsd:
-    image: "aisiuk/inspect-tool-support"
+    image: "gboxo/inspect-tool"
+    platform: "linux/amd64"
     command: >
-        sh -c "apt-get update && pip install biopython && echo 'M3_Structural_Alignment_RMSD ready' && tail -f /dev/null"
+      sh -c "set -e; tail -f /dev/null"
     init: true
     network_mode: bridge
     dns:
@@ -402,13 +403,13 @@ services:
       - edns0
     stop_grace_period: 1s
     volumes:
-      - ./data/M3_Structural_Alignment_RMSD:/app/task
-      - ./data/pdb_files:/app/data/pdb_files
+      - ./data/pdb_files:/app/data/
 
   m4-domain-architecture:
-    image: "aisiuk/inspect-tool-support"
+    image: "gboxo/inspect-tool"
+    platform: "linux/amd64"
     command: >
-        sh -c "echo 'M4_Domain_Architecture ready' && tail -f /dev/null"
+      sh -c "set -e; tail -f /dev/null"
     init: true
     network_mode: bridge
     dns:
@@ -419,13 +420,13 @@ services:
       - edns0
     stop_grace_period: 1s
     volumes:
-      - ./data/M4_Domain_Architecture:/app/task
-      - ./data/uniprot_files:/app/data/uniprot_files
+      - ./data/uniprot_files:/app/data/
 
   m5-codon-usage-analysis:
-    image: "aisiuk/inspect-tool-support"
+    image: "gboxo/inspect-tool"
+    platform: "linux/amd64"
     command: >
-        sh -c "apt-get update && pip install biopython io && echo 'M5_Codon_Usage_Analysis ready' && tail -f /dev/null"
+      sh -c "set -e; tail -f /dev/null"
     init: true
     network_mode: bridge
     dns:
@@ -435,13 +436,12 @@ services:
       - ndots:2
       - edns0
     stop_grace_period: 1s
-    volumes:
-      - ./data/M5_Codon_Usage_Analysis:/app/task
 
   m6-transmembrane-prediction:
-    image: "aisiuk/inspect-tool-support"
+    image: "gboxo/inspect-tool"
+    platform: "linux/amd64"
     command: >
-        sh -c "apt-get update && pip install argparse pyTMHMM && echo 'M6_Transmembrane_Prediction ready' && tail -f /dev/null"
+      sh -c "set -e; tail -f /dev/null"
     init: true
     network_mode: bridge
     dns:
@@ -452,13 +452,13 @@ services:
       - edns0
     stop_grace_period: 1s
     volumes:
-      - ./data/M6_Transmembrane_Prediction:/app/task
-      - ./data/uniprot_files:/app/data/uniprot_files
+      - ./data/uniprot_files:/app/data/
 
   m7-b-factor-analysis:
-    image: "aisiuk/inspect-tool-support"
+    image: "gboxo/inspect-tool"
+    platform: "linux/amd64"
     command: >
-        sh -c "echo 'M7_B_factor_Analysis ready' && tail -f /dev/null"
+      sh -c "set -e; tail -f /dev/null"
     init: true
     network_mode: bridge
     dns:
@@ -469,13 +469,13 @@ services:
       - edns0
     stop_grace_period: 1s
     volumes:
-      - ./data/M7_B_factor_Analysis:/app/task
-      - ./data/pdb_files:/app/data/pdb_files
+      - ./data/pdb_files:/app/data/
 
   m9-splice-site-prediction:
-    image: "aisiuk/inspect-tool-support"
+    image: "gboxo/inspect-tool"
+    platform: "linux/amd64"
     command: >
-        sh -c "apt-get update && pip install requests && echo 'M9_Splice_Site_Prediction ready' && tail -f /dev/null"
+      sh -c "set -e; tail -f /dev/null"
     init: true
     network_mode: bridge
     dns:
@@ -485,5 +485,3 @@ services:
       - ndots:2
       - edns0
     stop_grace_period: 1s
-    volumes:
-      - ./data/M9_Splice_Site_Prediction:/app/task

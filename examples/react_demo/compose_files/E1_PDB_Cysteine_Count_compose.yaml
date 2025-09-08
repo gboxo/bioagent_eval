@@ -1,8 +1,9 @@
 services:
   default:
-    image: "aisiuk/inspect-tool-support"
+    image: "gboxo/inspect-tool"
+    platform: "linux/amd64"
     command: >
-      sh -c "apt-get update && pip install biopython && echo 'E1_PDB_Cysteine_Count environment ready' && tail -f /dev/null"
+      sh -c "set -e; tail -f /dev/null"
     init: true
     network_mode: bridge # Enables internet access
     dns:
@@ -13,4 +14,4 @@ services:
       - edns0
     stop_grace_period: 1s
     volumes:
-      - ./data/pdb_files:/app/data/pdb_files
+      - ../data/pdb_files:/app/data/

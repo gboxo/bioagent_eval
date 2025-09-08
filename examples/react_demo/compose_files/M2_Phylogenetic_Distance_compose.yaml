@@ -1,8 +1,9 @@
 services:
   default:
-    image: "aisiuk/inspect-tool-support"
+    image: "gboxo/inspect-tool"
+    platform: "linux/amd64"
     command: >
-      sh -c "apt-get update && apt-get install -y mafft && pip install biopython && echo 'M2_Phylogenetic_Distance environment ready' && mafft --version && tail -f /dev/null"
+      sh -c "set -e; tail -f /dev/null"
     init: true
     network_mode: bridge # Enables internet access
     dns:
@@ -13,4 +14,4 @@ services:
       - edns0
     stop_grace_period: 1s
     volumes:
-      - ../data/blast_files:/app/data
+      - ../data/blast_files:/app/data/

@@ -12,85 +12,55 @@ from typing import Dict, List, Any
 def generate_compose_yaml(task_name: str, task_info: Dict[str, Any]) -> str:
     """Generate a Docker compose.yaml content for a specific task."""
     
-    # Base compose structure
+    # Base compose structure using gboxo/inspect-tool
     compose_content = [
         "services:",
         "  default:",
-        '    image: "aisiuk/inspect-tool-support"'
+        '    image: "gboxo/inspect-tool"',
+        '    platform: "linux/amd64"'
     ]
     
-    # Build the command
-    command_parts = ["sh -c \""]
-    
-    # Update apt
-    if task_info['apt_packages'] or task_info['python_packages']:
-        command_parts.append("apt-get update && ")
-    
-    # Install APT packages
-    if task_info['apt_packages']:
-        apt_install = "apt-get install -y " + " ".join(task_info['apt_packages']) + " && "
-        command_parts.append(apt_install)
-    
-    # Install Python packages
-    if task_info['python_packages']:
-        pip_packages = []
-        for package in task_info['python_packages']:
-            # Handle special cases
-            if package == 'pyTMHMM':
-                # pyTMHMM might need special handling
-                pip_packages.append('pyTMHMM')
-            elif package == 'analyze_rmsf':
-                # This might be a local module, skip for now
-                continue
-            else:
-                pip_packages.append(package)
-        
-        if pip_packages:
-            pip_install = "pip install " + " ".join(pip_packages) + " && "
-            command_parts.append(pip_install)
-    
-    # Add success message and keep container running
-    success_msg = f"echo '{task_name} environment ready' && "
-    command_parts.append(success_msg)
-    
-    # Show installed package versions for verification
-    if 'mafft' in task_info['apt_packages']:
-        command_parts.append("mafft --version && ")
-    if 'fpocket' in task_info['apt_packages']:
-        command_parts.append("fpocket -v && ")
-    if 'dssp' in task_info['apt_packages']:
-        command_parts.append("mkdssp --version && ")
-    
-    # Keep container running
-    command_parts.append("tail -f /dev/null\"")
-    
-    # Join the command
-    full_command = "".join(command_parts)
+    # Simple command since all programs are pre-installed
+    command = f'sh -c "set -e; tail -f /dev/null"'
     
     # Format the command with proper YAML indentation
     compose_content.extend([
         "    command: >",
-        "        " + full_command
+        "      " + command
     ])
     
     # Add other Docker settings
     compose_content.extend([
         "    init: true",
-        "    network_mode: bridge  # Enables internet access",
+        "    network_mode: bridge # Enables internet access",
         "    dns:",
-        "      - 8.8.8.8        # Google DNS", 
-        "      - 1.1.1.1        # Cloudflare DNS",
+        "      - 8.8.8.8 # Google DNS", 
+        "      - 1.1.1.1 # Cloudflare DNS",
         "    dns_opt:",
         "      - ndots:2",
         "      - edns0",
         "    stop_grace_period: 1s"
     ])
     
-    # Add volumes
+    # Add volumes - only mount data directories needed by the task
     if task_info['mount_volumes']:
         compose_content.append("    volumes:")
+        # Determine which data directories to mount based on task dependencies
         for volume in task_info['mount_volumes']:
-            compose_content.append(f"    - {volume}")
+            # Convert to the new volume format targeting /app/data/
+            if 'pdb_files' in volume:
+                compose_content.append("      - ../data/pdb_files:/app/data/")
+            elif 'uniprot_files' in volume:
+                compose_content.append("      - ../data/uniprot_files:/app/data/")
+            elif 'protein_gym_data' in volume:
+                compose_content.append("      - ../data/protein_gym_data:/app/data/")
+            elif 'blast_files' in volume:
+                compose_content.append("      - ../data/blast_files:/app/data/")
+            else:
+                # For task-specific data, mount the task directory
+                task_dir = volume.split(':')[0].split('/')[-1] if ':' in volume else volume.split('/')[-1]
+                compose_content.append(f"      - ../data/{task_dir}:/app/data/")
+                break  # Only mount one primary data directory
     
     return "\n".join(compose_content)
 
@@ -123,17 +93,7 @@ def create_task_compose_files(dependencies_file: str, output_dir: str = "compose
         created_files.append(compose_file)
         
         # Show summary
-        packages_summary = []
-        if task_info['python_packages']:
-            packages_summary.append(f"Python: {', '.join(task_info['python_packages'])}")
-        if task_info['apt_packages']:
-            packages_summary.append(f"APT: {', '.join(task_info['apt_packages'])}")
-        
-        if packages_summary:
-            print(f"  Dependencies: {' | '.join(packages_summary)}")
-        else:
-            print(f"  Dependencies: None")
-        
+        print(f"  All dependencies pre-installed in gboxo/inspect-tool")
         print(f"  Volumes: {len(task_info['mount_volumes'])}")
     
     print(f"\n✅ Generated {len(created_files)} compose files in {output_path}")
@@ -156,32 +116,16 @@ def create_unified_compose_file(dependencies_file: str, output_file: str = "all_
         
         compose_content.extend([
             f"  {service_name}:",
-            '    image: "aisiuk/inspect-tool-support"'
+            '    image: "gboxo/inspect-tool"',
+            '    platform: "linux/amd64"'
         ])
         
-        # Build command similar to single file generation
-        command_parts = ["sh -c \""]
-        
-        if task_info['apt_packages'] or task_info['python_packages']:
-            command_parts.append("apt-get update && ")
-        
-        if task_info['apt_packages']:
-            apt_install = "apt-get install -y " + " ".join(task_info['apt_packages']) + " && "
-            command_parts.append(apt_install)
-        
-        if task_info['python_packages']:
-            pip_packages = [pkg for pkg in task_info['python_packages'] if pkg not in ['analyze_rmsf']]
-            if pip_packages:
-                pip_install = "pip install " + " ".join(pip_packages) + " && "
-                command_parts.append(pip_install)
-        
-        command_parts.append(f"echo '{task_name} ready' && tail -f /dev/null\"")
-        
-        full_command = "".join(command_parts)
+        # Simple command since all programs are pre-installed
+        command = 'sh -c "set -e; tail -f /dev/null"'
         
         compose_content.extend([
             "    command: >",
-            "        " + full_command,
+            "      " + command,
             "    init: true",
             "    network_mode: bridge",
             "    dns:",
@@ -195,8 +139,21 @@ def create_unified_compose_file(dependencies_file: str, output_file: str = "all_
         
         if task_info['mount_volumes']:
             compose_content.append("    volumes:")
+            # Mount appropriate data directories
             for volume in task_info['mount_volumes']:
-                compose_content.append(f"      - {volume}")
+                if 'pdb_files' in volume:
+                    compose_content.append("      - ./data/pdb_files:/app/data/")
+                elif 'uniprot_files' in volume:
+                    compose_content.append("      - ./data/uniprot_files:/app/data/")
+                elif 'protein_gym_data' in volume:
+                    compose_content.append("      - ./data/protein_gym_data:/app/data/")
+                elif 'blast_files' in volume:
+                    compose_content.append("      - ./data/blast_files:/app/data/")
+                else:
+                    # For task-specific data
+                    task_dir = volume.split(':')[0].split('/')[-1] if ':' in volume else volume.split('/')[-1]
+                    compose_content.append(f"      - ./data/{task_dir}:/app/data/")
+                    break  # Only mount one primary data directory
         
         compose_content.append("")  # Empty line between services
     

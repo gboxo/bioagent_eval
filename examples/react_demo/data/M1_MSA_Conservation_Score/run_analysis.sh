@@ -28,7 +28,7 @@ for i in {1..5}; do
         
         # Run the Python analysis script
         # Capture only the final count (last line of output)
-        result=$(python3 calculate_msa_conservation.py "$variant_folder" 2>/dev/null | tail -n 1)
+        result=$(uv run python3 calculate_msa_conservation.py "$variant_folder" 2>/dev/null | tail -n 1)
         
         # Handle case where result might be empty or contain error
         if [ -z "$result" ]; then

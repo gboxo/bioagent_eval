@@ -1,17 +1,17 @@
 services:
   default:
-    image: "aisiuk/inspect-tool-support"
+    image: "gboxo/inspect-tool"
+    platform: "linux/amd64"
     command: >
-        sh -c "echo 'M7_B_factor_Analysis environment ready' && tail -f /dev/null"
+      sh -c "set -e; tail -f /dev/null"
     init: true
-    network_mode: bridge  # Enables internet access
+    network_mode: bridge # Enables internet access
     dns:
-      - 8.8.8.8        # Google DNS
-      - 1.1.1.1        # Cloudflare DNS
+      - 8.8.8.8 # Google DNS
+      - 1.1.1.1 # Cloudflare DNS
     dns_opt:
       - ndots:2
       - edns0
     stop_grace_period: 1s
     volumes:
-    - ./data/M7_B_factor_Analysis:/app/task
-    - ./data/pdb_files:/app/data/pdb_files
+      - ../data/pdb_files:/app/data/

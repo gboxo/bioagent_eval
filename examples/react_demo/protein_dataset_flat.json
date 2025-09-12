@@ -6,7 +6,7 @@
       "task_name": "E1_PDB_Cysteine_Count",
       "variant": "variant_1",
       "difficulty": "E",
-      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_files/E1_PDB_Cysteine_Count_compose.yaml",
+      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_gboxo.yaml",
       "dependencies": {
         "task_name": "E1_PDB_Cysteine_Count",
         "python_imports": [
@@ -48,7 +48,7 @@
       "task_name": "E1_PDB_Cysteine_Count",
       "variant": "variant_2",
       "difficulty": "E",
-      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_files/E1_PDB_Cysteine_Count_compose.yaml",
+      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_gboxo.yaml",
       "dependencies": {
         "task_name": "E1_PDB_Cysteine_Count",
         "python_imports": [
@@ -90,7 +90,7 @@
       "task_name": "E1_PDB_Cysteine_Count",
       "variant": "variant_3",
       "difficulty": "E",
-      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_files/E1_PDB_Cysteine_Count_compose.yaml",
+      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_gboxo.yaml",
       "dependencies": {
         "task_name": "E1_PDB_Cysteine_Count",
         "python_imports": [
@@ -132,7 +132,7 @@
       "task_name": "E1_PDB_Cysteine_Count",
       "variant": "variant_4",
       "difficulty": "E",
-      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_files/E1_PDB_Cysteine_Count_compose.yaml",
+      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_gboxo.yaml",
       "dependencies": {
         "task_name": "E1_PDB_Cysteine_Count",
         "python_imports": [
@@ -174,7 +174,7 @@
       "task_name": "E1_PDB_Cysteine_Count",
       "variant": "variant_5",
       "difficulty": "E",
-      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_files/E1_PDB_Cysteine_Count_compose.yaml",
+      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_gboxo.yaml",
       "dependencies": {
         "task_name": "E1_PDB_Cysteine_Count",
         "python_imports": [
@@ -216,7 +216,7 @@
       "task_name": "E2_UniProt_Signal_Peptides",
       "variant": "variant_1",
       "difficulty": "E",
-      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_files/E2_UniProt_Signal_Peptides_compose.yaml",
+      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_gboxo.yaml",
       "dependencies": {
         "task_name": "E2_UniProt_Signal_Peptides",
         "python_imports": [
@@ -259,7 +259,7 @@
       "task_name": "E2_UniProt_Signal_Peptides",
       "variant": "variant_2",
       "difficulty": "E",
-      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_files/E2_UniProt_Signal_Peptides_compose.yaml",
+      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_gboxo.yaml",
       "dependencies": {
         "task_name": "E2_UniProt_Signal_Peptides",
         "python_imports": [
@@ -302,7 +302,7 @@
       "task_name": "E2_UniProt_Signal_Peptides",
       "variant": "variant_3",
       "difficulty": "E",
-      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_files/E2_UniProt_Signal_Peptides_compose.yaml",
+      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_gboxo.yaml",
       "dependencies": {
         "task_name": "E2_UniProt_Signal_Peptides",
         "python_imports": [
@@ -345,7 +345,7 @@
       "task_name": "E2_UniProt_Signal_Peptides",
       "variant": "variant_4",
       "difficulty": "E",
-      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_files/E2_UniProt_Signal_Peptides_compose.yaml",
+      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_gboxo.yaml",
       "dependencies": {
         "task_name": "E2_UniProt_Signal_Peptides",
         "python_imports": [
@@ -388,7 +388,7 @@
       "task_name": "E2_UniProt_Signal_Peptides",
       "variant": "variant_5",
       "difficulty": "E",
-      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_files/E2_UniProt_Signal_Peptides_compose.yaml",
+      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_gboxo.yaml",
       "dependencies": {
         "task_name": "E2_UniProt_Signal_Peptides",
         "python_imports": [
@@ -431,7 +431,7 @@
       "task_name": "E3_PDB_Chain_Count",
       "variant": "variant_1",
       "difficulty": "E",
-      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_files/E3_PDB_Chain_Count_compose.yaml",
+      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_gboxo.yaml",
       "dependencies": {
         "task_name": "E3_PDB_Chain_Count",
         "python_imports": [
@@ -474,7 +474,7 @@
       "task_name": "E3_PDB_Chain_Count",
       "variant": "variant_2",
       "difficulty": "E",
-      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_files/E3_PDB_Chain_Count_compose.yaml",
+      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_gboxo.yaml",
       "dependencies": {
         "task_name": "E3_PDB_Chain_Count",
         "python_imports": [
@@ -517,7 +517,7 @@
       "task_name": "E3_PDB_Chain_Count",
       "variant": "variant_3",
       "difficulty": "E",
-      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_files/E3_PDB_Chain_Count_compose.yaml",
+      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_gboxo.yaml",
       "dependencies": {
         "task_name": "E3_PDB_Chain_Count",
         "python_imports": [
@@ -560,7 +560,7 @@
       "task_name": "E3_PDB_Chain_Count",
       "variant": "variant_4",
       "difficulty": "E",
-      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_files/E3_PDB_Chain_Count_compose.yaml",
+      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_gboxo.yaml",
       "dependencies": {
         "task_name": "E3_PDB_Chain_Count",
         "python_imports": [
@@ -603,7 +603,7 @@
       "task_name": "E3_PDB_Chain_Count",
       "variant": "variant_5",
       "difficulty": "E",
-      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_files/E3_PDB_Chain_Count_compose.yaml",
+      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_gboxo.yaml",
       "dependencies": {
         "task_name": "E3_PDB_Chain_Count",
         "python_imports": [
@@ -646,7 +646,7 @@
       "task_name": "E4_FASTA_Length_Statistics",
       "variant": "variant_1",
       "difficulty": "E",
-      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_files/E4_FASTA_Length_Statistics_compose.yaml",
+      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_gboxo.yaml",
       "dependencies": {
         "task_name": "E4_FASTA_Length_Statistics",
         "python_imports": [
@@ -696,7 +696,7 @@
       "task_name": "E4_FASTA_Length_Statistics",
       "variant": "variant_2",
       "difficulty": "E",
-      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_files/E4_FASTA_Length_Statistics_compose.yaml",
+      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_gboxo.yaml",
       "dependencies": {
         "task_name": "E4_FASTA_Length_Statistics",
         "python_imports": [
@@ -746,7 +746,7 @@
       "task_name": "E4_FASTA_Length_Statistics",
       "variant": "variant_3",
       "difficulty": "E",
-      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_files/E4_FASTA_Length_Statistics_compose.yaml",
+      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_gboxo.yaml",
       "dependencies": {
         "task_name": "E4_FASTA_Length_Statistics",
         "python_imports": [
@@ -796,7 +796,7 @@
       "task_name": "E4_FASTA_Length_Statistics",
       "variant": "variant_4",
       "difficulty": "E",
-      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_files/E4_FASTA_Length_Statistics_compose.yaml",
+      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_gboxo.yaml",
       "dependencies": {
         "task_name": "E4_FASTA_Length_Statistics",
         "python_imports": [
@@ -846,7 +846,7 @@
       "task_name": "E4_FASTA_Length_Statistics",
       "variant": "variant_5",
       "difficulty": "E",
-      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_files/E4_FASTA_Length_Statistics_compose.yaml",
+      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_gboxo.yaml",
       "dependencies": {
         "task_name": "E4_FASTA_Length_Statistics",
         "python_imports": [
@@ -896,7 +896,7 @@
       "task_name": "E5_PDB_Resolution_Comparison",
       "variant": "variant_1",
       "difficulty": "E",
-      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_files/E5_PDB_Resolution_Comparison_compose.yaml",
+      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_gboxo.yaml",
       "dependencies": {
         "task_name": "E5_PDB_Resolution_Comparison",
         "python_imports": [
@@ -946,7 +946,7 @@
       "task_name": "E5_PDB_Resolution_Comparison",
       "variant": "variant_2",
       "difficulty": "E",
-      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_files/E5_PDB_Resolution_Comparison_compose.yaml",
+      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_gboxo.yaml",
       "dependencies": {
         "task_name": "E5_PDB_Resolution_Comparison",
         "python_imports": [
@@ -996,7 +996,7 @@
       "task_name": "E5_PDB_Resolution_Comparison",
       "variant": "variant_3",
       "difficulty": "E",
-      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_files/E5_PDB_Resolution_Comparison_compose.yaml",
+      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_gboxo.yaml",
       "dependencies": {
         "task_name": "E5_PDB_Resolution_Comparison",
         "python_imports": [
@@ -1046,7 +1046,7 @@
       "task_name": "E5_PDB_Resolution_Comparison",
       "variant": "variant_4",
       "difficulty": "E",
-      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_files/E5_PDB_Resolution_Comparison_compose.yaml",
+      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_gboxo.yaml",
       "dependencies": {
         "task_name": "E5_PDB_Resolution_Comparison",
         "python_imports": [
@@ -1096,7 +1096,7 @@
       "task_name": "E5_PDB_Resolution_Comparison",
       "variant": "variant_5",
       "difficulty": "E",
-      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_files/E5_PDB_Resolution_Comparison_compose.yaml",
+      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_gboxo.yaml",
       "dependencies": {
         "task_name": "E5_PDB_Resolution_Comparison",
         "python_imports": [
@@ -1146,7 +1146,7 @@
       "task_name": "E6_UniProt_Domain_Count",
       "variant": "variant_1",
       "difficulty": "E",
-      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_files/E6_UniProt_Domain_Count_compose.yaml",
+      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_gboxo.yaml",
       "dependencies": {
         "task_name": "E6_UniProt_Domain_Count",
         "python_imports": [
@@ -1189,7 +1189,7 @@
       "task_name": "E6_UniProt_Domain_Count",
       "variant": "variant_2",
       "difficulty": "E",
-      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_files/E6_UniProt_Domain_Count_compose.yaml",
+      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_gboxo.yaml",
       "dependencies": {
         "task_name": "E6_UniProt_Domain_Count",
         "python_imports": [
@@ -1232,7 +1232,7 @@
       "task_name": "E6_UniProt_Domain_Count",
       "variant": "variant_3",
       "difficulty": "E",
-      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_files/E6_UniProt_Domain_Count_compose.yaml",
+      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_gboxo.yaml",
       "dependencies": {
         "task_name": "E6_UniProt_Domain_Count",
         "python_imports": [
@@ -1275,7 +1275,7 @@
       "task_name": "E6_UniProt_Domain_Count",
       "variant": "variant_4",
       "difficulty": "E",
-      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_files/E6_UniProt_Domain_Count_compose.yaml",
+      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_gboxo.yaml",
       "dependencies": {
         "task_name": "E6_UniProt_Domain_Count",
         "python_imports": [
@@ -1318,7 +1318,7 @@
       "task_name": "E6_UniProt_Domain_Count",
       "variant": "variant_5",
       "difficulty": "E",
-      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_files/E6_UniProt_Domain_Count_compose.yaml",
+      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_gboxo.yaml",
       "dependencies": {
         "task_name": "E6_UniProt_Domain_Count",
         "python_imports": [
@@ -1355,13 +1355,13 @@
     ]
   },
   {
-    "input": "As part of a structural characterization of PDB entry `1A3N`, we need to quantify its secondary structure composition. Using the DSSP algorithm, please analyze the structure and determine the total number of distinct beta sheets. Note that a single sheet can be formed by multiple strands. Return the total count of sheets as an integer. Format: `<answer>int</answer>`.",
+    "input": "As part of a structural characterization of PDB entry `1A3N`, we need to quantify its secondary structure composition. Using the DSSP algorithm, please analyze the complete structure (all chains) and determine the total number of beta strand residues across the entire complex. Beta strands are individual secondary structure elements marked as 'E' (extended) in DSSP output. Return the total count of beta strand residues as an integer. Format: `<answer>int</answer>`.",
     "target": "0",
     "metadata": {
       "task_name": "E7_PDB_Secondary_Structure",
       "variant": "variant_1",
       "difficulty": "E",
-      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_files/E7_PDB_Secondary_Structure_compose.yaml",
+      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_gboxo.yaml",
       "dependencies": {
         "task_name": "E7_PDB_Secondary_Structure",
         "python_imports": [
@@ -1406,13 +1406,13 @@
     ]
   },
   {
-    "input": "As part of a structural characterization of PDB entry `2LYZ`, we need to quantify its secondary structure composition. Using the DSSP algorithm, please analyze the structure and determine the total number of distinct beta sheets. Note that a single sheet can be formed by multiple strands. Return the total count of sheets as an integer. Format: `<answer>int</answer>`.",
-    "target": "0",
+    "input": "As part of a structural characterization of PDB entry `2LYZ`, we need to quantify its secondary structure composition. Using the DSSP algorithm, please analyze the complete structure (all chains) and determine the total number of beta strand residues across the entire complex. Beta strands are individual secondary structure elements marked as 'E' (extended) in DSSP output. Return the total count of beta strand residues as an integer. Format: `<answer>int</answer>`.",
+    "target": "8",
     "metadata": {
       "task_name": "E7_PDB_Secondary_Structure",
       "variant": "variant_2",
       "difficulty": "E",
-      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_files/E7_PDB_Secondary_Structure_compose.yaml",
+      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_gboxo.yaml",
       "dependencies": {
         "task_name": "E7_PDB_Secondary_Structure",
         "python_imports": [
@@ -1457,13 +1457,13 @@
     ]
   },
   {
-    "input": "As part of a structural characterization of PDB entry `1UBQ`, we need to quantify its secondary structure composition. Using the DSSP algorithm, please analyze the structure and determine the total number of distinct beta sheets. Note that a single sheet can be formed by multiple strands. Return the total count of sheets as an integer. Format: `<answer>int</answer>`.",
-    "target": "0",
+    "input": "As part of a structural characterization of PDB entry `1UBQ`, we need to quantify its secondary structure composition. Using the DSSP algorithm, please analyze the complete structure (all chains) and determine the total number of beta strand residues across the entire complex. Beta strands are individual secondary structure elements marked as 'E' (extended) in DSSP output. Return the total count of beta strand residues as an integer. Format: `<answer>int</answer>`.",
+    "target": "24",
     "metadata": {
       "task_name": "E7_PDB_Secondary_Structure",
       "variant": "variant_3",
       "difficulty": "E",
-      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_files/E7_PDB_Secondary_Structure_compose.yaml",
+      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_gboxo.yaml",
       "dependencies": {
         "task_name": "E7_PDB_Secondary_Structure",
         "python_imports": [
@@ -1508,13 +1508,13 @@
     ]
   },
   {
-    "input": "As part of a structural characterization of PDB entry `1HTM`, we need to quantify its secondary structure composition. Using the DSSP algorithm, please analyze the structure and determine the total number of distinct beta sheets. Note that a single sheet can be formed by multiple strands. Return the total count of sheets as an integer. Format: `<answer>int</answer>`.",
-    "target": "0",
+    "input": "As part of a structural characterization of PDB entry `1HTM`, we need to quantify its secondary structure composition. Using the DSSP algorithm, please analyze the complete structure (all chains) and determine the total number of beta strand residues across the entire complex. Beta strands are individual secondary structure elements marked as 'E' (extended) in DSSP output. Return the total count of beta strand residues as an integer. Format: `<answer>int</answer>`.",
+    "target": "27",
     "metadata": {
       "task_name": "E7_PDB_Secondary_Structure",
       "variant": "variant_4",
       "difficulty": "E",
-      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_files/E7_PDB_Secondary_Structure_compose.yaml",
+      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_gboxo.yaml",
       "dependencies": {
         "task_name": "E7_PDB_Secondary_Structure",
         "python_imports": [
@@ -1559,13 +1559,13 @@
     ]
   },
   {
-    "input": "As part of a structural characterization of PDB entry `1CRN`, we need to quantify its secondary structure composition. Using the DSSP algorithm, please analyze the structure and determine the total number of distinct beta sheets. Note that a single sheet can be formed by multiple strands. Return the total count of sheets as an integer. Format: `<answer>int</answer>`.",
-    "target": "0",
+    "input": "As part of a structural characterization of PDB entry `1CRN`, we need to quantify its secondary structure composition. Using the DSSP algorithm, please analyze the complete structure (all chains) and determine the total number of beta strand residues across the entire complex. Beta strands are individual secondary structure elements marked as 'E' (extended) in DSSP output. Return the total count of beta strand residues as an integer. Format: `<answer>int</answer>`.",
+    "target": "4",
     "metadata": {
       "task_name": "E7_PDB_Secondary_Structure",
       "variant": "variant_5",
       "difficulty": "E",
-      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_files/E7_PDB_Secondary_Structure_compose.yaml",
+      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_gboxo.yaml",
       "dependencies": {
         "task_name": "E7_PDB_Secondary_Structure",
         "python_imports": [
@@ -1616,7 +1616,7 @@
       "task_name": "E8_Hydrophobic_Residue_Percentage",
       "variant": "variant_1",
       "difficulty": "E",
-      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_files/E8_Hydrophobic_Residue_Percentage_compose.yaml",
+      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_gboxo.yaml",
       "dependencies": {
         "task_name": "E8_Hydrophobic_Residue_Percentage",
         "python_imports": [
@@ -1662,7 +1662,7 @@
       "task_name": "E8_Hydrophobic_Residue_Percentage",
       "variant": "variant_2",
       "difficulty": "E",
-      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_files/E8_Hydrophobic_Residue_Percentage_compose.yaml",
+      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_gboxo.yaml",
       "dependencies": {
         "task_name": "E8_Hydrophobic_Residue_Percentage",
         "python_imports": [
@@ -1708,7 +1708,7 @@
       "task_name": "E8_Hydrophobic_Residue_Percentage",
       "variant": "variant_3",
       "difficulty": "E",
-      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_files/E8_Hydrophobic_Residue_Percentage_compose.yaml",
+      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_gboxo.yaml",
       "dependencies": {
         "task_name": "E8_Hydrophobic_Residue_Percentage",
         "python_imports": [
@@ -1754,7 +1754,7 @@
       "task_name": "E8_Hydrophobic_Residue_Percentage",
       "variant": "variant_4",
       "difficulty": "E",
-      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_files/E8_Hydrophobic_Residue_Percentage_compose.yaml",
+      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_gboxo.yaml",
       "dependencies": {
         "task_name": "E8_Hydrophobic_Residue_Percentage",
         "python_imports": [
@@ -1800,7 +1800,7 @@
       "task_name": "E8_Hydrophobic_Residue_Percentage",
       "variant": "variant_5",
       "difficulty": "E",
-      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_files/E8_Hydrophobic_Residue_Percentage_compose.yaml",
+      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_gboxo.yaml",
       "dependencies": {
         "task_name": "E8_Hydrophobic_Residue_Percentage",
         "python_imports": [
@@ -1846,7 +1846,7 @@
       "task_name": "E9_PDB_Ligand_Identification",
       "variant": "variant_1",
       "difficulty": "E",
-      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_files/E9_PDB_Ligand_Identification_compose.yaml",
+      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_gboxo.yaml",
       "dependencies": {
         "task_name": "E9_PDB_Ligand_Identification",
         "python_imports": [
@@ -1890,7 +1890,7 @@
       "task_name": "E9_PDB_Ligand_Identification",
       "variant": "variant_2",
       "difficulty": "E",
-      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_files/E9_PDB_Ligand_Identification_compose.yaml",
+      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_gboxo.yaml",
       "dependencies": {
         "task_name": "E9_PDB_Ligand_Identification",
         "python_imports": [
@@ -1934,7 +1934,7 @@
       "task_name": "E9_PDB_Ligand_Identification",
       "variant": "variant_3",
       "difficulty": "E",
-      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_files/E9_PDB_Ligand_Identification_compose.yaml",
+      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_gboxo.yaml",
       "dependencies": {
         "task_name": "E9_PDB_Ligand_Identification",
         "python_imports": [
@@ -1978,7 +1978,7 @@
       "task_name": "E9_PDB_Ligand_Identification",
       "variant": "variant_4",
       "difficulty": "E",
-      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_files/E9_PDB_Ligand_Identification_compose.yaml",
+      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_gboxo.yaml",
       "dependencies": {
         "task_name": "E9_PDB_Ligand_Identification",
         "python_imports": [
@@ -2022,7 +2022,7 @@
       "task_name": "E9_PDB_Ligand_Identification",
       "variant": "variant_5",
       "difficulty": "E",
-      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_files/E9_PDB_Ligand_Identification_compose.yaml",
+      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_gboxo.yaml",
       "dependencies": {
         "task_name": "E9_PDB_Ligand_Identification",
         "python_imports": [
@@ -2066,7 +2066,7 @@
       "task_name": "E10_Gene_Ontology_Terms",
       "variant": "variant_1",
       "difficulty": "E",
-      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_files/E10_Gene_Ontology_Terms_compose.yaml",
+      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_gboxo.yaml",
       "dependencies": {
         "task_name": "E10_Gene_Ontology_Terms",
         "python_imports": [
@@ -2110,7 +2110,7 @@
       "task_name": "E10_Gene_Ontology_Terms",
       "variant": "variant_2",
       "difficulty": "E",
-      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_files/E10_Gene_Ontology_Terms_compose.yaml",
+      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_gboxo.yaml",
       "dependencies": {
         "task_name": "E10_Gene_Ontology_Terms",
         "python_imports": [
@@ -2154,7 +2154,7 @@
       "task_name": "E10_Gene_Ontology_Terms",
       "variant": "variant_3",
       "difficulty": "E",
-      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_files/E10_Gene_Ontology_Terms_compose.yaml",
+      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_gboxo.yaml",
       "dependencies": {
         "task_name": "E10_Gene_Ontology_Terms",
         "python_imports": [
@@ -2198,7 +2198,7 @@
       "task_name": "E10_Gene_Ontology_Terms",
       "variant": "variant_4",
       "difficulty": "E",
-      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_files/E10_Gene_Ontology_Terms_compose.yaml",
+      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_gboxo.yaml",
       "dependencies": {
         "task_name": "E10_Gene_Ontology_Terms",
         "python_imports": [
@@ -2242,7 +2242,7 @@
       "task_name": "E10_Gene_Ontology_Terms",
       "variant": "variant_5",
       "difficulty": "E",
-      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_files/E10_Gene_Ontology_Terms_compose.yaml",
+      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_gboxo.yaml",
       "dependencies": {
         "task_name": "E10_Gene_Ontology_Terms",
         "python_imports": [
@@ -2286,7 +2286,7 @@
       "task_name": "M1_MSA_Conservation_Score",
       "variant": "variant_1",
       "difficulty": "M",
-      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_files/M1_MSA_Conservation_Score_compose.yaml",
+      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_gboxo.yaml",
       "dependencies": {
         "task_name": "M1_MSA_Conservation_Score",
         "python_imports": [
@@ -2342,7 +2342,7 @@
       "task_name": "M1_MSA_Conservation_Score",
       "variant": "variant_2",
       "difficulty": "M",
-      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_files/M1_MSA_Conservation_Score_compose.yaml",
+      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_gboxo.yaml",
       "dependencies": {
         "task_name": "M1_MSA_Conservation_Score",
         "python_imports": [
@@ -2398,7 +2398,7 @@
       "task_name": "M1_MSA_Conservation_Score",
       "variant": "variant_3",
       "difficulty": "M",
-      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_files/M1_MSA_Conservation_Score_compose.yaml",
+      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_gboxo.yaml",
       "dependencies": {
         "task_name": "M1_MSA_Conservation_Score",
         "python_imports": [
@@ -2454,7 +2454,7 @@
       "task_name": "M1_MSA_Conservation_Score",
       "variant": "variant_4",
       "difficulty": "M",
-      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_files/M1_MSA_Conservation_Score_compose.yaml",
+      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_gboxo.yaml",
       "dependencies": {
         "task_name": "M1_MSA_Conservation_Score",
         "python_imports": [
@@ -2510,7 +2510,7 @@
       "task_name": "M1_MSA_Conservation_Score",
       "variant": "variant_5",
       "difficulty": "M",
-      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_files/M1_MSA_Conservation_Score_compose.yaml",
+      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_gboxo.yaml",
       "dependencies": {
         "task_name": "M1_MSA_Conservation_Score",
         "python_imports": [
@@ -2566,7 +2566,7 @@
       "task_name": "M2_Phylogenetic_Distance",
       "variant": "variant_1",
       "difficulty": "M",
-      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_files/M2_Phylogenetic_Distance_compose.yaml",
+      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_gboxo.yaml",
       "dependencies": {
         "task_name": "M2_Phylogenetic_Distance",
         "python_imports": [
@@ -2615,7 +2615,7 @@
       "task_name": "M2_Phylogenetic_Distance",
       "variant": "variant_2",
       "difficulty": "M",
-      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_files/M2_Phylogenetic_Distance_compose.yaml",
+      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_gboxo.yaml",
       "dependencies": {
         "task_name": "M2_Phylogenetic_Distance",
         "python_imports": [
@@ -2664,7 +2664,7 @@
       "task_name": "M2_Phylogenetic_Distance",
       "variant": "variant_3",
       "difficulty": "M",
-      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_files/M2_Phylogenetic_Distance_compose.yaml",
+      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_gboxo.yaml",
       "dependencies": {
         "task_name": "M2_Phylogenetic_Distance",
         "python_imports": [
@@ -2713,7 +2713,7 @@
       "task_name": "M2_Phylogenetic_Distance",
       "variant": "variant_4",
       "difficulty": "M",
-      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_files/M2_Phylogenetic_Distance_compose.yaml",
+      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_gboxo.yaml",
       "dependencies": {
         "task_name": "M2_Phylogenetic_Distance",
         "python_imports": [
@@ -2762,7 +2762,7 @@
       "task_name": "M2_Phylogenetic_Distance",
       "variant": "variant_5",
       "difficulty": "M",
-      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_files/M2_Phylogenetic_Distance_compose.yaml",
+      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_gboxo.yaml",
       "dependencies": {
         "task_name": "M2_Phylogenetic_Distance",
         "python_imports": [
@@ -2811,7 +2811,7 @@
       "task_name": "M3_Structural_Alignment_RMSD",
       "variant": "variant_1",
       "difficulty": "M",
-      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_files/M3_Structural_Alignment_RMSD_compose.yaml",
+      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_gboxo.yaml",
       "dependencies": {
         "task_name": "M3_Structural_Alignment_RMSD",
         "python_imports": [
@@ -2855,7 +2855,7 @@
       "task_name": "M3_Structural_Alignment_RMSD",
       "variant": "variant_2",
       "difficulty": "M",
-      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_files/M3_Structural_Alignment_RMSD_compose.yaml",
+      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_gboxo.yaml",
       "dependencies": {
         "task_name": "M3_Structural_Alignment_RMSD",
         "python_imports": [
@@ -2899,7 +2899,7 @@
       "task_name": "M3_Structural_Alignment_RMSD",
       "variant": "variant_3",
       "difficulty": "M",
-      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_files/M3_Structural_Alignment_RMSD_compose.yaml",
+      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_gboxo.yaml",
       "dependencies": {
         "task_name": "M3_Structural_Alignment_RMSD",
         "python_imports": [
@@ -2943,7 +2943,7 @@
       "task_name": "M3_Structural_Alignment_RMSD",
       "variant": "variant_4",
       "difficulty": "M",
-      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_files/M3_Structural_Alignment_RMSD_compose.yaml",
+      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_gboxo.yaml",
       "dependencies": {
         "task_name": "M3_Structural_Alignment_RMSD",
         "python_imports": [
@@ -2987,7 +2987,7 @@
       "task_name": "M3_Structural_Alignment_RMSD",
       "variant": "variant_5",
       "difficulty": "M",
-      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_files/M3_Structural_Alignment_RMSD_compose.yaml",
+      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_gboxo.yaml",
       "dependencies": {
         "task_name": "M3_Structural_Alignment_RMSD",
         "python_imports": [
@@ -3031,7 +3031,7 @@
       "task_name": "M4_Domain_Architecture",
       "variant": "variant_1",
       "difficulty": "M",
-      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_files/M4_Domain_Architecture_compose.yaml",
+      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_gboxo.yaml",
       "dependencies": {
         "task_name": "M4_Domain_Architecture",
         "python_imports": [
@@ -3080,7 +3080,7 @@
       "task_name": "M4_Domain_Architecture",
       "variant": "variant_2",
       "difficulty": "M",
-      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_files/M4_Domain_Architecture_compose.yaml",
+      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_gboxo.yaml",
       "dependencies": {
         "task_name": "M4_Domain_Architecture",
         "python_imports": [
@@ -3129,7 +3129,7 @@
       "task_name": "M4_Domain_Architecture",
       "variant": "variant_3",
       "difficulty": "M",
-      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_files/M4_Domain_Architecture_compose.yaml",
+      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_gboxo.yaml",
       "dependencies": {
         "task_name": "M4_Domain_Architecture",
         "python_imports": [
@@ -3178,7 +3178,7 @@
       "task_name": "M4_Domain_Architecture",
       "variant": "variant_4",
       "difficulty": "M",
-      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_files/M4_Domain_Architecture_compose.yaml",
+      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_gboxo.yaml",
       "dependencies": {
         "task_name": "M4_Domain_Architecture",
         "python_imports": [
@@ -3227,7 +3227,7 @@
       "task_name": "M4_Domain_Architecture",
       "variant": "variant_5",
       "difficulty": "M",
-      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_files/M4_Domain_Architecture_compose.yaml",
+      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_gboxo.yaml",
       "dependencies": {
         "task_name": "M4_Domain_Architecture",
         "python_imports": [
@@ -3276,7 +3276,7 @@
       "task_name": "M5_Codon_Usage_Analysis",
       "variant": "variant_1",
       "difficulty": "M",
-      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_files/M5_Codon_Usage_Analysis_compose.yaml",
+      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_gboxo.yaml",
       "dependencies": {
         "task_name": "M5_Codon_Usage_Analysis",
         "python_imports": [
@@ -3330,7 +3330,7 @@
       "task_name": "M5_Codon_Usage_Analysis",
       "variant": "variant_2",
       "difficulty": "M",
-      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_files/M5_Codon_Usage_Analysis_compose.yaml",
+      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_gboxo.yaml",
       "dependencies": {
         "task_name": "M5_Codon_Usage_Analysis",
         "python_imports": [
@@ -3384,7 +3384,7 @@
       "task_name": "M5_Codon_Usage_Analysis",
       "variant": "variant_3",
       "difficulty": "M",
-      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_files/M5_Codon_Usage_Analysis_compose.yaml",
+      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_gboxo.yaml",
       "dependencies": {
         "task_name": "M5_Codon_Usage_Analysis",
         "python_imports": [
@@ -3438,7 +3438,7 @@
       "task_name": "M5_Codon_Usage_Analysis",
       "variant": "variant_4",
       "difficulty": "M",
-      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_files/M5_Codon_Usage_Analysis_compose.yaml",
+      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_gboxo.yaml",
       "dependencies": {
         "task_name": "M5_Codon_Usage_Analysis",
         "python_imports": [
@@ -3492,7 +3492,7 @@
       "task_name": "M5_Codon_Usage_Analysis",
       "variant": "variant_5",
       "difficulty": "M",
-      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_files/M5_Codon_Usage_Analysis_compose.yaml",
+      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_gboxo.yaml",
       "dependencies": {
         "task_name": "M5_Codon_Usage_Analysis",
         "python_imports": [
@@ -3546,7 +3546,7 @@
       "task_name": "M6_Transmembrane_Prediction",
       "variant": "variant_1",
       "difficulty": "M",
-      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_files/M6_Transmembrane_Prediction_compose.yaml",
+      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_gboxo.yaml",
       "dependencies": {
         "task_name": "M6_Transmembrane_Prediction",
         "python_imports": [
@@ -3599,7 +3599,7 @@
       "task_name": "M6_Transmembrane_Prediction",
       "variant": "variant_2",
       "difficulty": "M",
-      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_files/M6_Transmembrane_Prediction_compose.yaml",
+      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_gboxo.yaml",
       "dependencies": {
         "task_name": "M6_Transmembrane_Prediction",
         "python_imports": [
@@ -3652,7 +3652,7 @@
       "task_name": "M6_Transmembrane_Prediction",
       "variant": "variant_3",
       "difficulty": "M",
-      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_files/M6_Transmembrane_Prediction_compose.yaml",
+      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_gboxo.yaml",
       "dependencies": {
         "task_name": "M6_Transmembrane_Prediction",
         "python_imports": [
@@ -3705,7 +3705,7 @@
       "task_name": "M6_Transmembrane_Prediction",
       "variant": "variant_4",
       "difficulty": "M",
-      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_files/M6_Transmembrane_Prediction_compose.yaml",
+      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_gboxo.yaml",
       "dependencies": {
         "task_name": "M6_Transmembrane_Prediction",
         "python_imports": [
@@ -3758,7 +3758,7 @@
       "task_name": "M6_Transmembrane_Prediction",
       "variant": "variant_5",
       "difficulty": "M",
-      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_files/M6_Transmembrane_Prediction_compose.yaml",
+      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_gboxo.yaml",
       "dependencies": {
         "task_name": "M6_Transmembrane_Prediction",
         "python_imports": [
@@ -3811,7 +3811,7 @@
       "task_name": "M9_Splice_Site_Prediction",
       "variant": "variant_1",
       "difficulty": "M",
-      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_files/M9_Splice_Site_Prediction_compose.yaml",
+      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_gboxo.yaml",
       "dependencies": {
         "task_name": "M9_Splice_Site_Prediction",
         "python_imports": [
@@ -3855,7 +3855,7 @@
       "task_name": "M9_Splice_Site_Prediction",
       "variant": "variant_2",
       "difficulty": "M",
-      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_files/M9_Splice_Site_Prediction_compose.yaml",
+      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_gboxo.yaml",
       "dependencies": {
         "task_name": "M9_Splice_Site_Prediction",
         "python_imports": [
@@ -3899,7 +3899,7 @@
       "task_name": "M9_Splice_Site_Prediction",
       "variant": "variant_3",
       "difficulty": "M",
-      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_files/M9_Splice_Site_Prediction_compose.yaml",
+      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_gboxo.yaml",
       "dependencies": {
         "task_name": "M9_Splice_Site_Prediction",
         "python_imports": [
@@ -3943,7 +3943,7 @@
       "task_name": "M9_Splice_Site_Prediction",
       "variant": "variant_4",
       "difficulty": "M",
-      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_files/M9_Splice_Site_Prediction_compose.yaml",
+      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_gboxo.yaml",
       "dependencies": {
         "task_name": "M9_Splice_Site_Prediction",
         "python_imports": [
@@ -3987,7 +3987,7 @@
       "task_name": "M9_Splice_Site_Prediction",
       "variant": "variant_5",
       "difficulty": "M",
-      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_files/M9_Splice_Site_Prediction_compose.yaml",
+      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_gboxo.yaml",
       "dependencies": {
         "task_name": "M9_Splice_Site_Prediction",
         "python_imports": [
@@ -4025,13 +4025,13 @@
     ]
   },
   {
-    "input": "We are analyzing a Deep Mutational Scanning dataset from the file corresponding to `ProteinGym_DMS:B2L11_HUMAN_Dutta_2010_binding-Mcl-1` to find functionally sensitive positions. A 'hotspot' is a position where over 50% of mutations cause a fitness loss to <0.33. Please identify all hotspots, then find the 10 with the lowest average fitness. Return these 10 positions as a comma-separated string, sorted from lowest to highest average fitness. Format: `<answer>str</answer>`.",
+    "input": "We are analyzing a Deep Mutational Scanning dataset from the file corresponding to `ProteinGym_DMS:B2L11_HUMAN_Dutta_2010_binding-Mcl-1` to find functionally sensitive positions. First, normalize the DMS scores using Z-score standardization (subtract mean, divide by standard deviation). A 'hotspot' is a position where over 50% of mutations have Z-scores below -1.0 (indicating significantly reduced fitness). Please identify all hotspots, then find the 10 with the lowest average Z-score. Return these 10 positions as a comma-separated string, sorted from lowest to highest average Z-score. Format: `<answer>str</answer>`.",
     "target": "156,157,152,155,151,158,149,153,148",
     "metadata": {
       "task_name": "H1_DMS_Hotspot_Analysis",
       "variant": "variant_1",
       "difficulty": "H",
-      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_files/H1_DMS_Hotspot_Analysis_compose.yaml",
+      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_gboxo.yaml",
       "dependencies": {
         "task_name": "H1_DMS_Hotspot_Analysis",
         "python_imports": [
@@ -4068,13 +4068,13 @@
     ]
   },
   {
-    "input": "We are analyzing a Deep Mutational Scanning dataset from the file corresponding to `ProteinGym_DMS:HIS7_YEAST_Pokusaeva_2019` to find functionally sensitive positions. A 'hotspot' is a position where over 50% of mutations cause a fitness loss to <0.33. Please identify all hotspots, then find the 10 with the lowest average fitness. Return these 10 positions as a comma-separated string, sorted from lowest to highest average fitness. Format: `<answer>str</answer>`.",
+    "input": "We are analyzing a Deep Mutational Scanning dataset from the file corresponding to `ProteinGym_DMS:HIS7_YEAST_Pokusaeva_2019` to find functionally sensitive positions. First, normalize the DMS scores using Z-score standardization (subtract mean, divide by standard deviation). A 'hotspot' is a position where over 50% of mutations have Z-scores below -1.0 (indicating significantly reduced fitness). Please identify all hotspots, then find the 10 with the lowest average Z-score. Return these 10 positions as a comma-separated string, sorted from lowest to highest average Z-score. Format: `<answer>str</answer>`.",
     "target": "12,15,64,65,101,162,75,190,194,138",
     "metadata": {
       "task_name": "H1_DMS_Hotspot_Analysis",
       "variant": "variant_2",
       "difficulty": "H",
-      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_files/H1_DMS_Hotspot_Analysis_compose.yaml",
+      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_gboxo.yaml",
       "dependencies": {
         "task_name": "H1_DMS_Hotspot_Analysis",
         "python_imports": [
@@ -4111,13 +4111,13 @@
     ]
   },
   {
-    "input": "We are analyzing a Deep Mutational Scanning dataset from the file corresponding to `ProteinGym_DMS:ODP2_GEOSE_Tsuboyama_2023_1W4G` to find functionally sensitive positions. A 'hotspot' is a position where over 50% of mutations cause a fitness loss to <0.33. Please identify all hotspots, then find the 10 with the lowest average fitness. Return these 10 positions as a comma-separated string, sorted from lowest to highest average fitness. Format: `<answer>str</answer>`.",
+    "input": "We are analyzing a Deep Mutational Scanning dataset from the file corresponding to `ProteinGym_DMS:ODP2_GEOSE_Tsuboyama_2023_1W4G` to find functionally sensitive positions. First, normalize the DMS scores using Z-score standardization (subtract mean, divide by standard deviation). A 'hotspot' is a position where over 50% of mutations have Z-scores below -1.0 (indicating significantly reduced fitness). Please identify all hotspots, then find the 10 with the lowest average Z-score. Return these 10 positions as a comma-separated string, sorted from lowest to highest average Z-score. Format: `<answer>str</answer>`.",
     "target": "28,27,26,14",
     "metadata": {
       "task_name": "H1_DMS_Hotspot_Analysis",
       "variant": "variant_3",
       "difficulty": "H",
-      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_files/H1_DMS_Hotspot_Analysis_compose.yaml",
+      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_gboxo.yaml",
       "dependencies": {
         "task_name": "H1_DMS_Hotspot_Analysis",
         "python_imports": [
@@ -4154,13 +4154,13 @@
     ]
   },
   {
-    "input": "We are analyzing a Deep Mutational Scanning dataset from the file corresponding to `ProteinGym_DMS:POLG_CXB3N_Mattenberger_2021` to find functionally sensitive positions. A 'hotspot' is a position where over 50% of mutations cause a fitness loss to <0.33. Please identify all hotspots, then find the 10 with the lowest average fitness. Return these 10 positions as a comma-separated string, sorted from lowest to highest average fitness. Format: `<answer>str</answer>`.",
+    "input": "We are analyzing a Deep Mutational Scanning dataset from the file corresponding to `ProteinGym_DMS:POLG_CXB3N_Mattenberger_2021` to find functionally sensitive positions. First, normalize the DMS scores using Z-score standardization (subtract mean, divide by standard deviation). A 'hotspot' is a position where over 50% of mutations have Z-scores below -1.0 (indicating significantly reduced fitness). Please identify all hotspots, then find the 10 with the lowest average Z-score. Return these 10 positions as a comma-separated string, sorted from lowest to highest average Z-score. Format: `<answer>str</answer>`.",
     "target": "1,35,325,95,127,131,120,352,313,335",
     "metadata": {
       "task_name": "H1_DMS_Hotspot_Analysis",
       "variant": "variant_4",
       "difficulty": "H",
-      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_files/H1_DMS_Hotspot_Analysis_compose.yaml",
+      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_gboxo.yaml",
       "dependencies": {
         "task_name": "H1_DMS_Hotspot_Analysis",
         "python_imports": [
@@ -4197,13 +4197,13 @@
     ]
   },
   {
-    "input": "We are analyzing a Deep Mutational Scanning dataset from the file corresponding to `ProteinGym_DMS:Q837P5_ENTFA_Meier_2023` to find functionally sensitive positions. A 'hotspot' is a position where over 50% of mutations cause a fitness loss to <0.33. Please identify all hotspots, then find the 10 with the lowest average fitness. Return these 10 positions as a comma-separated string, sorted from lowest to highest average fitness. Format: `<answer>str</answer>`.",
+    "input": "We are analyzing a Deep Mutational Scanning dataset from the file corresponding to `ProteinGym_DMS:Q837P5_ENTFA_Meier_2023` to find functionally sensitive positions. First, normalize the DMS scores using Z-score standardization (subtract mean, divide by standard deviation). A 'hotspot' is a position where over 50% of mutations have Z-scores below -1.0 (indicating significantly reduced fitness). Please identify all hotspots, then find the 10 with the lowest average Z-score. Return these 10 positions as a comma-separated string, sorted from lowest to highest average Z-score. Format: `<answer>str</answer>`.",
     "target": "NO_HOTSPOTS",
     "metadata": {
       "task_name": "H1_DMS_Hotspot_Analysis",
       "variant": "variant_5",
       "difficulty": "H",
-      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_files/H1_DMS_Hotspot_Analysis_compose.yaml",
+      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_gboxo.yaml",
       "dependencies": {
         "task_name": "H1_DMS_Hotspot_Analysis",
         "python_imports": [
@@ -4246,7 +4246,7 @@
       "task_name": "H3_Evolutionary_Rate_Analysis",
       "variant": "variant_1",
       "difficulty": "H",
-      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_files/H3_Evolutionary_Rate_Analysis_compose.yaml",
+      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_gboxo.yaml",
       "dependencies": {
         "task_name": "H3_Evolutionary_Rate_Analysis",
         "python_imports": [
@@ -4323,7 +4323,7 @@
       "task_name": "H3_Evolutionary_Rate_Analysis",
       "variant": "variant_2",
       "difficulty": "H",
-      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_files/H3_Evolutionary_Rate_Analysis_compose.yaml",
+      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_gboxo.yaml",
       "dependencies": {
         "task_name": "H3_Evolutionary_Rate_Analysis",
         "python_imports": [
@@ -4400,7 +4400,7 @@
       "task_name": "H3_Evolutionary_Rate_Analysis",
       "variant": "variant_3",
       "difficulty": "H",
-      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_files/H3_Evolutionary_Rate_Analysis_compose.yaml",
+      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_gboxo.yaml",
       "dependencies": {
         "task_name": "H3_Evolutionary_Rate_Analysis",
         "python_imports": [
@@ -4477,7 +4477,7 @@
       "task_name": "H3_Evolutionary_Rate_Analysis",
       "variant": "variant_4",
       "difficulty": "H",
-      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_files/H3_Evolutionary_Rate_Analysis_compose.yaml",
+      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_gboxo.yaml",
       "dependencies": {
         "task_name": "H3_Evolutionary_Rate_Analysis",
         "python_imports": [
@@ -4554,7 +4554,7 @@
       "task_name": "H3_Evolutionary_Rate_Analysis",
       "variant": "variant_5",
       "difficulty": "H",
-      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_files/H3_Evolutionary_Rate_Analysis_compose.yaml",
+      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_gboxo.yaml",
       "dependencies": {
         "task_name": "H3_Evolutionary_Rate_Analysis",
         "python_imports": [
@@ -4631,7 +4631,7 @@
       "task_name": "H4_Protein_Complex_Interface",
       "variant": "variant_1",
       "difficulty": "H",
-      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_files/H4_Protein_Complex_Interface_compose.yaml",
+      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_gboxo.yaml",
       "dependencies": {
         "task_name": "H4_Protein_Complex_Interface",
         "python_imports": [
@@ -4676,7 +4676,7 @@
       "task_name": "H4_Protein_Complex_Interface",
       "variant": "variant_2",
       "difficulty": "H",
-      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_files/H4_Protein_Complex_Interface_compose.yaml",
+      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_gboxo.yaml",
       "dependencies": {
         "task_name": "H4_Protein_Complex_Interface",
         "python_imports": [
@@ -4721,7 +4721,7 @@
       "task_name": "H4_Protein_Complex_Interface",
       "variant": "variant_3",
       "difficulty": "H",
-      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_files/H4_Protein_Complex_Interface_compose.yaml",
+      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_gboxo.yaml",
       "dependencies": {
         "task_name": "H4_Protein_Complex_Interface",
         "python_imports": [
@@ -4766,7 +4766,7 @@
       "task_name": "H4_Protein_Complex_Interface",
       "variant": "variant_4",
       "difficulty": "H",
-      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_files/H4_Protein_Complex_Interface_compose.yaml",
+      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_gboxo.yaml",
       "dependencies": {
         "task_name": "H4_Protein_Complex_Interface",
         "python_imports": [
@@ -4811,7 +4811,7 @@
       "task_name": "H4_Protein_Complex_Interface",
       "variant": "variant_5",
       "difficulty": "H",
-      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_files/H4_Protein_Complex_Interface_compose.yaml",
+      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_gboxo.yaml",
       "dependencies": {
         "task_name": "H4_Protein_Complex_Interface",
         "python_imports": [
@@ -4856,7 +4856,7 @@
       "task_name": "H5_Functional_Site_Conservation",
       "variant": "variant_1",
       "difficulty": "H",
-      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_files/H5_Functional_Site_Conservation_compose.yaml",
+      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_gboxo.yaml",
       "dependencies": {
         "task_name": "H5_Functional_Site_Conservation",
         "python_imports": [
@@ -4937,7 +4937,7 @@
       "task_name": "H5_Functional_Site_Conservation",
       "variant": "variant_2",
       "difficulty": "H",
-      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_files/H5_Functional_Site_Conservation_compose.yaml",
+      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_gboxo.yaml",
       "dependencies": {
         "task_name": "H5_Functional_Site_Conservation",
         "python_imports": [
@@ -5017,7 +5017,7 @@
       "task_name": "H5_Functional_Site_Conservation",
       "variant": "variant_3",
       "difficulty": "H",
-      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_files/H5_Functional_Site_Conservation_compose.yaml",
+      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_gboxo.yaml",
       "dependencies": {
         "task_name": "H5_Functional_Site_Conservation",
         "python_imports": [
@@ -5098,7 +5098,7 @@
       "task_name": "H5_Functional_Site_Conservation",
       "variant": "variant_4",
       "difficulty": "H",
-      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_files/H5_Functional_Site_Conservation_compose.yaml",
+      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_gboxo.yaml",
       "dependencies": {
         "task_name": "H5_Functional_Site_Conservation",
         "python_imports": [
@@ -5178,7 +5178,7 @@
       "task_name": "H5_Functional_Site_Conservation",
       "variant": "variant_5",
       "difficulty": "H",
-      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_files/H5_Functional_Site_Conservation_compose.yaml",
+      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_gboxo.yaml",
       "dependencies": {
         "task_name": "H5_Functional_Site_Conservation",
         "python_imports": [
@@ -5258,7 +5258,7 @@
       "task_name": "H7_Epistasis_Network_Analysis",
       "variant": "variant_1",
       "difficulty": "H",
-      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_files/H7_Epistasis_Network_Analysis_compose.yaml",
+      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_gboxo.yaml",
       "dependencies": {
         "task_name": "H7_Epistasis_Network_Analysis",
         "python_imports": [
@@ -5297,7 +5297,7 @@
       "task_name": "H7_Epistasis_Network_Analysis",
       "variant": "variant_2",
       "difficulty": "H",
-      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_files/H7_Epistasis_Network_Analysis_compose.yaml",
+      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_gboxo.yaml",
       "dependencies": {
         "task_name": "H7_Epistasis_Network_Analysis",
         "python_imports": [
@@ -5336,7 +5336,7 @@
       "task_name": "H7_Epistasis_Network_Analysis",
       "variant": "variant_3",
       "difficulty": "H",
-      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_files/H7_Epistasis_Network_Analysis_compose.yaml",
+      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_gboxo.yaml",
       "dependencies": {
         "task_name": "H7_Epistasis_Network_Analysis",
         "python_imports": [
@@ -5375,7 +5375,7 @@
       "task_name": "H7_Epistasis_Network_Analysis",
       "variant": "variant_4",
       "difficulty": "H",
-      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_files/H7_Epistasis_Network_Analysis_compose.yaml",
+      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_gboxo.yaml",
       "dependencies": {
         "task_name": "H7_Epistasis_Network_Analysis",
         "python_imports": [
@@ -5414,7 +5414,7 @@
       "task_name": "H7_Epistasis_Network_Analysis",
       "variant": "variant_5",
       "difficulty": "H",
-      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_files/H7_Epistasis_Network_Analysis_compose.yaml",
+      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_gboxo.yaml",
       "dependencies": {
         "task_name": "H7_Epistasis_Network_Analysis",
         "python_imports": [
@@ -5453,7 +5453,7 @@
       "task_name": "H8_Druggability_Assessment",
       "variant": "variant_1",
       "difficulty": "H",
-      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_files/H8_Druggability_Assessment_compose.yaml",
+      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_gboxo.yaml",
       "dependencies": {
         "task_name": "H8_Druggability_Assessment",
         "python_imports": [
@@ -5506,7 +5506,7 @@
       "task_name": "H8_Druggability_Assessment",
       "variant": "variant_2",
       "difficulty": "H",
-      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_files/H8_Druggability_Assessment_compose.yaml",
+      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_gboxo.yaml",
       "dependencies": {
         "task_name": "H8_Druggability_Assessment",
         "python_imports": [
@@ -5559,7 +5559,7 @@
       "task_name": "H8_Druggability_Assessment",
       "variant": "variant_3",
       "difficulty": "H",
-      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_files/H8_Druggability_Assessment_compose.yaml",
+      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_gboxo.yaml",
       "dependencies": {
         "task_name": "H8_Druggability_Assessment",
         "python_imports": [
@@ -5612,7 +5612,7 @@
       "task_name": "H8_Druggability_Assessment",
       "variant": "variant_4",
       "difficulty": "H",
-      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_files/H8_Druggability_Assessment_compose.yaml",
+      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_gboxo.yaml",
       "dependencies": {
         "task_name": "H8_Druggability_Assessment",
         "python_imports": [
@@ -5665,7 +5665,7 @@
       "task_name": "H8_Druggability_Assessment",
       "variant": "variant_5",
       "difficulty": "H",
-      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_files/H8_Druggability_Assessment_compose.yaml",
+      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_gboxo.yaml",
       "dependencies": {
         "task_name": "H8_Druggability_Assessment",
         "python_imports": [
@@ -5712,13 +5712,13 @@
     ]
   },
   {
-    "input": "To understand the solution dynamics of the NMR ensemble structure `2K39`, we will analyze its flexibility. Please calculate the per-residue Root Mean Square Fluctuation (RMSF) across all models. Then, identify the most flexible contiguous 5-residue region by finding the window with the highest average RMSF. Return the starting residue number of this region. Format: `<answer>int</answer>`.",
+    "input": "To understand the solution dynamics of the NMR ensemble structure `2K39`, we will analyze its flexibility. Please calculate the per-residue Root Mean Square Fluctuation (RMSF) across all models. Then, identify the most flexible contiguous 5-residue region by finding the window with the highest average RMSF. If multiple regions have identical maximum average RMSF values (ties), return all tied starting positions as a comma-separated string of integers, sorted in ascending order. If there is only one maximum region, return just that single residue number. Format: `<answer>str</answer>`.",
     "target": "72",
     "metadata": {
       "task_name": "H9_Conformational_Ensemble_Analysis",
       "variant": "variant_1",
       "difficulty": "H",
-      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_files/H9_Conformational_Ensemble_Analysis_compose.yaml",
+      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_gboxo.yaml",
       "dependencies": {
         "task_name": "H9_Conformational_Ensemble_Analysis",
         "python_imports": [
@@ -5761,13 +5761,13 @@
     ]
   },
   {
-    "input": "To understand the solution dynamics of the NMR ensemble structure `1D3Z`, we will analyze its flexibility. Please calculate the per-residue Root Mean Square Fluctuation (RMSF) across all models. Then, identify the most flexible contiguous 5-residue region by finding the window with the highest average RMSF. Return the starting residue number of this region. Format: `<answer>int</answer>`.",
+    "input": "To understand the solution dynamics of the NMR ensemble structure `1D3Z`, we will analyze its flexibility. Please calculate the per-residue Root Mean Square Fluctuation (RMSF) across all models. Then, identify the most flexible contiguous 5-residue region by finding the window with the highest average RMSF. If multiple regions have identical maximum average RMSF values (ties), return all tied starting positions as a comma-separated string of integers, sorted in ascending order. If there is only one maximum region, return just that single residue number. Format: `<answer>str</answer>`.",
     "target": "72",
     "metadata": {
       "task_name": "H9_Conformational_Ensemble_Analysis",
       "variant": "variant_2",
       "difficulty": "H",
-      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_files/H9_Conformational_Ensemble_Analysis_compose.yaml",
+      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_gboxo.yaml",
       "dependencies": {
         "task_name": "H9_Conformational_Ensemble_Analysis",
         "python_imports": [
@@ -5810,13 +5810,13 @@
     ]
   },
   {
-    "input": "To understand the solution dynamics of the NMR ensemble structure `2KJ3`, we will analyze its flexibility. Please calculate the per-residue Root Mean Square Fluctuation (RMSF) across all models. Then, identify the most flexible contiguous 5-residue region by finding the window with the highest average RMSF. Return the starting residue number of this region. Format: `<answer>int</answer>`.",
+    "input": "To understand the solution dynamics of the NMR ensemble structure `2KJ3`, we will analyze its flexibility. Please calculate the per-residue Root Mean Square Fluctuation (RMSF) across all models. Then, identify the most flexible contiguous 5-residue region by finding the window with the highest average RMSF. If multiple regions have identical maximum average RMSF values (ties), return all tied starting positions as a comma-separated string of integers, sorted in ascending order. If there is only one maximum region, return just that single residue number. Format: `<answer>str</answer>`.",
     "target": "291",
     "metadata": {
       "task_name": "H9_Conformational_Ensemble_Analysis",
       "variant": "variant_3",
       "difficulty": "H",
-      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_files/H9_Conformational_Ensemble_Analysis_compose.yaml",
+      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_gboxo.yaml",
       "dependencies": {
         "task_name": "H9_Conformational_Ensemble_Analysis",
         "python_imports": [
@@ -5859,13 +5859,13 @@
     ]
   },
   {
-    "input": "To understand the solution dynamics of the NMR ensemble structure `1L2Y`, we will analyze its flexibility. Please calculate the per-residue Root Mean Square Fluctuation (RMSF) across all models. Then, identify the most flexible contiguous 5-residue region by finding the window with the highest average RMSF. Return the starting residue number of this region. Format: `<answer>int</answer>`.",
+    "input": "To understand the solution dynamics of the NMR ensemble structure `1L2Y`, we will analyze its flexibility. Please calculate the per-residue Root Mean Square Fluctuation (RMSF) across all models. Then, identify the most flexible contiguous 5-residue region by finding the window with the highest average RMSF. If multiple regions have identical maximum average RMSF values (ties), return all tied starting positions as a comma-separated string of integers, sorted in ascending order. If there is only one maximum region, return just that single residue number. Format: `<answer>str</answer>`.",
     "target": "1",
     "metadata": {
       "task_name": "H9_Conformational_Ensemble_Analysis",
       "variant": "variant_4",
       "difficulty": "H",
-      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_files/H9_Conformational_Ensemble_Analysis_compose.yaml",
+      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_gboxo.yaml",
       "dependencies": {
         "task_name": "H9_Conformational_Ensemble_Analysis",
         "python_imports": [
@@ -5908,13 +5908,13 @@
     ]
   },
   {
-    "input": "To understand the solution dynamics of the NMR ensemble structure `2L0J`, we will analyze its flexibility. Please calculate the per-residue Root Mean Square Fluctuation (RMSF) across all models. Then, identify the most flexible contiguous 5-residue region by finding the window with the highest average RMSF. Return the starting residue number of this region. Format: `<answer>int</answer>`.",
+    "input": "To understand the solution dynamics of the NMR ensemble structure `2L0J`, we will analyze its flexibility. Please calculate the per-residue Root Mean Square Fluctuation (RMSF) across all models. Then, identify the most flexible contiguous 5-residue region by finding the window with the highest average RMSF. If multiple regions have identical maximum average RMSF values (ties), return all tied starting positions as a comma-separated string of integers, sorted in ascending order. If there is only one maximum region, return just that single residue number. Format: `<answer>str</answer>`.",
     "target": "59",
     "metadata": {
       "task_name": "H9_Conformational_Ensemble_Analysis",
       "variant": "variant_5",
       "difficulty": "H",
-      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_files/H9_Conformational_Ensemble_Analysis_compose.yaml",
+      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_gboxo.yaml",
       "dependencies": {
         "task_name": "H9_Conformational_Ensemble_Analysis",
         "python_imports": [
@@ -5963,7 +5963,7 @@
       "task_name": "H10_Variant_Structural_Mapping",
       "variant": "variant_1",
       "difficulty": "H",
-      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_files/H10_Variant_Structural_Mapping_compose.yaml",
+      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_gboxo.yaml",
       "dependencies": {},
       "template_variables": {
         "pdb_id": "2LYZ",
@@ -5990,7 +5990,7 @@
       "task_name": "H10_Variant_Structural_Mapping",
       "variant": "variant_2",
       "difficulty": "H",
-      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_files/H10_Variant_Structural_Mapping_compose.yaml",
+      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_gboxo.yaml",
       "dependencies": {},
       "template_variables": {
         "pdb_id": "1A3N",
@@ -6017,7 +6017,7 @@
       "task_name": "H10_Variant_Structural_Mapping",
       "variant": "variant_3",
       "difficulty": "H",
-      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_files/H10_Variant_Structural_Mapping_compose.yaml",
+      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_gboxo.yaml",
       "dependencies": {},
       "template_variables": {
         "pdb_id": "1UBQ",
@@ -6044,7 +6044,7 @@
       "task_name": "H10_Variant_Structural_Mapping",
       "variant": "variant_4",
       "difficulty": "H",
-      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_files/H10_Variant_Structural_Mapping_compose.yaml",
+      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_gboxo.yaml",
       "dependencies": {},
       "template_variables": {
         "pdb_id": "4HHB",
@@ -6071,7 +6071,7 @@
       "task_name": "H10_Variant_Structural_Mapping",
       "variant": "variant_5",
       "difficulty": "H",
-      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_files/H10_Variant_Structural_Mapping_compose.yaml",
+      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_gboxo.yaml",
       "dependencies": {},
       "template_variables": {
         "pdb_id": "1CRN",

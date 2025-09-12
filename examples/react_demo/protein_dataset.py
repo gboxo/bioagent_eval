@@ -1,13 +1,26 @@
 #!/usr/bin/env python3
 """
 Protein Analysis Dataset for Inspect AI
-Integrates task prompts, expected results, and Docker configurations
+Integrates task prompts, expected results, and Docker configurations.
+
+This module also provides utilities to:
+- Convert Samples to/from JSON records
+- Load samples either from source files or a flattened JSON export
+- Export samples to a JSON file
+
+
+
+ 1 │# Export JSON
+ 2 │uv run python examples/react_demo/export_protein_dataset_json.py --output examples/react_demo/protein_dataset_flat.json
+ 3 │
+ 4 │# Evaluate using JSON via unified entrypoint
+ 5 │uv run inspect eval examples/react_demo/protein_eval.py::protein_analysis_eval --json_file examples/react_demo/protein_dataset_flat.json
+
 """
 
 import json
-import os
 from pathlib import Path
-from typing import Dict, List, Optional, Union, Callable, Any
+from typing import Any, Callable, Dict, List, Optional, Union, Literal
 from dataclasses import dataclass
 
 from inspect_ai.dataset import Sample
@@ -91,12 +104,6 @@ class ProteinAnalysisDataset:
         else:
             self.dependencies = {}
 
-        # Validate compose files directory
-        self.compose_dir = self.data_dir / "compose_files"
-        if not self.compose_dir.exists():
-            raise FileNotFoundError(
-                f"Compose files directory not found: {self.compose_dir}"
-            )
 
     def _should_include_task(self, task_name: str) -> bool:
         """Check if task should be included based on filters."""
@@ -140,19 +147,6 @@ class ProteinAnalysisDataset:
 
         raise ValueError(f"No result found for {task_name} {variant}")
 
-    def _get_compose_file(self, task_name: str) -> str:
-        """Get compose file path for a task."""
-        compose_file = self.compose_dir / f"{task_name}_compose.yaml"
-        if compose_file.exists():
-            return str(compose_file)
-        else:
-            # Fallback to a default compose file if task-specific one doesn't exist
-            default_compose = self.compose_dir / "default_compose.yaml"
-            if default_compose.exists():
-                return str(default_compose)
-            else:
-                raise FileNotFoundError(f"No compose file found for task: {task_name}")
-
     def create_samples(self) -> List[Sample]:
         """
         Generate Sample objects for all filtered tasks and variants.
@@ -188,16 +182,7 @@ class ProteinAnalysisDataset:
                     target = self._get_expected_result(task_name, variant_name)
 
                     # Get compose file path
-                    compose_file = self._get_compose_file(task_name)
-
-                    # Create metadata
-                    metadata = TaskMetadata(
-                        task_name=task_name,
-                        variant=variant_name,
-                        difficulty=task_name[0],
-                        compose_file=compose_file,
-                        dependencies=self.dependencies.get(task_name, {}),
-                    )
+                    compose_file = "/Users/gerard/inspect_ai/examples/react_demo/compose_gboxo.yaml"
 
                     # Create sample
                     sample = Sample(
@@ -229,7 +214,7 @@ class ProteinAnalysisDataset:
         return {
             "task_name": task_name,
             "difficulty": task_name[0],
-            "compose_file": self._get_compose_file(task_name),
+            "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_gboxo.yaml",
             "dependencies": self.dependencies.get(task_name, {}),
             "prompt_template": self.prompts.get(task_name, {}).get("template", ""),
             "variants_count": len(
@@ -246,7 +231,6 @@ class ProteinAnalysisDataset:
         """
         errors = {
             "missing_results": [],
-            "missing_compose_files": [],
             "template_errors": [],
             "missing_variants": [],
         }
@@ -257,11 +241,6 @@ class ProteinAnalysisDataset:
                 errors["missing_results"].append(task_name)
                 continue
 
-            # Check compose file
-            try:
-                self._get_compose_file(task_name)
-            except FileNotFoundError:
-                errors["missing_compose_files"].append(task_name)
 
             # Check template structure
             if "template" not in task_config:
@@ -314,8 +293,170 @@ class ProteinAnalysisDataset:
                 "dependencies": len(self.dependencies),
             },
         }
+    def sample_to_record(self, sample: Sample) -> Dict[str, Any]:
+        """Convert an Inspect Sample to a JSON-serializable record.
+
+        Ensures compatibility with flattened JSON datasets consumed by external tools.
+        """
+        if not isinstance(sample.input, str):
+            raise TypeError("Expected string input in sample")
+
+        # Prefer generic sandbox hint for JSON exports; task-level compose will override.
+        sandbox_value: Union[List[str], str, None] = ["docker", ".compose.yaml"]
+
+        record: Dict[str, Any] = {
+            "input": sample.input,
+            "target": sample.target,
+            "metadata": sample.metadata or {},
+            "sandbox": sandbox_value,
+        }
+
+        # Optional fields
+        if getattr(sample, "id", None) is not None:
+            record["id"] = sample.id
+        if getattr(sample, "choices", None):
+            record["choices"] = sample.choices
+        if getattr(sample, "files", None):
+            record["files"] = sample.files
+        if getattr(sample, "setup", None):
+            record["setup"] = sample.setup
+
+        # Add helpful hint to metadata about recommended compose
+        record["metadata"].setdefault(
+            "compose_hint",
+            "Use compose_gboxo.yaml for full bioinformatics stack",
+        )
+
+        return record
+
+    def record_to_sample(self, record: Dict[str, Any]) -> Sample:
+        """Convert a JSON record back to an Inspect Sample."""
+        input_value = record.get("input")
+        target_value = record.get("target")
+        if not isinstance(input_value, str) or target_value is None:
+            raise ValueError("Record must contain 'input' (str) and 'target'")
+
+        metadata_value: Dict[str, Any] = record.get("metadata", {})
+
+        # Normalize sandbox: allow str, list, or tuple; keep as-is if provided
+        sandbox_value: Union[str, tuple, None]
+        raw_sandbox = record.get("sandbox")
+        if isinstance(raw_sandbox, list):
+            sandbox_value = tuple(raw_sandbox)
+        elif isinstance(raw_sandbox, tuple) or isinstance(raw_sandbox, str):
+            sandbox_value = raw_sandbox  # type: ignore[assignment]
+        else:
+            sandbox_value = None
+
+        return Sample(
+            input=input_value,
+            target=target_value,
+            metadata=metadata_value,
+            id=record.get("id"),
+            choices=record.get("choices"),
+            files=record.get("files"),
+            setup=record.get("setup"),
+            sandbox=sandbox_value,  # type: ignore[arg-type]
+        )
 
 
+    def load_samples(
+        self,
+        source: Literal["files", "json"],
+        *,
+        json_path: Optional[Path] = None,
+        tasks_filter: Optional[Union[List[str], Callable[[str], bool]]] = None,
+        variants_filter: Optional[List[str]] = None,
+        difficulties_filter: Optional[List[str]] = None,
+        max_samples: Optional[int] = None,
+    ) -> List[Sample]:
+        """Load samples from source files or from a JSON export.
+
+        Args:
+            source: "files" to build from prompts/results, "json" to load from file
+            json_path: Path to JSON file when source="json"
+            tasks_filter: Filter tasks by names or predicate (applied post-load for JSON)
+            variants_filter: Filter variants (e.g., ["variant_1"]) (post-load for JSON)
+            difficulties_filter: Filter difficulties (e.g., ["E", "M"]) (post-load for JSON)
+            max_samples: Optional cap on number of samples returned
+        """
+
+        if source == "files":
+            dataset = ProteinAnalysisDataset(
+                tasks_filter=tasks_filter,
+                variants_filter=variants_filter,
+                difficulties_filter=difficulties_filter,
+            )
+            samples = dataset.create_samples()
+            return samples[:max_samples] if max_samples is not None else samples
+
+        if source == "json":
+            if json_path is None:
+                raise ValueError("json_path is required when source='json'")
+            with open(json_path, "r", encoding="utf-8") as f:
+                records: List[Dict[str, Any]] = json.load(f)
+            samples = [self.record_to_sample(record) for record in records]
+
+            # Apply filters post-load
+            if tasks_filter is not None:
+                if callable(tasks_filter):
+                    samples = [
+                        s for s in samples if tasks_filter(s.metadata.get("task_name", ""))
+                    ]
+                else:
+                    allowed_tasks = set(tasks_filter)
+                    samples = [
+                        s
+                        for s in samples
+                        if s.metadata.get("task_name", "") in allowed_tasks
+                    ]
+            if variants_filter is not None:
+                allowed_variants = set(variants_filter)
+                samples = [
+                    s for s in samples if s.metadata.get("variant", "") in allowed_variants
+                ]
+            if difficulties_filter is not None:
+                allowed_difficulties = set(difficulties_filter)
+                samples = [
+                    s
+                    for s in samples
+                    if s.metadata.get("difficulty", "") in allowed_difficulties
+                ]
+
+            return samples[:max_samples] if max_samples is not None else samples
+
+        raise ValueError("source must be either 'files' or 'json'")
+
+
+def export_samples_to_json(
+    output_path: Path,
+    *,
+    tasks_filter: Optional[Union[List[str], Callable[[str], bool]]] = None,
+    variants_filter: Optional[List[str]] = None,
+    difficulties_filter: Optional[List[str]] = None,
+    max_samples: Optional[int] = None,
+) -> None:
+    """Export samples built from source files to a flattened JSON file.
+
+    Args:
+        output_path: Destination JSON file path
+        tasks_filter: Optional task filter
+        variants_filter: Optional variant filter
+        difficulties_filter: Optional difficulty filter
+        max_samples: Optional cap on number of samples
+    """
+    dataset = ProteinAnalysisDataset(
+        tasks_filter=tasks_filter,
+        variants_filter=variants_filter,
+        difficulties_filter=difficulties_filter,
+    )
+    samples = dataset.create_samples()
+    samples = samples[:max_samples] if max_samples is not None else samples
+    records = [dataset.sample_to_record(s) for s in samples]
+
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+    with output_path.open("w", encoding="utf-8") as f:
+        json.dump(records, f, indent=2, ensure_ascii=False)
 # Convenience functions for common use cases
 def create_easy_tasks_dataset(
     data_dir: Optional[Path] = None,

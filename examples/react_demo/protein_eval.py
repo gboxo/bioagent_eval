@@ -11,6 +11,7 @@ Main evaluation script that integrates all components:
 
 from textwrap import dedent
 from typing import Callable, List, Optional, Union
+from pathlib import Path
 
 from inspect_ai import Task, task
 from inspect_ai.agent import react
@@ -75,6 +76,7 @@ def protein_analysis_eval(
     difficulty_filter: Optional[List[str]] = None,
     model: str = "openai/gpt-5-mini",
     max_samples: Optional[int] = None,
+    json_file: Optional[Union[str, Path]] = None,
 ) -> Task:
     """
     Main protein analysis evaluation task.
@@ -96,11 +98,15 @@ def protein_analysis_eval(
         difficulties_filter=difficulty_filter,
     )
 
-    # Create samples
-    samples = dataset.create_samples()
-
-    if max_samples:
-        samples = samples[:max_samples]
+    # Unified sample loading: from files or json
+    samples = dataset.load_samples(
+        source="json" if json_file else "files",
+        json_path=Path(json_file) if json_file else None,
+        tasks_filter=task_filter if isinstance(task_filter, list) or callable(task_filter) else ([task_filter] if task_filter else None),
+        variants_filter=variant_filter,
+        difficulties_filter=difficulty_filter,
+        max_samples=max_samples,
+    )
 
     print(f"Evaluating {len(samples)} samples with {model}")
 
@@ -158,10 +164,6 @@ def protein_sample_eval(model: str = "openai/gpt-5-mini") -> Task:
     )
 
 
-@task
-def protein_e3_debug(model: str = "openai/gpt-5-mini") -> Task:
-    """Debug E3_PDB_Chain_Count task specifically."""
-    return protein_analysis_eval(task_filter=["E3_PDB_Chain_Count"], model=model)
 
 
 # No main execution code needed - use uv run inspect eval

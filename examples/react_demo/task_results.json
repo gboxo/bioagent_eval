@@ -160,19 +160,19 @@
     },
     {
       "variant": 2,
-      "result": "0"
+      "result": "8"
     },
     {
       "variant": 3,
-      "result": "0"
+      "result": "24"
     },
     {
       "variant": 4,
-      "result": "0"
+      "result": "27"
     },
     {
       "variant": 5,
-      "result": "0"
+      "result": "4"
     }
   ],
   "E8_Hydrophobic_Residue_Percentage": [

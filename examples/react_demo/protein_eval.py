@@ -61,7 +61,7 @@ SYSTEM_MESSAGE = dedent("""
     Defaults:
     - For mafft, use --auto flag
     - For dssp, use the default settings
-    - The default DistanceCalculator from Biopython is "identity" 
+    - The default DistanceCalculator from Biopython is "identity"
 
     All required data files and tools have been pre-configured for your task, and are localted in /app/data.
     Work methodically and provide clear explanations of your analysis steps.

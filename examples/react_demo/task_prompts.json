@@ -180,7 +180,7 @@
         }
     },
     "E7_PDB_Secondary_Structure": {
-        "template": "As part of a structural characterization of PDB entry `{pdb_id}`, we need to quantify its secondary structure composition. Using the DSSP algorithm, please analyze the structure and determine the total number of distinct beta sheets. Note that a single sheet can be formed by multiple strands. Return the total count of sheets as an integer. Format: `<answer>int</answer>`.",
+        "template": "As part of a structural characterization of PDB entry `{pdb_id}`, we need to quantify its secondary structure composition. Using the DSSP algorithm, please analyze the complete structure (all chains) and determine the total number of beta strand residues across the entire complex. Beta strands are individual secondary structure elements marked as 'E' (extended) in DSSP output. Return the total count of beta strand residues as an integer. Format: `<answer>int</answer>`.",
         "template_entries": {
             "variant_1": {
                 "pdb_id": "1A3N"
@@ -695,7 +695,7 @@
         }
     },
     "H1_DMS_Hotspot_Analysis": {
-        "template": "We are analyzing a Deep Mutational Scanning dataset from the file corresponding to `{dms_dataset}` to find functionally sensitive positions. A 'hotspot' is a position where over 50% of mutations cause a fitness loss to <0.33. Please identify all hotspots, then find the 10 with the lowest average fitness. Return these 10 positions as a comma-separated string, sorted from lowest to highest average fitness. Format: `<answer>str</answer>`.",
+        "template": "We are analyzing a Deep Mutational Scanning dataset from the file corresponding to `{dms_dataset}` to find functionally sensitive positions. First, normalize the DMS scores using Z-score standardization (subtract mean, divide by standard deviation). A 'hotspot' is a position where over 50% of mutations have Z-scores below -1.0 (indicating significantly reduced fitness). Please identify all hotspots, then find the 10 with the lowest average Z-score. Return these 10 positions as a comma-separated string, sorted from lowest to highest average Z-score. Format: `<answer>str</answer>`.",
         "template_entries": {
             "variant_1": {
                 "dms_dataset": "ProteinGym_DMS:B2L11_HUMAN_Dutta_2010_binding-Mcl-1"
@@ -1137,7 +1137,7 @@
         }
     },
     "H9_Conformational_Ensemble_Analysis": {
-        "template": "To understand the solution dynamics of the NMR ensemble structure `{pdb_id}`, we will analyze its flexibility. Please calculate the per-residue Root Mean Square Fluctuation (RMSF) across all models. Then, identify the most flexible contiguous 5-residue region by finding the window with the highest average RMSF. Return the starting residue number of this region. Format: `<answer>int</answer>`.",
+        "template": "To understand the solution dynamics of the NMR ensemble structure `{pdb_id}`, we will analyze its flexibility. Please calculate the per-residue Root Mean Square Fluctuation (RMSF) across all models. Then, identify the most flexible contiguous 5-residue region by finding the window with the highest average RMSF. If multiple regions have identical maximum average RMSF values (ties), return all tied starting positions as a comma-separated string of integers, sorted in ascending order. If there is only one maximum region, return just that single residue number. Format: `<answer>str</answer>`.",
         "template_entries": {
             "variant_1": {
                 "pdb_id": "2K39"

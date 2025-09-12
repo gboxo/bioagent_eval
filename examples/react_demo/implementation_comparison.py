@@ -290,7 +290,7 @@ Please provide a structured analysis in markdown format.
 
     try:
         response = await client.chat.completions.create(
-            model="gpt-4o-mini",
+            model="gpt-5-mini",
             messages=[
                 {
                     "role": "system",
@@ -309,8 +309,8 @@ Please provide a structured analysis in markdown format.
             "sample_uuid": sample_uuid,
             "task_type": task_type,
             "readme_content": readme_content,
-            "implementation_markdown": implementation_markdown,
-            "conversation_markdown": conversation_markdown,
+            #"implementation_markdown": implementation_markdown,
+            #"conversation_markdown": conversation_markdown,
             "analysis": response.choices[0].message.content,
             "status": "success",
             "timestamp": datetime.now().isoformat()
@@ -321,8 +321,8 @@ Please provide a structured analysis in markdown format.
             "sample_uuid": sample_uuid,
             "task_type": task_type,
             "readme_content": readme_content,
-            "implementation_markdown": implementation_markdown,
-            "conversation_markdown": conversation_markdown,
+            #"implementation_markdown": implementation_markdown,
+            #"conversation_markdown": conversation_markdown,
             "analysis": f"Error during analysis: {str(e)}",
             "status": "error",
             "timestamp": datetime.now().isoformat()

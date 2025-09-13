@@ -1,7 +1,7 @@
 
 
 
-Read the contents of folder @M5_Codon_Usage_Analysis, you will find a README.md and variant subolders.
+Read the contents of folder @M7_B_factor_Analysis/
 
 Inside the README.md file you will find instructions related to a task and a brief checklist of how to implement the task.
 
@@ -26,7 +26,6 @@ NOTES:
 1) Somwehere in the instructions or steps, it may idicate the need to download some data. This will not be needed as 
 2) It may happen that somewhere in the instructions it says something  about downlaoding data. This will not be necessary as you will find the necessary data in the appropiate variant subfolder.
 3) It may happend that while the data is already present in the variant folder ther is some data that needs to be still retrieved, and hence should be included as part of the pipeline. The retrieved data should be stored in an data_output folder. 
-
 
 
 

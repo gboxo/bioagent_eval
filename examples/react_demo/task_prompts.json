@@ -575,7 +575,7 @@
         }
     },
     "M7_B_factor_Analysis": {
-        "template": "To identify functionally dynamic regions in the protein structure `{pdb_id}`, we will analyze its B-factors. Please calculate the B-factor for every C-alpha atom and identify all residues that fall within the top 10% of B-factor values. Return the total count of these highly flexible residues as an integer. Format: `<answer>int</answer>`.",
+      "template": "To identify functionally dynamic regions in the protein structure `{pdb_id}`, we will analyze its B-factors. Please calculate the B-factor for every C-alpha atom and identify all residues that fall within the top 10% of B-factor values. Return the average B-factor of these top 10% residues as a float rounded to two decimal places. Format: `<answer>float</answer>`.",
         "template_entries": {
             "variant_1": {
                 "pdb_id": "2LYZ"
@@ -865,7 +865,7 @@
         }
     },
     "H5_Functional_Site_Conservation": {
-        "template": "We are studying the enzyme family represented by the UniProt IDs `{uniprot_ids}`. The active site for the reference sequence (`{reference_id}`) is known to involve positions `{active_site_positions}`. We need to see which of these sites are poorly conserved across the family (frequency of most common amino acid < 50%). Please identify these positions and return them as a sorted, comma-separated string. Format: `<answer>str</answer>`.",
+        "template": "We are studying the enzyme family represented by the UniProt IDs `{uniprot_ids}`. The active site for the reference sequence (`{reference_id}`) is known to involve positions `{active_site_positions}`. We need to see which of these sites are poorly conserved across the family (frequency of most common amino acid < 50%). If none are poorly conserved, return the default no_result value `NONE`. Otherwise, return them as a sorted, comma-separated string. Format: `<answer>str</answer>`.",
         "template_entries": {
             "variant_1": {
                 "uniprot_ids": [

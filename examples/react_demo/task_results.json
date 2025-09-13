@@ -219,6 +219,28 @@
       "result": "2"
     }
   ],
+  "H10_Variant_Structural_Mapping": [
+    {
+      "variant": 1,
+      "result": "A95V"
+    },
+    {
+      "variant": 2,
+      "result": "D23N"
+    },
+    {
+      "variant": 3,
+      "result": "I3V"
+    },
+    {
+      "variant": 4,
+      "result": "F85Y"
+    },
+    {
+      "variant": 5,
+      "result": "N27D"
+    }
+  ],
   "H1_DMS_Hotspot_Analysis": [
     {
       "variant": 1,
@@ -244,23 +266,23 @@
   "H3_Evolutionary_Rate_Analysis": [
     {
       "variant": 1,
-      "result": "4"
+      "result": ""
     },
     {
       "variant": 2,
-      "result": "4"
+      "result": ""
     },
     {
       "variant": 3,
-      "result": "4"
+      "result": ""
     },
     {
       "variant": 4,
-      "result": "4"
+      "result": ""
     },
     {
       "variant": 5,
-      "result": "4"
+      "result": ""
     }
   ],
   "H4_Protein_Complex_Interface": [
@@ -288,7 +310,7 @@
   "H5_Functional_Site_Conservation": [
     {
       "variant": 1,
-      "result": ""
+      "result": "NONE"
     },
     {
       "variant": 2,
@@ -373,28 +395,6 @@
       "result": "59"
     }
   ],
-  "H10_Variant_Structural_Mapping": [
-    {
-      "variant": 1,
-      "result": "A95V"
-    },
-    {
-      "variant": 2,
-      "result": "D23N"
-    },
-    {
-      "variant": 3,
-      "result": "I3V"
-    },
-    {
-      "variant": 4,
-      "result": "F85Y"
-    },
-    {
-      "variant": 5,
-      "result": "N27D"
-    }
-  ],
   "M1_MSA_Conservation_Score": [
     {
       "variant": 1,
@@ -420,11 +420,11 @@
   "M2_Phylogenetic_Distance": [
     {
       "variant": 1,
-      "result": "0.2380"
+      "result": "0.238"
     },
     {
       "variant": 2,
-      "result": "0.5350"
+      "result": "0.535"
     },
     {
       "variant": 3,
@@ -525,6 +525,28 @@
     {
       "variant": 5,
       "result": "P35462"
+    }
+  ],
+  "M7_B_factor_Analysis": [
+    {
+      "variant": 1,
+      "result": "9.63"
+    },
+    {
+      "variant": 2,
+      "result": "24.91"
+    },
+    {
+      "variant": 3,
+      "result": "27.34"
+    },
+    {
+      "variant": 4,
+      "result": "110.22"
+    },
+    {
+      "variant": 5,
+      "result": "41.32"
     }
   ],
   "M9_Splice_Site_Prediction": [

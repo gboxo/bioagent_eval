@@ -18,21 +18,21 @@ mkdir -p data_output
 # Function to check dependencies
 check_dependencies() {
     echo "Checking dependencies..."
-    
+
     # Check for mkdssp
     if ! command -v mkdssp &> /dev/null; then
         echo "Error: mkdssp is not installed or not in PATH"
         echo "Please install DSSP (Dictionary of Secondary Structure of Proteins)"
         exit 1
     fi
-    
+
     # Check for Python and Biopython
-    if ! uv run python3 -c "import Bio.PDB" &> /dev/null; then
+    if ! python3 -c "import Bio.PDB" &> /dev/null; then
         echo "Error: Biopython is not installed"
         echo "Please install Biopython: pip install biopython"
         exit 1
     fi
-    
+
     echo "All dependencies are available."
 }
 
@@ -40,28 +40,28 @@ check_dependencies() {
 run_variant_analysis() {
     local variant_num=$1
     local variant_dir="variant_$variant_num"
-    
+
     echo "Processing $variant_dir..."
-    
+
     if [ ! -d "$variant_dir" ]; then
         echo "Warning: $variant_dir not found, skipping..."
         return
     fi
-    
+
     # Check if there are PDB files in the variant directory
     pdb_count=$(find "$variant_dir" -name "*.pdb" -type f | wc -l)
-    
+
     if [ "$pdb_count" -eq 0 ]; then
         echo "Warning: No PDB files found in $variant_dir, skipping..."
         return
     fi
-    
+
     echo "Found $pdb_count PDB file(s) in $variant_dir"
-    
+
     # Run the RSA analysis and extract only the answer
-    output=$(uv run python3 analyze_rsa.py "$variant_dir")
+    output=$(python3 analyze_rsa.py "$variant_dir")
     result=$(echo "$output" | grep -o '<answer>.*</answer>' | sed 's/<answer>\(.*\)<\/answer>/\1/')
-    
+
     if [ $? -eq 0 ] && [ "$result" != "ERROR" ] && [ -n "$result" ]; then
         echo "Result for variant $variant_num: $result"
         echo "$variant_num,$result" >> results.csv
@@ -69,7 +69,7 @@ run_variant_analysis() {
         echo "Error: Failed to analyze $variant_dir"
         echo "$variant_num,ERROR" >> results.csv
     fi
-    
+
     echo "Completed processing $variant_dir"
     echo
 }

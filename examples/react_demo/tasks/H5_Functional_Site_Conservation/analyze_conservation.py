@@ -4,6 +4,8 @@ Functional Site Conservation Analysis
 
 Analyzes multiple sequence alignments to identify poorly conserved active site positions.
 A position is poorly conserved if the frequency of the most common amino acid is < 50%.
+
+Default no_result: If no poorly conserved positions are found, returns the string "NONE".
 """
 
 import os
@@ -185,9 +187,9 @@ def analyze_variant(variant_dir: str, variant_num: int, base_dir: str = None) ->
 
     # Step 9: Sort and format result
     poorly_conserved.sort()
-    result = ",".join(map(str, poorly_conserved)) if poorly_conserved else ""
+    result = ",".join(map(str, poorly_conserved)) if poorly_conserved else "NONE"
 
-    print(f"  Poorly conserved positions: {result if result else 'None'}")
+    print(f"  Poorly conserved positions: {result}")
     return result
 
 

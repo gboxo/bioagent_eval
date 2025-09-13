@@ -1,5 +1,7 @@
 **Task**
-You are given a list of 25 UniProt IDs for a family of enzymes, along with a list of active site residue positions from the first sequence in the list. Your task is to identify which of these active site positions are poorly conserved across the family. A position is poorly conserved if the frequency of the most common amino acid at that position (in an MSA) is less than 50%. Return a comma-separated string of the poorly conserved active site positions. Format: <answer>str</answer>.
+You are given a list of 25 UniProt IDs for a family of enzymes, along with a list of active site residue positions from the first sequence in the list. Your task is to identify which of these active site positions are poorly conserved across the family. A position is poorly conserved if the frequency of the most common amino acid at that position (in an MSA) is less than 50%.
+
+If no active site positions are poorly conserved, return the default no_result value `NONE`. Otherwise, return a comma-separated string of the poorly conserved active site positions. Format: <answer>str</answer>.
 
 **Steps**
 1) Fetch FASTA sequences for all 25 UniProt IDs and create a multi-FASTA file.

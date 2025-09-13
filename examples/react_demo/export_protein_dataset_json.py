@@ -20,7 +20,7 @@ import argparse
 from pathlib import Path
 from typing import List, Optional
 
-from protein_dataset_full import export_samples_to_json
+from protein_dataset import export_samples_to_json
 
 
 def main() -> None:

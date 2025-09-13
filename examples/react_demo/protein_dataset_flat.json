@@ -2561,7 +2561,7 @@
   },
   {
     "input": "We have a set of homologous sequences from a previous search, stored in the file `blast_NP_001912.1.fasta`. To understand their evolutionary divergence, we need to construct a phylogenetic tree. Please align these sequences, build a neighbor-joining tree, and then calculate the maximum evolutionary distance between any two sequences in the tree. Return this maximum distance as a float, rounded to four decimal places. Format: `<answer>float</answer>`.",
-    "target": "0.2380",
+    "target": "0.238",
     "metadata": {
       "task_name": "M2_Phylogenetic_Distance",
       "variant": "variant_1",
@@ -2610,7 +2610,7 @@
   },
   {
     "input": "We have a set of homologous sequences from a previous search, stored in the file `blast_NP_003520.1.fasta`. To understand their evolutionary divergence, we need to construct a phylogenetic tree. Please align these sequences, build a neighbor-joining tree, and then calculate the maximum evolutionary distance between any two sequences in the tree. Return this maximum distance as a float, rounded to four decimal places. Format: `<answer>float</answer>`.",
-    "target": "0.5350",
+    "target": "0.535",
     "metadata": {
       "task_name": "M2_Phylogenetic_Distance",
       "variant": "variant_2",
@@ -3805,6 +3805,176 @@
     ]
   },
   {
+    "input": "To identify functionally dynamic regions in the protein structure `2LYZ`, we will analyze its B-factors. Please calculate the B-factor for every C-alpha atom and identify all residues that fall within the top 10% of B-factor values. Return the total count of these highly flexible residues as an integer. Format: `<answer>int</answer>`.",
+    "target": "12",
+    "metadata": {
+      "task_name": "M7_B_factor_Analysis",
+      "variant": "variant_1",
+      "difficulty": "M",
+      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_gboxo.yaml",
+      "dependencies": {
+        "task_name": "M7_B_factor_Analysis",
+        "python_imports": [],
+        "system_commands": [],
+        "file_dependencies": {
+          "input_files": [
+            "../pdb_files/*.pdb"
+          ],
+          "data_files": []
+        },
+        "python_packages": [],
+        "apt_packages": [],
+        "mount_volumes": [
+          "./data/pdb_files:/app/data/pdb_files"
+        ]
+      },
+      "template_variables": {
+        "pdb_id": "2LYZ"
+      },
+      "compose_hint": "Use compose_gboxo.yaml for full bioinformatics stack"
+    },
+    "sandbox": [
+      "docker",
+      ".compose.yaml"
+    ]
+  },
+  {
+    "input": "To identify functionally dynamic regions in the protein structure `1A3N`, we will analyze its B-factors. Please calculate the B-factor for every C-alpha atom and identify all residues that fall within the top 10% of B-factor values. Return the total count of these highly flexible residues as an integer. Format: `<answer>int</answer>`.",
+    "target": "57",
+    "metadata": {
+      "task_name": "M7_B_factor_Analysis",
+      "variant": "variant_2",
+      "difficulty": "M",
+      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_gboxo.yaml",
+      "dependencies": {
+        "task_name": "M7_B_factor_Analysis",
+        "python_imports": [],
+        "system_commands": [],
+        "file_dependencies": {
+          "input_files": [
+            "../pdb_files/*.pdb"
+          ],
+          "data_files": []
+        },
+        "python_packages": [],
+        "apt_packages": [],
+        "mount_volumes": [
+          "./data/pdb_files:/app/data/pdb_files"
+        ]
+      },
+      "template_variables": {
+        "pdb_id": "1A3N"
+      },
+      "compose_hint": "Use compose_gboxo.yaml for full bioinformatics stack"
+    },
+    "sandbox": [
+      "docker",
+      ".compose.yaml"
+    ]
+  },
+  {
+    "input": "To identify functionally dynamic regions in the protein structure `1UBQ`, we will analyze its B-factors. Please calculate the B-factor for every C-alpha atom and identify all residues that fall within the top 10% of B-factor values. Return the total count of these highly flexible residues as an integer. Format: `<answer>int</answer>`.",
+    "target": "7",
+    "metadata": {
+      "task_name": "M7_B_factor_Analysis",
+      "variant": "variant_3",
+      "difficulty": "M",
+      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_gboxo.yaml",
+      "dependencies": {
+        "task_name": "M7_B_factor_Analysis",
+        "python_imports": [],
+        "system_commands": [],
+        "file_dependencies": {
+          "input_files": [
+            "../pdb_files/*.pdb"
+          ],
+          "data_files": []
+        },
+        "python_packages": [],
+        "apt_packages": [],
+        "mount_volumes": [
+          "./data/pdb_files:/app/data/pdb_files"
+        ]
+      },
+      "template_variables": {
+        "pdb_id": "1UBQ"
+      },
+      "compose_hint": "Use compose_gboxo.yaml for full bioinformatics stack"
+    },
+    "sandbox": [
+      "docker",
+      ".compose.yaml"
+    ]
+  },
+  {
+    "input": "To identify functionally dynamic regions in the protein structure `1HTM`, we will analyze its B-factors. Please calculate the B-factor for every C-alpha atom and identify all residues that fall within the top 10% of B-factor values. Return the total count of these highly flexible residues as an integer. Format: `<answer>int</answer>`.",
+    "target": "37",
+    "metadata": {
+      "task_name": "M7_B_factor_Analysis",
+      "variant": "variant_4",
+      "difficulty": "M",
+      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_gboxo.yaml",
+      "dependencies": {
+        "task_name": "M7_B_factor_Analysis",
+        "python_imports": [],
+        "system_commands": [],
+        "file_dependencies": {
+          "input_files": [
+            "../pdb_files/*.pdb"
+          ],
+          "data_files": []
+        },
+        "python_packages": [],
+        "apt_packages": [],
+        "mount_volumes": [
+          "./data/pdb_files:/app/data/pdb_files"
+        ]
+      },
+      "template_variables": {
+        "pdb_id": "1HTM"
+      },
+      "compose_hint": "Use compose_gboxo.yaml for full bioinformatics stack"
+    },
+    "sandbox": [
+      "docker",
+      ".compose.yaml"
+    ]
+  },
+  {
+    "input": "To identify functionally dynamic regions in the protein structure `4HHB`, we will analyze its B-factors. Please calculate the B-factor for every C-alpha atom and identify all residues that fall within the top 10% of B-factor values. Return the total count of these highly flexible residues as an integer. Format: `<answer>int</answer>`.",
+    "target": "57",
+    "metadata": {
+      "task_name": "M7_B_factor_Analysis",
+      "variant": "variant_5",
+      "difficulty": "M",
+      "compose_file": "/Users/gerard/inspect_ai/examples/react_demo/compose_gboxo.yaml",
+      "dependencies": {
+        "task_name": "M7_B_factor_Analysis",
+        "python_imports": [],
+        "system_commands": [],
+        "file_dependencies": {
+          "input_files": [
+            "../pdb_files/*.pdb"
+          ],
+          "data_files": []
+        },
+        "python_packages": [],
+        "apt_packages": [],
+        "mount_volumes": [
+          "./data/pdb_files:/app/data/pdb_files"
+        ]
+      },
+      "template_variables": {
+        "pdb_id": "4HHB"
+      },
+      "compose_hint": "Use compose_gboxo.yaml for full bioinformatics stack"
+    },
+    "sandbox": [
+      "docker",
+      ".compose.yaml"
+    ]
+  },
+  {
     "input": "We are studying the transcriptional complexity of the human gene `BRCA1`. To do this, we need to find out how many different protein-coding transcripts it produces. Please query the Ensembl database for this gene and determine the maximum number of exons found in any of its transcripts. Return this maximum count as an integer. Format: `<answer>int</answer>`.",
     "target": "24",
     "metadata": {
@@ -4241,7 +4411,7 @@
   },
   {
     "input": "To understand the evolutionary pressures on the orthologous protein group `['P69905', 'P01942', 'P01941', 'P02734', 'P02735', 'P02736', 'P02737', 'P02738', 'P02739', 'P02740', 'P02741', 'P02742', 'P02743', 'P02744', 'P02745']`, we will search for signs of positive selection. Please perform a phylogenetic analysis to calculate the dN/dS ratio (omega) for each branch of their evolutionary tree. Using PAML, count and return the number of branches where omega is greater than 1. Format: `<answer>int</answer>`.",
-    "target": "4",
+    "target": "",
     "metadata": {
       "task_name": "H3_Evolutionary_Rate_Analysis",
       "variant": "variant_1",
@@ -4318,7 +4488,7 @@
   },
   {
     "input": "To understand the evolutionary pressures on the orthologous protein group `['P62258', 'P02340', 'P02341', 'P02342', 'P02343', 'P02344', 'P02345', 'P02346', 'P02347', 'P02348', 'P02349', 'P02350', 'P02351', 'P02352', 'P02353']`, we will search for signs of positive selection. Please perform a phylogenetic analysis to calculate the dN/dS ratio (omega) for each branch of their evolutionary tree. Using PAML, count and return the number of branches where omega is greater than 1. Format: `<answer>int</answer>`.",
-    "target": "4",
+    "target": "",
     "metadata": {
       "task_name": "H3_Evolutionary_Rate_Analysis",
       "variant": "variant_2",
@@ -4395,7 +4565,7 @@
   },
   {
     "input": "To understand the evolutionary pressures on the orthologous protein group `['P62873', 'P02585', 'P02586', 'P02587', 'P02588', 'P02589', 'P02590', 'P02591', 'P02592', 'P02593', 'P02594', 'P02595', 'P02596', 'P02597', 'P02598']`, we will search for signs of positive selection. Please perform a phylogenetic analysis to calculate the dN/dS ratio (omega) for each branch of their evolutionary tree. Using PAML, count and return the number of branches where omega is greater than 1. Format: `<answer>int</answer>`.",
-    "target": "4",
+    "target": "",
     "metadata": {
       "task_name": "H3_Evolutionary_Rate_Analysis",
       "variant": "variant_3",
@@ -4472,7 +4642,7 @@
   },
   {
     "input": "To understand the evolutionary pressures on the orthologous protein group `['P68871', 'P01031', 'P01032', 'P01033', 'P01034', 'P01035', 'P01036', 'P01037', 'P01038', 'P01039', 'P01040', 'P01041', 'P01042', 'P01043', 'P01044']`, we will search for signs of positive selection. Please perform a phylogenetic analysis to calculate the dN/dS ratio (omega) for each branch of their evolutionary tree. Using PAML, count and return the number of branches where omega is greater than 1. Format: `<answer>int</answer>`.",
-    "target": "4",
+    "target": "",
     "metadata": {
       "task_name": "H3_Evolutionary_Rate_Analysis",
       "variant": "variant_4",
@@ -4549,7 +4719,7 @@
   },
   {
     "input": "To understand the evolutionary pressures on the orthologous protein group `['P63279', 'P01122', 'P01123', 'P01124', 'P01125', 'P01126', 'P01127', 'P01128', 'P01129', 'P01130', 'P01131', 'P01132', 'P01133', 'P01134', 'P01135']`, we will search for signs of positive selection. Please perform a phylogenetic analysis to calculate the dN/dS ratio (omega) for each branch of their evolutionary tree. Using PAML, count and return the number of branches where omega is greater than 1. Format: `<answer>int</answer>`.",
-    "target": "4",
+    "target": "",
     "metadata": {
       "task_name": "H3_Evolutionary_Rate_Analysis",
       "variant": "variant_5",
@@ -5985,7 +6155,7 @@
   },
   {
     "input": "We are analyzing a set of observed mutations in protein `1A3N`, chain `A`, to predict their functional impact. The variants of interest are: `['T15A', 'S46G', 'N92D', 'V111I', 'F150Y']`. A key factor is the residue's location. Please determine the Relative Solvent Accessibility (RSA) for the wild-type residue of each variant and identify which variant corresponds to the most buried residue (lowest RSA). Return the full name of that variant. Format: `<answer>str</answer>`.",
-    "target": "D23N",
+    "target": "",
     "metadata": {
       "task_name": "H10_Variant_Structural_Mapping",
       "variant": "variant_2",
@@ -6012,7 +6182,7 @@
   },
   {
     "input": "We are analyzing a set of observed mutations in protein `1UBQ`, chain `A`, to predict their functional impact. The variants of interest are: `['M1L', 'Q2K', 'L8V', 'T22S', 'G53A']`. A key factor is the residue's location. Please determine the Relative Solvent Accessibility (RSA) for the wild-type residue of each variant and identify which variant corresponds to the most buried residue (lowest RSA). Return the full name of that variant. Format: `<answer>str</answer>`.",
-    "target": "I3V",
+    "target": "",
     "metadata": {
       "task_name": "H10_Variant_Structural_Mapping",
       "variant": "variant_3",
@@ -6039,7 +6209,7 @@
   },
   {
     "input": "We are analyzing a set of observed mutations in protein `4HHB`, chain `A`, to predict their functional impact. The variants of interest are: `['V1M', 'L29F', 'G56S', 'H87Y', 'A115S']`. A key factor is the residue's location. Please determine the Relative Solvent Accessibility (RSA) for the wild-type residue of each variant and identify which variant corresponds to the most buried residue (lowest RSA). Return the full name of that variant. Format: `<answer>str</answer>`.",
-    "target": "F85Y",
+    "target": "",
     "metadata": {
       "task_name": "H10_Variant_Structural_Mapping",
       "variant": "variant_4",
@@ -6066,7 +6236,7 @@
   },
   {
     "input": "We are analyzing a set of observed mutations in protein `1CRN`, chain `A`, to predict their functional impact. The variants of interest are: `['T1S', 'C3G', 'P19A', 'A31V', 'C44S']`. A key factor is the residue's location. Please determine the Relative Solvent Accessibility (RSA) for the wild-type residue of each variant and identify which variant corresponds to the most buried residue (lowest RSA). Return the full name of that variant. Format: `<answer>str</answer>`.",
-    "target": "N27D",
+    "target": "",
     "metadata": {
       "task_name": "H10_Variant_Structural_Mapping",
       "variant": "variant_5",

@@ -1,0 +1,38 @@
+#!/bin/bash
+
+# PDB Resolution Comparison Analysis Pipeline
+# This script runs the resolution analysis for all variant folders and generates results.csv
+
+set -e  # Exit on any error
+
+# Get the directory where this script is located
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+cd "$SCRIPT_DIR"
+
+# Initialize results file
+echo "variant,result" > results.csv
+
+# Process each variant folder
+for i in {1..5}; do
+    variant_folder="variant_${i}"
+    
+    if [ -d "$variant_folder" ]; then
+        echo "Processing $variant_folder..."
+        
+        # Run the Python analysis script
+        result=$(python3 analyze_resolution.py "$variant_folder")
+        
+        # Append result to CSV
+        echo "$i,$result" >> results.csv
+        
+        echo "Variant $i result: $result"
+    else
+        echo "Warning: $variant_folder not found, skipping..."
+        echo "$i,Folder not found" >> results.csv
+    fi
+done
+
+echo "Analysis complete. Results saved to results.csv"
+echo ""
+echo "Results summary:"
+cat results.csv

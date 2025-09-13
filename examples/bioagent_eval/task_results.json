@@ -1,0 +1,574 @@
+{
+  "E10_Gene_Ontology_Terms": [
+    {
+      "variant": 1,
+      "result": "10"
+    },
+    {
+      "variant": 2,
+      "result": "12"
+    },
+    {
+      "variant": 3,
+      "result": "7"
+    },
+    {
+      "variant": 4,
+      "result": "11"
+    },
+    {
+      "variant": 5,
+      "result": "6"
+    }
+  ],
+  "E1_PDB_Cysteine_Count": [
+    {
+      "variant": 1,
+      "result": "0"
+    },
+    {
+      "variant": 2,
+      "result": "6"
+    },
+    {
+      "variant": 3,
+      "result": "8"
+    },
+    {
+      "variant": 4,
+      "result": "12"
+    },
+    {
+      "variant": 5,
+      "result": "6"
+    }
+  ],
+  "E2_UniProt_Signal_Peptides": [
+    {
+      "variant": 1,
+      "result": "0"
+    },
+    {
+      "variant": 2,
+      "result": "24"
+    },
+    {
+      "variant": 3,
+      "result": "22"
+    },
+    {
+      "variant": 4,
+      "result": "26"
+    },
+    {
+      "variant": 5,
+      "result": "24"
+    }
+  ],
+  "E3_PDB_Chain_Count": [
+    {
+      "variant": 1,
+      "result": "A,B,C,D"
+    },
+    {
+      "variant": 2,
+      "result": "A,B,C,D"
+    },
+    {
+      "variant": 3,
+      "result": "A"
+    },
+    {
+      "variant": 4,
+      "result": "A,B,C,D,E,F"
+    },
+    {
+      "variant": 5,
+      "result": "A"
+    }
+  ],
+  "E4_FASTA_Length_Statistics": [
+    {
+      "variant": 1,
+      "result": "1301"
+    },
+    {
+      "variant": 2,
+      "result": "527"
+    },
+    {
+      "variant": 3,
+      "result": "354"
+    },
+    {
+      "variant": 4,
+      "result": "475"
+    },
+    {
+      "variant": 5,
+      "result": "314"
+    }
+  ],
+  "E5_PDB_Resolution_Comparison": [
+    {
+      "variant": 1,
+      "result": "1CRN"
+    },
+    {
+      "variant": 2,
+      "result": "3C2N"
+    },
+    {
+      "variant": 3,
+      "result": "1BPI"
+    },
+    {
+      "variant": 4,
+      "result": "4GCR"
+    },
+    {
+      "variant": 5,
+      "result": "1M40"
+    }
+  ],
+  "E6_UniProt_Domain_Count": [
+    {
+      "variant": 1,
+      "result": "3"
+    },
+    {
+      "variant": 2,
+      "result": "0"
+    },
+    {
+      "variant": 3,
+      "result": "0"
+    },
+    {
+      "variant": 4,
+      "result": "0"
+    },
+    {
+      "variant": 5,
+      "result": "0"
+    }
+  ],
+  "E7_PDB_Secondary_Structure": [
+    {
+      "variant": 1,
+      "result": "0"
+    },
+    {
+      "variant": 2,
+      "result": "8"
+    },
+    {
+      "variant": 3,
+      "result": "24"
+    },
+    {
+      "variant": 4,
+      "result": "27"
+    },
+    {
+      "variant": 5,
+      "result": "4"
+    }
+  ],
+  "E8_Hydrophobic_Residue_Percentage": [
+    {
+      "variant": 1,
+      "result": "39.61"
+    },
+    {
+      "variant": 2,
+      "result": "42.49"
+    },
+    {
+      "variant": 3,
+      "result": "30.09"
+    },
+    {
+      "variant": 4,
+      "result": "43.24"
+    },
+    {
+      "variant": 5,
+      "result": "32.08"
+    }
+  ],
+  "E9_PDB_Ligand_Identification": [
+    {
+      "variant": 1,
+      "result": "0"
+    },
+    {
+      "variant": 2,
+      "result": "0"
+    },
+    {
+      "variant": 3,
+      "result": "1"
+    },
+    {
+      "variant": 4,
+      "result": "1"
+    },
+    {
+      "variant": 5,
+      "result": "2"
+    }
+  ],
+  "H10_Variant_Structural_Mapping": [
+    {
+      "variant": 1,
+      "result": "A95V"
+    },
+    {
+      "variant": 2,
+      "result": "D23N"
+    },
+    {
+      "variant": 3,
+      "result": "I3V"
+    },
+    {
+      "variant": 4,
+      "result": "F85Y"
+    },
+    {
+      "variant": 5,
+      "result": "N27D"
+    }
+  ],
+  "H1_DMS_Hotspot_Analysis": [
+    {
+      "variant": 1,
+      "result": "156,157,152,155,151,158,149,153,148"
+    },
+    {
+      "variant": 2,
+      "result": "12,15,64,65,101,162,75,190,194,138"
+    },
+    {
+      "variant": 3,
+      "result": "28,27,26,14"
+    },
+    {
+      "variant": 4,
+      "result": "1,35,325,95,127,131,120,352,313,335"
+    },
+    {
+      "variant": 5,
+      "result": "NO_HOTSPOTS"
+    }
+  ],
+  "H3_Evolutionary_Rate_Analysis": [
+    {
+      "variant": 1,
+      "result": ""
+    },
+    {
+      "variant": 2,
+      "result": ""
+    },
+    {
+      "variant": 3,
+      "result": ""
+    },
+    {
+      "variant": 4,
+      "result": ""
+    },
+    {
+      "variant": 5,
+      "result": ""
+    }
+  ],
+  "H4_Protein_Complex_Interface": [
+    {
+      "variant": 1,
+      "result": "164"
+    },
+    {
+      "variant": 2,
+      "result": "318"
+    },
+    {
+      "variant": 3,
+      "result": "173"
+    },
+    {
+      "variant": 4,
+      "result": "51"
+    },
+    {
+      "variant": 5,
+      "result": "220"
+    }
+  ],
+  "H5_Functional_Site_Conservation": [
+    {
+      "variant": 1,
+      "result": "NONE"
+    },
+    {
+      "variant": 2,
+      "result": "33"
+    },
+    {
+      "variant": 3,
+      "result": "94,96,119"
+    },
+    {
+      "variant": 4,
+      "result": "227,280"
+    },
+    {
+      "variant": 5,
+      "result": "85,234"
+    }
+  ],
+  "H7_Epistasis_Network_Analysis": [
+    {
+      "variant": 1,
+      "result": "N170S-M233V"
+    },
+    {
+      "variant": 2,
+      "result": "K180A-N187H"
+    },
+    {
+      "variant": 3,
+      "result": "F78E-V112N"
+    },
+    {
+      "variant": 4,
+      "result": "F14I-F63G"
+    },
+    {
+      "variant": 5,
+      "result": "K11P-Y12P"
+    }
+  ],
+  "H8_Druggability_Assessment": [
+    {
+      "variant": 1,
+      "result": "1A3N"
+    },
+    {
+      "variant": 2,
+      "result": "3PBL"
+    },
+    {
+      "variant": 3,
+      "result": "1D5Y"
+    },
+    {
+      "variant": 4,
+      "result": "1C00"
+    },
+    {
+      "variant": 5,
+      "result": "5YAG"
+    }
+  ],
+  "H9_Conformational_Ensemble_Analysis": [
+    {
+      "variant": 1,
+      "result": "72"
+    },
+    {
+      "variant": 2,
+      "result": "72"
+    },
+    {
+      "variant": 3,
+      "result": "291"
+    },
+    {
+      "variant": 4,
+      "result": "1"
+    },
+    {
+      "variant": 5,
+      "result": "59"
+    }
+  ],
+  "M1_MSA_Conservation_Score": [
+    {
+      "variant": 1,
+      "result": "140"
+    },
+    {
+      "variant": 2,
+      "result": "221"
+    },
+    {
+      "variant": 3,
+      "result": "48"
+    },
+    {
+      "variant": 4,
+      "result": "152"
+    },
+    {
+      "variant": 5,
+      "result": "7"
+    }
+  ],
+  "M2_Phylogenetic_Distance": [
+    {
+      "variant": 1,
+      "result": "0.238"
+    },
+    {
+      "variant": 2,
+      "result": "0.535"
+    },
+    {
+      "variant": 3,
+      "result": "0.4034"
+    },
+    {
+      "variant": 4,
+      "result": "0.0078"
+    },
+    {
+      "variant": 5,
+      "result": "0.4175"
+    }
+  ],
+  "M3_Structural_Alignment_RMSD": [
+    {
+      "variant": 1,
+      "result": "0.273"
+    },
+    {
+      "variant": 2,
+      "result": "0.380"
+    },
+    {
+      "variant": 3,
+      "result": "0.091"
+    },
+    {
+      "variant": 4,
+      "result": "33.600"
+    },
+    {
+      "variant": 5,
+      "result": "11.709"
+    }
+  ],
+  "M4_Domain_Architecture": [
+    {
+      "variant": 1,
+      "result": "PF00870"
+    },
+    {
+      "variant": 2,
+      "result": "PF07714"
+    },
+    {
+      "variant": 3,
+      "result": "PF07714"
+    },
+    {
+      "variant": 4,
+      "result": "PF00656"
+    },
+    {
+      "variant": 5,
+      "result": "PF03165"
+    }
+  ],
+  "M5_Codon_Usage_Analysis": [
+    {
+      "variant": 1,
+      "result": "fusA"
+    },
+    {
+      "variant": 2,
+      "result": "dapD"
+    },
+    {
+      "variant": 3,
+      "result": "hisC"
+    },
+    {
+      "variant": 4,
+      "result": "leuC"
+    },
+    {
+      "variant": 5,
+      "result": "argD"
+    }
+  ],
+  "M6_Transmembrane_Prediction": [
+    {
+      "variant": 1,
+      "result": "P41145"
+    },
+    {
+      "variant": 2,
+      "result": "P21728"
+    },
+    {
+      "variant": 3,
+      "result": "O43641"
+    },
+    {
+      "variant": 4,
+      "result": "Q9H228"
+    },
+    {
+      "variant": 5,
+      "result": "P35462"
+    }
+  ],
+  "M7_B_factor_Analysis": [
+    {
+      "variant": 1,
+      "result": "9.63"
+    },
+    {
+      "variant": 2,
+      "result": "24.91"
+    },
+    {
+      "variant": 3,
+      "result": "27.34"
+    },
+    {
+      "variant": 4,
+      "result": "110.22"
+    },
+    {
+      "variant": 5,
+      "result": "41.32"
+    }
+  ],
+  "M9_Splice_Site_Prediction": [
+    {
+      "variant": 1,
+      "result": "24"
+    },
+    {
+      "variant": 2,
+      "result": "12"
+    },
+    {
+      "variant": 3,
+      "result": "27"
+    },
+    {
+      "variant": 4,
+      "result": "79"
+    },
+    {
+      "variant": 5,
+      "result": "5"
+    }
+  ]
+}

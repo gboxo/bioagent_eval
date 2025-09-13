@@ -1,0 +1,10 @@
+{
+  "enzyme_family": "6-phosphogluconate_dehydrogenase",
+  "description": "NADP+ binding and catalytic sites",
+  "active_sites": [33, 34, 187],
+  "active_site_descriptions": [
+    "Arg33 - NADP+ specificity determinant",
+    "Thr34 - NADP+ binding interaction",
+    "Position 187 - Active site catalytic residue"
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "enzyme_family": "clpa_protease",
+  "description": "ATP binding Walker motifs",
+  "active_sites": [154, 227, 280],
+  "active_site_descriptions": [
+    "Position 154 - Walker A motif ATP binding",
+    "Position 227 - Walker B motif ATP binding",
+    "Position 280 - ATP binding site"
+  ]
+}

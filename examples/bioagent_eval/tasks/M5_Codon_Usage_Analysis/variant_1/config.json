@@ -1,0 +1,14 @@
+{
+  "genes": [
+    "dnaA",
+    "dnaN",
+    "recA",
+    "gyrB",
+    "rpoA",
+    "rpoB",
+    "rpoC",
+    "rpsL",
+    "rpsG",
+    "fusA"
+  ]
+}

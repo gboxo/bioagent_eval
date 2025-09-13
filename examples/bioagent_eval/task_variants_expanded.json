@@ -1,0 +1,1254 @@
+{
+  "E1_PDB_Cysteine_Count": {
+    "description": "You need to download a .pdb file from the Protein Data Bank (PDB) website, then you will need to extract the amino acid sequence (if there are multiple chains present, process all of them), and finally count the total number of cysteine residues in the entire structure. After that, you will return a single integer value for the number of cysteine residues in the following format <answer>int</answer>.",
+    "data_source": "PDB",
+    "input_format": "PDB ID as a string",
+    "expected_output_format": "Integer value",
+    "steps": "1) Download the PDB file using curl or requests. 2) Create a Python script to parse the PDB file using Biopython's PDBParser. 3) Initialize a total cysteine count to zero. 4) Iterate through all chains in the structure. 5) For each chain, extract its amino acid sequence. 6) Count the occurrences of the character 'C' in the sequence and add it to the total. 7) Return the final integer count.",
+    "required_programs": [
+      "bash",
+      "curl",
+      "python",
+      "biopython"
+    ],
+    "variants": {
+      "variant_1": "1UBQ",
+      "variant_2": "1A3N",
+      "variant_3": "2LYZ",
+      "variant_4": "1HTM",
+      "variant_5": "1CRN"
+    }
+  },
+  "E2_UniProt_Signal_Peptides": {
+    "description": "Retrieve a specific protein entry from the UniProt database using its accession ID. From the entry's feature annotations, you must identify all features explicitly labeled as 'Signal peptide'. Calculate the length of each signal peptide and sum them to get a total length. Return this sum as an integer in the format <answer>int</answer>. If no signal peptides are found, the answer should be 0.",
+    "data_source": "UniProt",
+    "input_format": "UniProt Accession ID as a string.",
+    "expected_output_format": "Integer value",
+    "steps": "1) Use the requests library to query the UniProt REST API for the given ID (e.g., https://rest.uniprot.org/uniprotkb/{ID}.json). 2) Parse the resulting JSON data. 3) Navigate to the 'features' key. 4) Iterate through the list of features, filtering for entries where the 'type' is 'Signal peptide'. 5) For each matching feature, calculate its length by subtracting 'location.start.value' from 'location.end.value' and adding 1. 6) Sum the lengths of all found signal peptides. 7) Return the total.",
+    "required_programs": [
+      "bash",
+      "python",
+      "requests"
+    ],
+    "variants": {
+      "variant_1": "P04637",
+      "variant_2": "P01308",
+      "variant_3": "P00750",
+      "variant_4": "P01189",
+      "variant_5": "P01344"
+    }
+  },
+  "E3_PDB_Chain_Count": {
+    "description": "Download a specified PDB structure file. Your task is to count the number of distinct protein chains within the structure and return their identifiers. The final output should be a comma-separated string of the unique chain IDs found in the file, sorted alphabetically, and presented in the format <answer>str</answer>.",
+    "data_source": "PDB",
+    "input_format": "PDB ID as a string.",
+    "expected_output_format": "Comma-separated string",
+    "steps": "1) Download the PDB file from the RCSB website. 2) Use Biopython's PDBParser to load the structure. 3) Create an empty set to store unique chain IDs. 4) Iterate through the models, and for each model, iterate through its chains. 5) Add the ID of each chain object to the set. 6) After iteration, convert the set to a sorted list and join the elements with a comma. 7) Return the resulting string.",
+    "required_programs": [
+      "bash",
+      "curl",
+      "python",
+      "biopython"
+    ],
+    "variants": {
+      "variant_1": "4HHB",
+      "variant_2": "1A3N",
+      "variant_3": "2LYZ",
+      "variant_4": "1HTM",
+      "variant_5": "1UBQ"
+    }
+  },
+  "E4_FASTA_Length_Statistics": {
+    "description": "For a given list of UniProt IDs, you need to fetch the protein sequence for each one. After collecting all sequences, calculate the mean (average) length of these sequences. The final answer must be the mean value rounded to the nearest integer, returned in the format <answer>int</answer>.",
+    "data_source": "UniProt",
+    "input_format": "List of UniProt Accession IDs.",
+    "expected_output_format": "Integer value",
+    "steps": "1) For each UniProt ID in the input list, make an API call to UniProt (e.g., https://www.uniprot.org/uniprot/{ID}.fasta) to get its FASTA sequence. 2) Use Biopython's SeqIO to parse each retrieved sequence and get its length. 3) Store all lengths in a Python list. 4) Calculate the sum of the lengths and divide by the number of sequences to get the mean. 5) Use Python's round() function to round the mean to the nearest integer. 6) Return the result.",
+    "required_programs": [
+      "bash",
+      "python",
+      "requests",
+      "biopython"
+    ],
+    "variants": {
+      "variant_1": [
+        "P00533",
+        "P04626",
+        "P21860",
+        "Q15303",
+        "P08581"
+      ],
+      "variant_2": [
+        "P12931",
+        "P06241",
+        "P07947",
+        "P06239",
+        "P07948"
+      ],
+      "variant_3": [
+        "P42574",
+        "P55210",
+        "P55212",
+        "Q14790",
+        "P55211"
+      ],
+      "variant_4": [
+        "Q15796",
+        "Q15797",
+        "P84022",
+        "Q13485",
+        "Q99717"
+      ],
+      "variant_5": [
+        "P62158",
+        "P60709",
+        "P68371",
+        "P63104",
+        "P01112"
+      ]
+    }
+  },
+  "E5_PDB_Resolution_Comparison": {
+    "description": "You are given a list of five PDB IDs. For each ID, you must find its experimental resolution. Your goal is to identify which of the structures has the best (i.e., numerically lowest) resolution. Return the PDB ID of this highest-resolution structure as a string in the format <answer>str</answer>. Note: If a structure was not determined by X-ray crystallography (e.g., it is an NMR structure), it will not have a resolution value and should be ignored in the comparison.",
+    "data_source": "PDB",
+    "input_format": "List of PDB IDs.",
+    "expected_output_format": "PDB ID as a string",
+    "steps": "1) Initialize a variable for the best PDB ID and set the best resolution to a very high number (e.g., infinity). 2) Loop through each PDB ID in the list. 3) Download the PDB file. 4) Use Biopython's PDBParser to parse the file and access the header information, specifically the 'resolution' key. 5) If a resolution value exists and is lower than the current best resolution, update the best resolution and best PDB ID variables. 6) After checking all PDB IDs, return the one stored as the best.",
+    "required_programs": [
+      "bash",
+      "curl",
+      "python",
+      "biopython"
+    ],
+    "variants": {
+      "variant_1": [
+        "1UBQ",
+        "2LYZ",
+        "1A3N",
+        "1HTM",
+        "1CRN"
+      ],
+      "variant_2": [
+        "3C2N",
+        "1JXO",
+        "2FHA",
+        "1L2Y",
+        "1A4Y"
+      ],
+      "variant_3": [
+        "1GFL",
+        "1HAG",
+        "1TEN",
+        "1VFB",
+        "1BPI"
+      ],
+      "variant_4": [
+        "2H5N",
+        "3B4R",
+        "1X8R",
+        "4GCR",
+        "1D3Z"
+      ],
+      "variant_5": [
+        "1F34",
+        "1M40",
+        "1PDB",
+        "1SVA",
+        "2B4J"
+      ]
+    }
+  },
+  "E6_UniProt_Domain_Count": {
+    "description": "For a given UniProt entry, count the number of 'Fibronectin type-III' domains. You will need to retrieve the protein's annotations and parse its features to find all domain regions, then filter them by description. Return the final count as an integer in the format <answer>int</answer>.",
+    "data_source": "UniProt",
+    "input_format": "UniProt Accession ID as a string.",
+    "expected_output_format": "Integer value",
+    "steps": "1) Fetch the protein's data in JSON format from the UniProt API. 2) Parse the JSON and locate the 'features' list. 3) Iterate through the features. 4) Filter for features where 'type' is 'Domain'. 5) For these domain features, check if the 'description' field contains the string 'Fibronectin type-III'. 6) Maintain a counter for matching domains. 7) Return the final count.",
+    "required_programs": [
+      "python",
+      "requests"
+    ],
+    "variants": {
+      "variant_1": "P06213",
+      "variant_2": "P35568",
+      "variant_3": "P42336",
+      "variant_4": "P04626",
+      "variant_5": "P15056"
+    }
+  },
+  "E7_PDB_Secondary_Structure": {
+    "description": "Download a PDB structure and analyze its secondary structure using the DSSP algorithm. Your task is to count the total number of beta sheets in the protein. A beta sheet can consist of multiple beta strands. You must count the distinct sheets. Return the count as an integer in the format <answer>int</answer>.",
+    "data_source": "PDB, DSSP (tool)",
+    "input_format": "PDB ID as a string.",
+    "expected_output_format": "Integer value",
+    "steps": "1) Download the PDB file. 2) Run the `mkdssp` command-line tool on the PDB file to generate a .dssp file. 3) Parse the output DSSP file using Biopython's `DSSP` module. 4) The Biopython DSSP parser provides access to beta bridges. A beta sheet is a network of residues connected by beta bridges. 5) Iterate through the parsed DSSP data to identify all unique sheet identifiers. 6) Return the number of unique sheets found.",
+    "required_programs": [
+      "bash",
+      "curl",
+      "python",
+      "biopython",
+      "mkdssp"
+    ],
+    "variants": {
+      "variant_1": "1A3N",
+      "variant_2": "2LYZ",
+      "variant_3": "1UBQ",
+      "variant_4": "1HTM",
+      "variant_5": "1CRN"
+    }
+  },
+  "E8_Hydrophobic_Residue_Percentage": {
+    "description": "You are given a list of UniProt IDs. Fetch the sequence for the first UniProt ID in the list. Calculate the percentage of hydrophobic residues (A, I, L, M, F, P, V, W) in this sequence. Return the result as a float rounded to two decimal places, in the format <answer>float</answer>.",
+    "data_source": "UniProt",
+    "input_format": "List of UniProt Accession IDs.",
+    "expected_output_format": "Float value",
+    "steps": "1) Take the first ID from the input list. 2) Fetch its FASTA sequence from UniProt. 3) Define the set of single-letter codes for hydrophobic amino acids. 4) Count the total number of residues in the sequence. 5) Count the number of residues that are in the hydrophobic set. 6) Calculate the percentage: (hydrophobic_count / total_count) * 100. 7) Round the result to two decimal places and return it.",
+    "required_programs": [
+      "python",
+      "requests",
+      "biopython"
+    ],
+    "variants": {
+      "variant_1": [
+        "P0DPA2",
+        "P0DPA3",
+        "P0DPA4",
+        "P0DPA5",
+        "P0DPA6"
+      ],
+      "variant_2": [
+        "P0C0L4",
+        "P0C0L5",
+        "P0C0L6",
+        "P0C0L7",
+        "P0C0L8"
+      ],
+      "variant_3": [
+        "A0A0A6YY23",
+        "A0A0A6YY24",
+        "A0A0A6YY25",
+        "A0A0A6YY26",
+        "A0A0A6YY27"
+      ],
+      "variant_4": [
+        "P12345",
+        "P67890",
+        "P54321",
+        "P09876",
+        "P13579"
+      ],
+      "variant_5": [
+        "Q9Y260",
+        "Q9Y261",
+        "Q9Y262",
+        "Q9Y263",
+        "Q9Y264"
+      ]
+    }
+  },
+  "E9_PDB_Ligand_Identification": {
+    "description": "Download a PDB file and identify all bound ligands. Water molecules should be excluded. Your task is to count the number of unique types of ligands present. For example, if there are three ATP molecules and two MG ions, the answer is 2. Return this count as an integer in the format <answer>int</answer>.",
+    "data_source": "PDB",
+    "input_format": "PDB ID as a string.",
+    "expected_output_format": "Integer value",
+    "steps": "1) Download the PDB file. 2) Parse the structure using Biopython's PDBParser. 3) Create an empty set to store the names of unique ligands. 4) Iterate through all residues in the structure. 5) For each residue, check if its ID's first element starts with 'H_' (indicating a HETATM) and is not 'W' (for water). 6) If it's a non-water HETATM, add its residue name (e.g., 'ATP', 'MG') to the set. 7) The final count is the size of the set. Return this value.",
+    "required_programs": [
+      "bash",
+      "curl",
+      "python",
+      "biopython"
+    ],
+    "variants": {
+      "variant_1": "1HTM",
+      "variant_2": "2LYZ",
+      "variant_3": "3HVT",
+      "variant_4": "1A3N",
+      "variant_5": "4HHB"
+    }
+  },
+  "E10_Gene_Ontology_Terms": {
+    "description": "For a given UniProt ID, retrieve its Gene Ontology (GO) annotations. You need to count how many of these annotations belong to the 'Molecular Function' ontology. Return the count as an integer in the format <answer>int</answer>.",
+    "data_source": "UniProt",
+    "input_format": "UniProt Accession ID as a string.",
+    "expected_output_format": "Integer value",
+    "steps": "1) Query the UniProt API for the protein's JSON data. 2) Navigate to the 'dbReferences' key. 3) Filter this list for entries where the 'type' is 'GO'. 4) For each GO entry, access its 'properties' and check the 'GoTerm' value. The ontology is indicated by the first letter (P, F, or C). 5) Count how many of these terms start with 'F:' (for Molecular Function). 6) Return the final count.",
+    "required_programs": [
+      "python",
+      "requests"
+    ],
+    "variants": {
+      "variant_1": "P62158",
+      "variant_2": "P60709",
+      "variant_3": "P68371",
+      "variant_4": "P63104",
+      "variant_5": "P01112"
+    }
+  },
+  "M1_MSA_Conservation_Score": {
+    "description": "You are given a list of UniProt IDs for homologous proteins. Perform a Multiple Sequence Alignment (MSA) on them. Then, calculate the conservation for each column in the alignment. Conservation is defined as the frequency of the most common amino acid. Return an integer count of the number of columns with a conservation score greater than 80% (0.8), in the format <answer>int</answer>.",
+    "data_source": "UniProt, MAFFT (tool)",
+    "input_format": "List of UniProt Accession IDs.",
+    "expected_output_format": "Integer value",
+    "steps": "1) Fetch the FASTA sequence for each UniProt ID. 2) Combine all sequences into a single multi-FASTA file. 3) Run the `mafft` command-line tool on the FASTA file to generate an alignment file (e.g., in Clustal format). 4) Parse the alignment file using Biopython's `AlignIO`. 5) Initialize a counter for highly conserved columns. 6) Iterate through each column of the alignment. 7) For each column, count the occurrences of each amino acid and find the count of the most frequent one. 8) Calculate the frequency (most_frequent_count / number_of_sequences). 9) If the frequency is > 0.8, increment the counter. 10) Return the final count.",
+    "required_programs": [
+      "python",
+      "requests",
+      "biopython",
+      "mafft"
+    ],
+    "variants": {
+      "variant_1": [
+        "P00533",
+        "P04626",
+        "P21860",
+        "Q15303",
+        "P08581"
+      ],
+      "variant_2": [
+        "P12931",
+        "P06241",
+        "P07947",
+        "P06239",
+        "P07948"
+      ],
+      "variant_3": [
+        "P42574",
+        "P55210",
+        "P55212",
+        "Q14790",
+        "P55211"
+      ],
+      "variant_4": [
+        "Q15796",
+        "Q15797",
+        "P84022",
+        "Q13485",
+        "Q99717"
+      ],
+      "variant_5": [
+        "P62158",
+        "P60709",
+        "P68371",
+        "P63104",
+        "P01112"
+      ]
+    }
+  },
+  "M2_Phylogenetic_Distance": {
+    "description": "Given a FASTA file containing 15 homologous sequences, you must first align them, then create a phylogenetic tree using the neighbor-joining method. Finally, calculate the evolutionary distance between all pairs of sequences (leaves) in the tree and return the maximum pairwise distance found. The output should be a float rounded to four decimal places, in the format <answer>float</answer>.",
+    "data_source": "User-provided FASTA file",
+    "input_format": "Filename of a multi-FASTA file.",
+    "expected_output_format": "Float value",
+    "steps": "1) Perform a multiple sequence alignment on the input FASTA file using `mafft`. 2) Parse the resulting alignment file. 3) Use Biopython's `DistanceCalculator` to create a distance matrix from the alignment. 4) Use `DistanceTreeConstructor` with the neighbor-joining ('nj') method to build the tree. 5) Get a list of all the terminal nodes (leaves) of the tree. 6) Iterate through all possible pairs of leaves. 7) For each pair, calculate the distance using the `tree.distance()` method. 8) Keep track of the maximum distance encountered. 9) Return the maximum distance, rounded to four decimal places.",
+    "required_programs": [
+      "python",
+      "biopython",
+      "mafft"
+    ],
+    "variants": {
+      "variant_1": "blast_NP_001912.1",
+      "variant_2": "blast_NP_003520.1",
+      "variant_3": "blast_NP_195521.1",
+      "variant_4": "blast_NP_414555.1",
+      "variant_5": "blast_WP_010873491.1"
+    }
+  },
+  "M3_Structural_Alignment_RMSD": {
+    "description": "Given two PDB IDs, download their structures. Perform a structural alignment focusing on the C-alpha atoms of the proteins. Calculate and return the Root Mean Square Deviation (RMSD) between the two structures after alignment. The output should be a float rounded to three decimal places, in the format <answer>float</answer>.",
+    "data_source": "PDB",
+    "input_format": "List of two PDB IDs.",
+    "expected_output_format": "Float value",
+    "steps": "1) Download the PDB files for both IDs. 2) Parse both structures using Biopython's `PDBParser`. 3) From each structure, extract a list of all C-alpha atoms. 4) Create an instance of Biopython's `Superimposer` class. 5) Use the `set_atoms()` method of the superimposer, providing the two lists of C-alpha atoms. 6) The RMSD is now available in the `superimposer.rmsd` attribute. 7) Return this value, rounded to three decimal places.",
+    "required_programs": [
+      "python",
+      "curl",
+      "biopython"
+    ],
+    "variants": {
+      "variant_1": [
+        "1A3N",
+        "1A3O"
+      ],
+      "variant_2": [
+        "2LYZ",
+        "1LYZ"
+      ],
+      "variant_3": [
+        "1UBQ",
+        "1UBI"
+      ],
+      "variant_4": [
+        "1HTM",
+        "2HTM"
+      ],
+      "variant_5": [
+        "1CRN",
+        "2CRN"
+      ]
+    }
+  },
+  "M4_Domain_Architecture": {
+    "description": "You are given five UniProt IDs. For each protein, identify all of its domains using Pfam annotations from UniProt. Your task is to find the single most common domain across all five proteins. Return the Pfam accession ID (e.g., 'PF00069') of this most common domain in the format <answer>str</answer>.",
+    "data_source": "UniProt (with Pfam cross-references)",
+    "input_format": "List of five UniProt Accession IDs.",
+    "expected_output_format": "Pfam ID as a string",
+    "steps": "1) Create an empty list to store all Pfam IDs found. 2) For each UniProt ID in the input list, query the UniProt API for its JSON data. 3) Parse the 'dbReferences' section and filter for entries where 'type' is 'Pfam'. 4) For each Pfam entry found, add its 'id' to the list. 5) After processing all proteins, use Python's `collections.Counter` to count the occurrences of each Pfam ID in the list. 6) Find the most common Pfam ID from the counter. 7) Return this ID as a string.",
+    "required_programs": [
+      "python",
+      "requests"
+    ],
+    "variants": {
+      "variant_1": [
+        "P04637",
+        "P63000",
+        "O15350",
+        "O15151",
+        "Q02750"
+      ],
+      "variant_2": [
+        "P00533",
+        "P04626",
+        "P21860",
+        "Q15303",
+        "P08581"
+      ],
+      "variant_3": [
+        "P12931",
+        "P06241",
+        "P07947",
+        "P06239",
+        "P07948"
+      ],
+      "variant_4": [
+        "P42574",
+        "P55210",
+        "P55212",
+        "Q14790",
+        "P55211"
+      ],
+      "variant_5": [
+        "Q15796",
+        "Q15797",
+        "P84022",
+        "Q13485",
+        "Q99717"
+      ]
+    }
+  },
+  "M5_Codon_Usage_Analysis": {
+    "description": "You are given a list of 10 E. coli gene names. For each gene, you must find its coding sequence (CDS). Then, using a standard E. coli codon usage table as a reference, calculate the Codon Adaptation Index (CAI) for each gene. Return the name of the gene with the highest CAI value as a string in the format <answer>str</answer>.",
+    "data_source": "NCBI Entrez database, Biopython codon usage reference",
+    "input_format": "List of 10 E. coli gene names.",
+    "expected_output_format": "Gene name as a string",
+    "steps": "1) Use Biopython's Entrez module to search the NCBI nucleotide database for each gene name (e.g., query: 'Escherichia coli[Orgn] AND {gene_name}[Gene]'). Fetch the CDS for each. 2) The `Bio.SeqUtils.CodonUsage` module contains pre-calculated codon usage indexes; use the one for E. coli. 3) Create an instance of `CodonAdaptationIndex`. 4) For each gene's CDS, calculate its CAI using the `cai_for_gene()` method. 5) Keep track of the gene name that corresponds to the highest calculated CAI. 6) Return the gene name with the highest score.",
+    "required_programs": [
+      "python",
+      "biopython"
+    ],
+    "variants": {
+      "variant_1": [
+        "dnaA",
+        "dnaN",
+        "recA",
+        "gyrB",
+        "rpoA",
+        "rpoB",
+        "rpoC",
+        "rpsL",
+        "rpsG",
+        "fusA"
+      ],
+      "variant_2": [
+        "thrA",
+        "thrB",
+        "thrC",
+        "metL",
+        "lysC",
+        "asd",
+        "dapA",
+        "dapB",
+        "dapD",
+        "dapF"
+      ],
+      "variant_3": [
+        "trpA",
+        "trpB",
+        "trpC",
+        "trpD",
+        "trpE",
+        "pheA",
+        "tyrA",
+        "hisA",
+        "hisB",
+        "hisC"
+      ],
+      "variant_4": [
+        "ilvA",
+        "ilvB",
+        "ilvC",
+        "ilvD",
+        "ilvE",
+        "leuA",
+        "leuB",
+        "leuC",
+        "leuD",
+        "proA"
+      ],
+      "variant_5": [
+        "argA",
+        "argB",
+        "argC",
+        "argD",
+        "argE",
+        "argF",
+        "argG",
+        "argH",
+        "glnA",
+        "gltB"
+      ]
+    }
+  },
+  "M6_Transmembrane_Prediction": {
+    "description": "Given a list of UniProt IDs for membrane proteins, you must predict the transmembrane topology for each one. Using a tool that implements the TMHMM algorithm, count the number of transmembrane helices predicted for each protein. Return the UniProt ID of the protein with the highest number of predicted helices, in the format <answer>str</answer>.",
+    "data_source": "UniProt, TMHMM (tool/library)",
+    "input_format": "List of UniProt IDs.",
+    "expected_output_format": "UniProt ID as a string",
+    "steps": "1) Fetch the FASTA sequence for each UniProt ID. 2) Use a Python library such as `pytmhmm` which provides an interface to the TMHMM prediction model. 3) For each sequence, call the prediction function (e.g., `pytmhmm.predict`). 4) Parse the annotation string returned by the tool to count the number of regions labeled as transmembrane helices (often denoted by 'i' for inside, 'M' for membrane, 'o' for outside). Count the distinct 'M' segments. 5) Keep track of the UniProt ID with the highest helix count. 6) Return this UniProt ID.",
+    "required_programs": [
+      "python",
+      "requests",
+      "biopython",
+      "pytmhmm"
+    ],
+    "variants": {
+      "variant_1": [
+        "P35355",
+        "P35367",
+        "P35372",
+        "P41143",
+        "P41145",
+        "Q13639",
+        "Q96P88",
+        "Q9Y5N1"
+      ],
+      "variant_2": [
+        "P08100",
+        "P11229",
+        "P11230",
+        "P13945",
+        "P21728",
+        "P28222",
+        "P28223",
+        "P30542"
+      ],
+      "variant_3": [
+        "P61073",
+        "O43641",
+        "P29274",
+        "P29275",
+        "P32238",
+        "P32241",
+        "P34969",
+        "P35348"
+      ],
+      "variant_4": [
+        "Q9H228",
+        "Q9H229",
+        "Q9H230",
+        "Q9H231",
+        "Q9H232",
+        "Q9H233",
+        "Q9H234",
+        "Q9H235"
+      ],
+      "variant_5": [
+        "P24530",
+        "P35462",
+        "P41594",
+        "P41595",
+        "P42857",
+        "P43286",
+        "P51679",
+        "Q15392"
+      ]
+    }
+  },
+  "M7_B_factor_Analysis": {
+    "description": "Download a PDB file and analyze the flexibility of its residues. Extract the B-factor for every C-alpha atom in the structure. Identify all residues whose C-alpha B-factors are in the top 10% of all C-alpha B-factors for that structure. Return the total count of these highly flexible residues as an integer in the format <answer>int</answer>.",
+    "data_source": "PDB",
+    "input_format": "PDB ID as a string.",
+    "expected_output_format": "Integer value",
+    "steps": "1) Download and parse the PDB file using Biopython. 2) Create a list and populate it with the B-factor of every C-alpha atom found in the structure. 3) Sort the list of B-factors in descending order. 4) Calculate the number of residues that constitute the top 10% (i.e., `count = int(len(b_factor_list) * 0.1)`). 5) This count is the number of residues in the top 10%. Return this integer value.",
+    "required_programs": [
+      "python",
+      "curl",
+      "biopython"
+    ],
+    "variants": {
+      "variant_1": "2LYZ",
+      "variant_2": "1A3N",
+      "variant_3": "1UBQ",
+      "variant_4": "1HTM",
+      "variant_5": "4HHB"
+    }
+  },
+  "M8_Homology_Modeling_Quality": {
+    "description": "Given a target protein sequence (by UniProt ID) and a template structure (by PDB ID), you will use a web service to build a homology model. Your task is to submit this modeling job to the SWISS-MODEL API, wait for it to complete, and retrieve the quality estimation metrics for the resulting model. Specifically, you must find and return the global QMEAN score. The output should be a float in the format <answer>float</answer>.",
+    "data_source": "UniProt, PDB, SWISS-MODEL API",
+    "input_format": "Dictionary with 'target' (UniProt ID) and 'template' (PDB ID) keys.",
+    "expected_output_format": "Float value",
+    "steps": "1) Fetch the FASTA sequence for the target UniProt ID. 2) Construct a JSON payload for the SWISS-MODEL API, including your email, the target sequence, and the template PDB ID. 3) Submit the modeling job via a POST request to the SWISS-MODEL API endpoint. 4) The API will return a job ID. Periodically poll the job status URL until the job is 'COMPLETED'. 5) Once complete, retrieve the results URL, which contains model information in JSON format. 6) Parse this final JSON to find the QMEAN score associated with the best-ranked model. 7) Return the QMEAN score.",
+    "required_programs": [
+      "python",
+      "requests"
+    ],
+    "variants": {
+      "variant_1": {
+        "target": "P00766",
+        "template": "1TON"
+      },
+      "variant_2": {
+        "target": "P0C6A9",
+        "template": "3M6I"
+      },
+      "variant_3": {
+        "target": "Q9H3R5",
+        "template": "1W50"
+      },
+      "variant_4": {
+        "target": "P61247",
+        "template": "1M8Q"
+      },
+      "variant_5": {
+        "target": "P42345",
+        "template": "1Z5X"
+      }
+    }
+  },
+  "M9_Splice_Site_Prediction": {
+    "description": "You are given a human gene name. Using the Ensembl database, find all known protein-coding transcripts for this gene. Your task is to identify which of these transcripts contains the highest number of exons. Return this maximum exon count as an integer in the format <answer>int</answer>.",
+    "data_source": "Ensembl REST API",
+    "input_format": "Human gene name as a string (e.g., 'BRCA1').",
+    "expected_output_format": "Integer value",
+    "steps": "1) Use the Ensembl 'lookup/symbol' REST API endpoint to find the Ensembl Gene ID for the given gene name. 2) Using this ID, query the 'lookup/id' endpoint with the `expand=1` parameter to retrieve all information about the gene, including its transcripts and exons. 3) Initialize a variable `max_exons` to 0. 4) Parse the JSON response and iterate through the list of transcripts ('Transcript' key). 5) For each transcript, get the number of exons by finding the length of its 'Exon' list. 6) If this count is greater than `max_exons`, update `max_exons`. 7) After checking all transcripts, return the final `max_exons` value.",
+    "required_programs": [
+      "python",
+      "requests"
+    ],
+    "variants": {
+      "variant_1": "BRCA1",
+      "variant_2": "TP53",
+      "variant_3": "CFTR",
+      "variant_4": "DMD",
+      "variant_5": "APOE"
+    }
+  },
+  "M10_Protein_Disorder_Prediction": {
+    "description": "You are given a list of UniProt IDs for transcription factors. For each protein, predict the amount of intrinsic disorder. Use the IUPred3 web service to get per-residue disorder scores. A residue is considered disordered if its score is > 0.5. Calculate the percentage of disordered residues for each protein. Return the UniProt ID of the protein with the highest percentage of disorder, in the format <answer>str</answer>.",
+    "data_source": "UniProt, IUPred3 REST API",
+    "input_format": "List of UniProt IDs.",
+    "expected_output_format": "UniProt ID as a string",
+    "steps": "1) For each UniProt ID, fetch its FASTA sequence. 2) Submit each sequence to the IUPred3 REST API. 3) Parse the JSON response to get the list of per-residue disorder scores. 4) For each protein, count the number of residues with a score greater than 0.5. 5) Calculate the percentage of disordered residues (disordered_count / total_length * 100). 6) Keep track of the UniProt ID with the highest calculated percentage. 7) Return the UniProt ID with the highest disorder percentage.",
+    "required_programs": [
+      "python",
+      "requests",
+      "biopython"
+    ],
+    "variants": {
+      "variant_1": [
+        "P04637",
+        "P03070",
+        "Q01094",
+        "P10275",
+        "P01112",
+        "P01116"
+      ],
+      "variant_2": [
+        "P10424",
+        "P35916",
+        "P36544",
+        "Q03167",
+        "Q92786",
+        "O00444"
+      ],
+      "variant_3": [
+        "P20226",
+        "P15332",
+        "P19544",
+        "P16410",
+        "P10826",
+        "Q05516"
+      ],
+      "variant_4": [
+        "P38398",
+        "Q92753",
+        "P52946",
+        "P41240",
+        "P27986",
+        "P35659"
+      ],
+      "variant_5": [
+        "O15111",
+        "P53805",
+        "Q12888",
+        "Q13153",
+        "Q13154",
+        "Q99459"
+      ]
+    }
+  },
+  "H1_DMS_Hotspot_Analysis": {
+    "description": "Analyze a Deep Mutational Scanning (DMS) dataset from a CSV file. You need to identify 'hotspot' positions that are sensitive to mutation. A position is a hotspot if more than 50% of the mutations at that position result in a greater than 3-fold loss of fitness (fitness score < 0.33). From these hotspots, find the top 10 that have the lowest average fitness score. Return these 10 positions as a comma-separated string of integers, sorted from lowest average fitness to highest. Format: <answer>str</answer>.",
+    "data_source": "ProteinGym (CSV file)",
+    "input_format": "Path to a CSV file from a ProteinGym DMS dataset.",
+    "expected_output_format": "Comma-separated string of integers",
+    "steps": "1) Load the specified CSV file into a pandas DataFrame. 2) Group the DataFrame by the 'position' column. 3) For each position group, calculate two things: the mean of the 'fitness' column, and the fraction of rows where 'fitness' is less than 0.33. 4) Filter these aggregated results to keep only the positions where the calculated fraction is greater than 0.5. 5) Sort the filtered DataFrame by the mean fitness in ascending order. 6) Select the top 10 rows. 7) Extract the 'position' values, convert them to integers, and join them into a single comma-separated string. 8) Return the string.",
+    "required_programs": [
+      "python",
+      "pandas",
+      "numpy"
+    ],
+    "variants": {
+      "variant_1": "ProteinGym_DMS:B2L11_HUMAN_Dutta_2010_binding-Mcl-1",
+      "variant_2": "ProteinGym_DMS:HIS7_YEAST_Pokusaeva_2019",
+      "variant_3": "ProteinGym_DMS:ODP2_GEOSE_Tsuboyama_2023_1W4G",
+      "variant_4": "ProteinGym_DMS:POLG_CXB3N_Mattenberger_2021",
+      "variant_5": "ProteinGym_DMS:Q837P5_ENTFA_Meier_2023"
+    }
+  },
+  "H2_Allosteric_Network_Analysis": {
+    "description": "You are given a PDB ID and two residue positions. Model the protein as a residue interaction network where each residue's C-alpha atom is a node. An edge exists between two nodes if the distance between their C-alpha atoms is less than 7 Angstroms. Find the shortest path in this network between the two specified residues. Return the length of this path (i.e., the number of edges) as an integer. If no path exists, return -1. Format: <answer>int</answer>.",
+    "data_source": "PDB",
+    "input_format": "A PDB ID and two integer residue positions.",
+    "expected_output_format": "Integer value",
+    "steps": "1) Download and parse the PDB file. 2) Create an empty graph using the `networkx` library. 3) Extract a list of all C-alpha atoms from the structure. 4) Add each residue (represented by its C-alpha atom and identified by its residue number) as a node to the graph. 5) Iterate through all unique pairs of C-alpha atoms. If the distance between a pair is less than 7.0, add an edge in the graph between their corresponding residue nodes. 6) Use `networkx.shortest_path_length` to calculate the shortest path between the two specified residue nodes. Handle the case where no path exists. 7) Return the calculated path length.",
+    "required_programs": [
+      "python",
+      "biopython",
+      "networkx",
+      "numpy",
+      "curl"
+    ],
+    "variants": {
+      "variant_1": "1A3N",
+      "variant_2": "2LYZ",
+      "variant_3": "4HHB",
+      "variant_4": "1HTM",
+      "variant_5": "1UBQ"
+    }
+  },
+  "H3_Evolutionary_Rate_Analysis": {
+    "description": "You are given a list of orthologous protein UniProt IDs. Your goal is to determine how many branches in their evolutionary history show signs of positive selection. To do this, you must build a phylogenetic tree and calculate the dN/dS ratio (omega) for each branch. A dN/dS ratio > 1 indicates positive selection. You must return an integer count of the branches where omega > 1, as calculated by the PAML software package. The final output must be in the format <answer>int</answer>.",
+    "data_source": "UniProt (protein sequences), ENA/GenBank (nucleotide sequences), PAML (analysis tool)",
+    "input_format": "List of UniProt Accession IDs.",
+    "expected_output_format": "Integer value",
+    "steps": [
+      "1) Data Retrieval: For each UniProt ID, fetch the protein FASTA and its corresponding nucleotide coding sequence (CDS) from UniProt and ENA/GenBank. Consolidate them into two multi-FASTA files (one for proteins, one for CDS).",
+      "2) Protein MSA: Use a command-line tool like MAFFT to perform a multiple sequence alignment of the protein sequences.",
+      "3) Codon Alignment: Use the `pal2nal.pl` script, providing the protein MSA and the nucleotide FASTA file, to generate a codon-correct nucleotide alignment in PAML format.",
+      "4) Tree Building: Use Biopython to read the protein MSA, calculate a distance matrix, and construct a phylogenetic tree using the neighbor-joining algorithm. Save the tree in Newick format.",
+      "5) PAML Setup: Create a control file (`codeml.ctl`) for PAML's `codeml` program. Set `model = 2` to enable the branch model, which estimates a separate dN/dS ratio for each branch.",
+      "6) Run Analysis: Execute the `codeml` program from the command line.",
+      "7) Parse Results: Read the main output file (typically `mlc`) from `codeml`. Locate the section detailing the dN/dS ratios for each branch in the tree.",
+      "8) Count Branches: Iterate through the reported omega (dN/dS) values and count how many are greater than 1.0.",
+      "9) Return Count: Return the final integer count."
+    ],
+    "required_programs": [
+      "bash",
+      "python",
+      "requests",
+      "biopython",
+      "mafft",
+      "pal2nal.pl",
+      "paml"
+    ],
+    "variants": {
+      "variant_1": [
+        "P69905",
+        "P01942",
+        "P01941",
+        "P02734",
+        "P02735",
+        "P02736",
+        "P02737",
+        "P02738",
+        "P02739",
+        "P02740",
+        "P02741",
+        "P02742",
+        "P02743",
+        "P02744",
+        "P02745"
+      ],
+      "variant_2": [
+        "P62258",
+        "P02340",
+        "P02341",
+        "P02342",
+        "P02343",
+        "P02344",
+        "P02345",
+        "P02346",
+        "P02347",
+        "P02348",
+        "P02349",
+        "P02350",
+        "P02351",
+        "P02352",
+        "P02353"
+      ],
+      "variant_3": [
+        "P62873",
+        "P02585",
+        "P02586",
+        "P02587",
+        "P02588",
+        "P02589",
+        "P02590",
+        "P02591",
+        "P02592",
+        "P02593",
+        "P02594",
+        "P02595",
+        "P02596",
+        "P02597",
+        "P02598"
+      ],
+      "variant_4": [
+        "P68871",
+        "P01031",
+        "P01032",
+        "P01033",
+        "P01034",
+        "P01035",
+        "P01036",
+        "P01037",
+        "P01038",
+        "P01039",
+        "P01040",
+        "P01041",
+        "P01042",
+        "P01043",
+        "P01044"
+      ],
+      "variant_5": [
+        "P63279",
+        "P01122",
+        "P01123",
+        "P01124",
+        "P01125",
+        "P01126",
+        "P01127",
+        "P01128",
+        "P01129",
+        "P01130",
+        "P01131",
+        "P01132",
+        "P01133",
+        "P01134",
+        "P01135"
+      ]
+    }
+  },
+  "H4_Protein_Complex_Interface": {
+    "description": "For a given multi-chain PDB of a protein complex, analyze the interface between chains. You must count the total number of inter-chain contacts within a 4.5 Angstrom distance cutoff. An inter-chain contact is defined as a pair of residues, one from each of two different chains, that have at least one pair of atoms closer than the cutoff. Return the total count of unique interacting residue pairs. Format: <answer>int</answer>.",
+    "data_source": "PDB",
+    "input_format": "PDB ID as a string.",
+    "expected_output_format": "Integer value",
+    "steps": "1) Download and parse the PDB file. 2) Get a list of all atoms in the structure. 3) Use `Bio.PDB.NeighborSearch` to find all atom pairs within the 4.5 Å cutoff. 4) Create a set to store unique interacting residue pairs. 5) Iterate through the atom pairs. For each pair, get their parent residues and chain IDs. 6) If the chain IDs are different, it's an inter-chain contact. 7) Add the pair of residue objects (in a sorted tuple to ensure uniqueness regardless of order) to the set. 8) The final answer is the size of this set. Return this count.",
+    "required_programs": [
+      "python",
+      "curl",
+      "biopython"
+    ],
+    "variants": {
+      "variant_1": "4HHB",
+      "variant_2": "1HTM",
+      "variant_3": "1A3N",
+      "variant_4": "1AVX",
+      "variant_5": "1A2K"
+    }
+  },
+  "H5_Functional_Site_Conservation": {
+    "description": "You are given a list of 25 UniProt IDs for a family of enzymes, along with a list of active site residue positions from the first sequence in the list. Your task is to identify which of these active site positions are poorly conserved across the family. A position is poorly conserved if the frequency of the most common amino acid at that position (in an MSA) is less than 50%. Return a comma-separated string of the poorly conserved active site positions. Format: <answer>str</answer>.",
+    "data_source": "UniProt, MAFFT (tool)",
+    "input_format": "A list of 25 UniProt IDs and a list of integer active site positions.",
+    "expected_output_format": "Comma-separated string of integers",
+    "steps": "1) Fetch FASTA sequences for all 25 UniProt IDs and create a multi-FASTA file. 2) Run `mafft` to generate a multiple sequence alignment. 3) Parse the alignment. 4) Create a mapping from the reference sequence positions to the alignment column indices. 5) Initialize an empty list for poorly conserved positions. 6) For each active site position, find its corresponding alignment column. 7) Calculate the frequency of the most common amino acid in that column. 8) If the frequency is less than 0.5, add the original active site position to the list. 9) Sort the list and convert it to a comma-separated string. 10) Return the string.",
+    "required_programs": [
+      "python",
+      "requests",
+      "biopython",
+      "mafft"
+    ],
+    "variants": {
+      "variant_1": [
+        "P00766",
+        "P00767",
+        "P00768",
+        "P00769",
+        "P00770",
+        "P00771",
+        "P00772",
+        "P00773",
+        "P00774",
+        "P00775",
+        "P00776",
+        "P00777",
+        "P00778",
+        "P00779",
+        "P00780",
+        "P00781",
+        "P00782",
+        "P00783",
+        "P00784",
+        "P00785",
+        "P00786",
+        "P00787",
+        "P00788",
+        "P00789",
+        "P00790"
+      ],
+      "variant_2": [
+        "P00350",
+        "P00351",
+        "P00352",
+        "P00353",
+        "P00354",
+        "P00355",
+        "P00356",
+        "P00357",
+        "P00358",
+        "P00359",
+        "P00360",
+        "P00361",
+        "P00362",
+        "P00363",
+        "P00364",
+        "P00365",
+        "P00366",
+        "P00367",
+        "P00368",
+        "P00369",
+        "P00370",
+        "P00371",
+        "P00372",
+        "P00373",
+        "P00374"
+      ],
+      "variant_3": [
+        "P00918",
+        "P00919",
+        "P00920",
+        "P00921",
+        "P00922",
+        "P00923",
+        "P00924",
+        "P00925",
+        "P00926",
+        "P00927",
+        "P00928",
+        "P00929",
+        "P00930",
+        "P00931",
+        "P00932",
+        "P00933",
+        "P00934",
+        "P00935",
+        "P00936",
+        "P00937",
+        "P00938",
+        "P00939",
+        "P00940",
+        "P00941",
+        "P00942"
+      ],
+      "variant_4": [
+        "P0ABH9",
+        "P0ABJ0",
+        "P0ABJ1",
+        "P0ABJ2",
+        "P0ABJ3",
+        "P0ABJ4",
+        "P0ABJ5",
+        "P0ABJ6",
+        "P0ABJ7",
+        "P0ABJ8",
+        "P0ABJ9",
+        "P0ACK0",
+        "P0ACK1",
+        "P0ACK2",
+        "P0ACK3",
+        "P0ACK4",
+        "P0ACK5",
+        "P0ACK6",
+        "P0ACK7",
+        "P0ACK8",
+        "P0ACK9",
+        "P0ADL0",
+        "P0ADL1",
+        "P0ADL2",
+        "P0ADL3"
+      ],
+      "variant_5": [
+        "P27306",
+        "P27307",
+        "P27308",
+        "P27309",
+        "P27310",
+        "P27311",
+        "P27312",
+        "P27313",
+        "P27314",
+        "P27315",
+        "P27316",
+        "P27317",
+        "P27318",
+        "P27319",
+        "P27320",
+        "P27321",
+        "P27322",
+        "P27323",
+        "P27324",
+        "P27325",
+        "P27326",
+        "P27327",
+        "P27328",
+        "P27329",
+        "P27330"
+      ]
+    }
+  },
+  "H6_Clashscore_Analysis": {
+    "description": "For a given PDB structure, calculate a simplified 'clashscore'. A clash is defined as two non-bonded atoms being closer than 80% of the sum of their van der Waals (VdW) radii. You must count the total number of such clashing atom pairs in the structure. Return this total count as an integer in the format <answer>int</answer>.",
+    "data_source": "PDB",
+    "input_format": "PDB ID as a string.",
+    "expected_output_format": "Integer value",
+    "steps": "1) Define a dictionary of VdW radii for relevant atom types (e.g., C: 1.7, N: 1.55, O: 1.52, S: 1.8). 2) Download and parse the PDB file. 3) Get a list of all atoms. 4) Use `Bio.PDB.NeighborSearch` to find all atom pairs within a 4.0 Å cutoff. 5) Initialize a clash counter to 0. 6) Iterate through the pairs. For each pair, check if they are bonded (e.g., in the same residue or adjacent residues in the polymer). 7) If they are not bonded, find their VdW radii from your dictionary, calculate the sum, and multiply by 0.8. 8) If the actual distance between the atoms is less than this threshold, increment the clash counter. 9) Return the final count.",
+    "required_programs": [
+      "python",
+      "curl",
+      "biopython"
+    ],
+    "variants": {
+      "variant_1": [
+        "1AAY",
+        "1CMA",
+        "1D8V",
+        "1E9H",
+        "1FJL",
+        "1G2D",
+        "1H9D",
+        "1J2Q",
+        "1K60",
+        "1L1O"
+      ],
+      "variant_2": [
+        "1B3T",
+        "1B3U",
+        "1B3V",
+        "1B3W",
+        "1B3X",
+        "1B3Y",
+        "1B3Z",
+        "1B40",
+        "1B41",
+        "1B42"
+      ],
+      "variant_3": [
+        "1ZAA",
+        "1ZAB",
+        "1ZAC",
+        "1ZAD",
+        "1ZAE",
+        "1ZAF",
+        "1ZAG",
+        "1ZAH",
+        "1ZAI",
+        "1ZAJ"
+      ],
+      "variant_4": [
+        "2B0D",
+        "2B0E",
+        "2B0F",
+        "2B0G",
+        "2B0H",
+        "2B0I",
+        "2B0J",
+        "2B0K",
+        "2B0L",
+        "2B0M"
+      ],
+      "variant_5": [
+        "3B4R",
+        "3B4S",
+        "3B4T",
+        "3B4U",
+        "3B4V",
+        "3B4W",
+        "3B4X",
+        "3B4Y",
+        "3B4Z",
+        "3B50"
+      ]
+    }
+  },
+  "H7_Epistasis_Network_Analysis": {
+    "description": "Analyze a combinatorial mutagenesis dataset (CSV) to find epistatic interactions. First, establish the fitness effects of all single mutations. Then, for each double mutant, calculate the expected fitness assuming a multiplicative model (fitness_expected = fitness_A * fitness_B). Epistasis is the absolute difference between observed and expected fitness. Identify the double mutant with the highest epistatic score. Return the mutation names for this pair as a string (e.g., 'A123G-V456C'). Format: <answer>str</answer>.",
+    "data_source": "ProteinGym (CSV file)",
+    "input_format": "Path to a CSV file from a ProteinGym Epistasis dataset.",
+    "expected_output_format": "String representing the mutation pair",
+    "steps": "1) Load the CSV file using pandas. Assume it contains 'mutant' and 'fitness' columns. 2) Filter the DataFrame to create a dictionary mapping single mutants to their fitness scores. 3) Filter the DataFrame to get all double mutants and their observed fitness. 4) Initialize variables to track the max epistasis and the corresponding mutant name. 5) Iterate through the double mutants. For each one, parse its name to get the two single mutations. 6) Look up the fitness of each single mutation from the dictionary. 7) Calculate expected fitness and the epistasis value. 8) If this value is greater than the current max, update the max and the mutant name. 9) Return the name of the double mutant with the highest epistasis.",
+    "required_programs": [
+      "python",
+      "pandas"
+    ],
+    "variants": {
+      "variant_1": "ProteinGym_Epistasis:GFP_AEQVI_Sarkisyan_2016",
+      "variant_2": "ProteinGym_Epistasis:PABP_YEAST_Melamed_2013",
+      "variant_3": "ProteinGym_Epistasis:RASK_HUMAN_Weng_2022_abundance",
+      "variant_4": "ProteinGym_Epistasis:CATR_CHLRE_Tsuboyama_2023_2AMI",
+      "variant_5": "ProteinGym_Epistasis:NUSA_ECOLI_Tsuboyama_2023_1WCL"
+    }
+  },
+  "H8_Druggability_Assessment": {
+    "description": "You are given a list of 5 target protein PDB IDs. For each protein, you must run the `fpocket` command-line tool to detect binding cavities. After running `fpocket`, you need to parse its output to find the 'Druggability Score' for the top-ranked pocket of each protein. Your goal is to identify which of the 5 proteins has the pocket with the highest druggability score. Return the PDB ID of this protein. Format: <answer>str</answer>.",
+    "data_source": "PDB, fpocket (tool)",
+    "input_format": "List of five PDB IDs.",
+    "expected_output_format": "PDB ID as a string",
+    "steps": "1) For each PDB ID, download the .pdb file. 2) Run the `fpocket -f {pdb_file}` command for each structure. This will create an output directory. 3) In each output directory, parse the main information file (e.g., `{pdb_id}_info.txt`) to find the table of pockets and their properties. 4) Extract the 'Druggability Score' for the first pocket listed (Pocket 1), which is the top-ranked one. 5) Keep track of the PDB ID that yields the highest druggability score. 6) After processing all 5 proteins, return the PDB ID with the overall best score.",
+    "required_programs": [
+      "bash",
+      "curl",
+      "python",
+      "fpocket"
+    ],
+    "variants": {
+      "variant_1": [
+        "1A3N",
+        "2LYZ",
+        "1HTM",
+        "1UBQ",
+        "1CRN"
+      ],
+      "variant_2": [
+        "3PBL",
+        "1HCL",
+        "2G8P",
+        "1FIN",
+        "1M1Q"
+      ],
+      "variant_3": [
+        "1A2Z",
+        "1B3Y",
+        "1C4Z",
+        "1D5Y",
+        "1E6Z"
+      ],
+      "variant_4": [
+        "4HHB",
+        "1A00",
+        "1B00",
+        "1C00",
+        "1D00"
+      ],
+      "variant_5": [
+        "1YAG",
+        "2YAG",
+        "3YAG",
+        "4YAG",
+        "5YAG"
+      ]
+    }
+  },
+  "H9_Conformational_Ensemble_Analysis": {
+    "description": "Download an NMR ensemble PDB file, which contains multiple structural models. For each residue, you must calculate its Root Mean Square Fluctuation (RMSF) across all models, which measures its flexibility. After calculating per-residue RMSF values, find the most flexible contiguous region of 5 or more residues (defined by the highest average RMSF over the window). Return the residue number where this most flexible region begins. Format: <answer>int</answer>.",
+    "data_source": "PDB",
+    "input_format": "PDB ID of an NMR ensemble.",
+    "expected_output_format": "Integer value",
+    "steps": "1) Download and parse the PDB file, loading all models. 2) Use `Bio.PDB.Superimposer` to align all models to the first model based on their C-alpha atoms. 3) For each residue position, calculate the average C-alpha coordinate across all aligned models. 4) For each residue position, calculate the RMSF. 5) You now have a list of RMSF values, indexed by residue number. 6) Implement a sliding window of size 5. Move this window across the RMSF list, calculating the average RMSF within the window at each step. 7) Find the starting position of the window that had the highest average RMSF. 8) Return this starting residue number.",
+    "required_programs": [
+      "python",
+      "curl",
+      "biopython",
+      "numpy"
+    ],
+    "variants": {
+      "variant_1": "2K39",
+      "variant_2": "1D3Z",
+      "variant_3": "2KJ3",
+      "variant_4": "1L2Y",
+      "variant_5": "2L0J"
+    }
+  },
+  "H10_Variant_Structural_Mapping": {
+    "description": "Given a PDB ID, a chain ID, and a list of single-residue variants (e.g., 'A123G'), you need to determine the structural context of each variant's original residue. Specifically, calculate the Relative Solvent Accessibility (RSA) for each specified wild-type residue. Your goal is to find the variant corresponding to the most buried residue (lowest RSA). Return this variant's name as a string. Format: <answer>str</answer>.",
+    "data_source": "PDB, DSSP (tool)",
+    "input_format": "PDB ID, a chain ID, and a list of variant strings.",
+    "expected_output_format": "Variant string",
+    "steps": "1) Download the PDB file. 2) Run `mkdssp` on the PDB file to calculate secondary structure and accessibility. 3) Parse the DSSP output file using Biopython's `DSSP` module. This creates a dictionary mapping residue identifiers to their properties. 4) Initialize variables to track the minimum RSA and the corresponding variant. 5) For each variant string in the input list, parse out the residue number. 6) Look up this residue (using the chain ID and residue number) in the parsed DSSP data to get its RSA value. 7) If this RSA is lower than the current minimum, update the minimum RSA and store the current variant string. 8) After checking all variants, return the one associated with the lowest RSA.",
+    "required_programs": [
+      "python",
+      "curl",
+      "biopython",
+      "mkdssp"
+    ],
+    "variants": {
+      "variant_1": {
+        "pdb_id": "2LYZ",
+        "chain_id": "A",
+        "variants": [
+          "R21G",
+          "D52N",
+          "W63Y",
+          "A95V",
+          "L129F"
+        ]
+      },
+      "variant_2": {
+        "pdb_id": "1A3N",
+        "chain_id": "A",
+        "variants": [
+          "T15A",
+          "S46G",
+          "N92D",
+          "V111I",
+          "F150Y"
+        ]
+      },
+      "variant_3": {
+        "pdb_id": "1UBQ",
+        "chain_id": "A",
+        "variants": [
+          "M1L",
+          "Q2K",
+          "L8V",
+          "T22S",
+          "G53A"
+        ]
+      },
+      "variant_4": {
+        "pdb_id": "4HHB",
+        "chain_id": "A",
+        "variants": [
+          "V1M",
+          "L29F",
+          "G56S",
+          "H87Y",
+          "A115S"
+        ]
+      },
+      "variant_5": {
+        "pdb_id": "1CRN",
+        "chain_id": "A",
+        "variants": [
+          "T1S",
+          "C3G",
+          "P19A",
+          "A31V",
+          "C44S"
+        ]
+      }
+    }
+  }
+}

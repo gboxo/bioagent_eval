@@ -1,0 +1,10 @@
+{
+  "enzyme_family": "carbonic_anhydrase",
+  "description": "Zinc binding histidines",
+  "active_sites": [94, 96, 119],
+  "active_site_descriptions": [
+    "His94 - Zinc coordination",
+    "His96 - Zinc coordination", 
+    "His119 - Zinc coordination"
+  ]
+}

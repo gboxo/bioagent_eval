@@ -1250,5 +1250,30 @@
         ]
       }
     }
+  },
+  "HH1_DMS_Additive_Fitness_Model": {
+    "description": "This task evaluates the ability to predict the fitness of proteins with multiple mutations using a simple additive model. An additive model assumes that the fitness effect of multiple mutations is simply the sum of the effects of the individual mutations. You will be given a Deep Mutational Scanning (DMS) dataset containing variants with single and multiple mutations. Your goal is to build an additive model based on the single mutants and then evaluate how well it predicts the fitness of the multi-mutant variants by calculating the Spearman correlation between predicted and observed fitness.",
+    "data_source": "ProteinGym (CSV file containing DMS data)",
+    "input_format": "A string identifier for a ProteinGym dataset.",
+    "expected_output_format": "A float value rounded to three decimal places.",
+    "steps": "1) Load the specified CSV dataset from ProteinGym into a pandas DataFrame. 2) Identify the fitness column, which is typically 'DMS_score'. On the entire dataset, normalize this column using Z-score standardization (subtract the mean and divide by the standard deviation) and store the results in a new column named 'normalized_score'. 3) Separate the DataFrame into two parts: a 'singles' DataFrame containing only variants with exactly one mutation, and a 'multiples' DataFrame containing variants with two or more mutations. You can determine this by counting the occurrences of mutation delimiters (e.g., ':') in the 'mutant' column. 4) Create the additive fitness model: build a Python dictionary that maps each single mutation string (from the 'mutant' column of the 'singles' DataFrame) to its 'normalized_score'. This dictionary represents the measured effect of each individual mutation. 5) Generate predictions for the 'multiples' DataFrame. For each row, parse its 'mutant' string to get the list of its constituent single mutations. 6) The predicted score for a multi-mutant is the sum of the 'normalized_score' values of its constituent single mutations, looked up from the model dictionary created in step 4. If a constituent single mutation is not found in the dictionary (i.e., it was not measured individually in the dataset), its effect should be assumed to be zero. 7) Create two arrays: one containing the observed 'normalized_score' values from the 'multiples' DataFrame, and another containing the corresponding predicted scores. 8) Use `scipy.stats.spearmanr` to calculate the Spearman correlation coefficient between the observed and predicted scores. 9) Return the correlation coefficient as a float, rounded to three decimal places.",
+    "required_programs": ["python", "pandas", "numpy", "scipy"],
+    "variants": {
+      "variant_1": {
+        "dms_dataset": "ProteinGym_DMS:B2L11_HUMAN_Dutta_2010_binding-Mcl-1"
+      },
+      "variant_2": {
+        "dms_dataset": "ProteinGym_DMS:HIS7_YEAST_Pokusaeva_2019"
+      },
+      "variant_3": {
+        "dms_dataset": "ProteinGym_DMS:ODP2_GEOSE_Tsuboyama_2023_1W4G"
+      },
+      "variant_4": {
+        "dms_dataset": "ProteinGym_DMS:POLG_CXB3N_Mattenberger_2021"
+      },
+      "variant_5": {
+        "dms_dataset": "ProteinGym_DMS:Q837P5_ENTFA_Meier_2023"
+      }
+    }
   }
 }

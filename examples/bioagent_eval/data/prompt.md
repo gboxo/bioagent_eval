@@ -1,7 +1,7 @@
 
 
 
-Read the contents of folder @M7_B_factor_Analysis/
+Read the contents of folder @HH1_Epistasis_Prediction
 
 Inside the README.md file you will find instructions related to a task and a brief checklist of how to implement the task.
 

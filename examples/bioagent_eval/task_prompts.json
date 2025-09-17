@@ -1215,5 +1215,25 @@
                 ]
             }
         }
-    }
+    },
+    "HH1_Epistasis_Prediction": {
+        "template": "We are analyzing a Deep Mutational Scanning dataset from the file corresponding to `{dms_dataset}` to fit an additive model on the single point mutations to predict epistasis. First, normalize the DMS scores using Z-score standardization (subtract mean, divide by standard deviation). Then fit a additive model on the single point mutants, to predict the epistasis of the multi residue mutant entries. Please fit the model and compute the spearman correlation between the real fitness and the predicted fitness. Return the spearman correlation with 2 decimals. Format: `<answer>str</answer>`.",
+        "template_entries": {
+            "variant_1": {
+                "dms_dataset": "ProteinGym_DMS:A4_HUMAN_Seuma_2022"
+            },
+            "variant_2": {
+                "dms_dataset": "ProteinGym_DMS:BBC1_YEAST_Tsuboyama_2023_1TG0"
+            },
+            "variant_3": {
+                "dms_dataset": "ProteinGym_DMS:CATR_CHLRE_Tsuboyama_2023_2AMI"
+            },
+            "variant_4": {
+                "dms_dataset": "ProteinGym_DMS:CBPA2_HUMAN_Tsuboyama_2023_1O6X"
+            },
+            "variant_5": {
+                "dms_dataset": "ProteinGym_DMS:CSN4_MOUSE_Tsuboyama_2023_1UFM"
+            }
+        }
+    },
 }
